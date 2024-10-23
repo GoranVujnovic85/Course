@@ -1,0 +1,18 @@
+
+.photo-gallery{
+    color:rgb(255, 255, 255);
+    background-color:rgb(205, 240, 252);
+    }
+    .img-fluid{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+img.img-fluid{
+    height: 100%;
+}
+
+    
+    
+    

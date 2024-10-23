@@ -1,0 +1,30 @@
+body {
+  background-color: darkgoldenrod;
+}
+	 div p {font-family:'Times New Roman';
+     margin-left: 2rem;
+	font-size: 120%;
+    text-align: center;
+}
+h1{
+    color: cyan;
+  text-align: center;
+  font-family: Arial;
+}
+p {
+    margin-top: 2rem;
+font-family: Arial;
+text-align: justify;
+}
+a {
+font-style: oblique;
+font-weight: bold;
+}
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+border: lawngreen;
+border-radius: 1rem;
+border-style: double;
+}
