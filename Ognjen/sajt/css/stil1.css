@@ -1,0 +1,11 @@
+
+.list-unstyled li{
+padding: 1.5rem;
+border-bottom: 3px solid #343a40;
+}
+
+.list-unstyled li a{
+color: black;
+text-decoration: none;
+}
+
