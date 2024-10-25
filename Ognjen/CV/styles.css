@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  color: #333;
+}
+h2:hover{
+  background-color: #828282;
+  display: inline-block;
+}
+
+section {
+  background: white;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#lista{
+  display: none;
+}
+footer {
+  text-align: center;
+  margin-top: 20px;
+}
+.profile-pic {
+  width: 100px; /* ili neka druga širina */
+  height: auto; /* zadrži proporcije */
+  border-radius: 50%; /* za okrugli oblik */
+  margin-bottom: 10px; /* razmak ispod slike */
+}
