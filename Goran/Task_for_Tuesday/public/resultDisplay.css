@@ -1,0 +1,11 @@
+input[type="text"]#resultDisplay {
+    width: 30%; 
+    padding: 10px; 
+    font-size: 20px; 
+    text-align: center; /
+    margin-top: 60px; 
+    box-sizing: border-box; 
+    color: white; 
+    background-color: black; 
+    border-radius: 55px; 
+}
