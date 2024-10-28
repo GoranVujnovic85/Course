@@ -1,13 +1,13 @@
 
-function findSmallestNumber(arrey) {
+function findSmallestNumber(array) {
    
-    //const arrey = [34, 12, 5, 67, 23, 89, 1, 45, 32, 78];
+    //const array = [34, 12, 5, 67, 23, 89, 1, 45, 32, 78];
     
-    let smallest = arrey[0];
+    let smallest = array[0];
 
-    for (let i = 1; i < arrey.length; i++) {
-        if (arrey[i] < smallest) {
-            smallest = arrey[i];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < smallest) {
+            smallest = array[i];
         }
     }
 

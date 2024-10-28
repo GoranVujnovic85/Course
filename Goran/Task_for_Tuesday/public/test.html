@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV</title>
+    <title>Task</title>
 
 <!-- Include CSS files -->
+<!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
     <link rel="stylesheet" href="style.css" /> 
     <link rel="stylesheet" href="button-group.css" /> 
     <link rel="stylesheet" href="resultDisplay.css" />
@@ -13,7 +14,12 @@
 
 <!-- Include JavaScript files -->
     <script src="appendRandomNumbers.js" defer></script>
+    <script src="shellSort.js" defer></script>
     <script src="smallestElement.js" defer></script>
+    <script src="largestElement.js" defer></script>
+    <script src="addTheFirstTwoElements.js" defer></script>
+    <script src="addTheFirstTwoElements.js" defer></script>
+    <script src="fibonacci.js" defer></script>
 
 
 </head>
@@ -25,9 +31,11 @@
     <br>
 
     <div class="button-group">
-        <button class="button" onclick="appendToDisplay('1')">Sort Array</button>
-        <button class="button" onclick="findSmallestNumber(arrey)">Find the smallest element</button>
-        <button class="button" onclick="appendToDisplay('3')">Find the largest element</button>
+        <button class="button" onclick="sortAndDisplay()">Sort Array</button>
+        <button class="button" onclick="findSmallestNumber(array)">Find the smallest element</button>
+        <button class="button" onclick="findLargestNumber(array)">Find the largest element</button>
+        <button class="button" onclick="addTheFirstTwoElements(array)">Sum for the first two elements sort array</button>
+        <button class="button" onclick="fibonacci(sum)">Fibonacci for sum</summary></button>
     </div>
 
     <br>
