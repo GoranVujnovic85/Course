@@ -1,5 +1,5 @@
 window.addEventListener("load", () => {
     document.getElementById('page3').onclick = () => {
-        document.getElementById('output').innerHTML = "Ovo je page3!";
+        updateOutput("Ovo je page1!");
     }
 })
