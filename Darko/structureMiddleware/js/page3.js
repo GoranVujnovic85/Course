@@ -7,9 +7,6 @@ window.addEventListener("load", () => {
             setBackground(nice)
             
         }
-        if(nicePages.includes(3)){
-            setBackground(nice)
-        }
         darko = 3
         darko2()
     }

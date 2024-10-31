@@ -9,6 +9,9 @@
 
 function page1(){
     printData('<div>NEW DATA</div>')
+    if(nicePages.includes(1)){
+        setBackground(nice)
+    }
         darko = 1
         darko4()
 
