@@ -6,3 +6,7 @@ window.addEventListener("load", () => {
     <div id="pageData">pageData</div>`
 
 });
+
+function darko4(){
+    alert('darko')
+}
