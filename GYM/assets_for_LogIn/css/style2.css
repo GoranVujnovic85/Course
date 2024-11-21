@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+:root{
+    --primary-color:#f92524;
+    --primary-color-dark:#e91a1a;
+    --secondary-color:#faf9fe;
+    --text-dark:#0f172a;
+    --text-light:#64748b;
+    --white:#ffffff;
+    --max-width: 1200px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  .section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+  }
+  
+  .section__header {
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .section__header::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+  }
+  
+  .section__description {
+    max-width: 900px;
+    color: var(--text-light);
+  }
+  
+  .btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    white-space: nowrap;
+    color: var(--white);
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: var(--primary-color-dark);
+  }
+  
+  img {
+    display: flex;
+    width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .header {
+    background-color: var(--secondary-color);
+  }
+  
+  nav {
+    position: fixed;
+    isolation: isolate;
+    width: 100%;
+    z-index: 9;
+    top: 0; /* Fiksira meni direktno uz vrh stranice */
+    padding: 0.5rem 1rem; /* Smanjuje razmak unutar navigacije */
+   
+  }
+  
+  .nav__header {
+    padding: 0.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secondary-color);
+  }
+  
+  .nav__logo a {
+    display: flex;
+    align-items: right side;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .nav__logo img {
+    max-width: 200px;
+  }
+  
+  .nav__links {
+    position: absolute;
+    top: 68px;
+    right: 0;
+    width: 100%;
+    padding: 2rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--secondary-color);
+    transition: 0.5s;
+    z-index: -1;
+    transform: translateY(-100%);
+  }
+  
+  .nav__links.open {
+    transform: translateY(0);
+  }
+  
+  .link a {
+    color: var(--text-dark);
+    transition: 0.3s;
+  }
+  
+  .link a:hover {
+    color: var(--primary-color);
+  }
+  
+  .nav__menu__btn {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+  }
+  
+  .header__container {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .header__image img {
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .header__content h4 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-dark);
+  }
+  
+  .header__content .section__header {
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+  
+  .header__content p {
+    margin-bottom: 2rem;
+    color: var(--text-light);
+  }
+
+  @media (width > 768px) {
+    nav {
+      position: static;
+      top: 0; 
+      padding: 2rem 1rem;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+  
+    .nav__menu__btn {
+      display: none;
+    }
+  
+    .nav__links {
+      position: static;
+      padding: 0;
+      flex-direction: row;
+      background-color: transparent;
+      transform: none;
+    }
+
+    .header__container {
+        padding-block: 0;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+      }
+    
+      .header__content {
+        padding-block: 5rem;
+        grid-area: 1/1/2/2;
+      }
+}
