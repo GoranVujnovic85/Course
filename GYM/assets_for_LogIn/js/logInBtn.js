@@ -1,7 +1,7 @@
 /*=============== SHOW HIDDEN - PASSWORD ===============*/
 const showHiddenPassword = (inputPassword, inputIcon) => {
   const input = document.getElementById(inputPassword),
-        iconEye = document.getElementById(inputIcon)
+    iconEye = document.getElementById(inputIcon)
 
   iconEye.addEventListener('click', () => {
     // Change password to text
@@ -28,3 +28,67 @@ const showHiddenPassword = (inputPassword, inputIcon) => {
 }
 
 showHiddenPassword('password', 'input-icon')
+
+function loginUser() {
+  alert('loginUser')
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+
+  console.log('email', email)
+  console.log('password', password)
+  for (i = 0; i < data.results.length; i++) {
+    console.log(data.results[i])
+    if (data.results[i].email == email && data.results[i].password == password) {
+      alert('postoji')
+    }
+  }
+
+}
+
+window.addEventListener("load", () => {
+  document.getElementById('login__button_ID').onclick = () => {
+    loginUser()
+  }
+})
+
+// JSON
+
+const data = {
+  results: [
+
+    {
+      email: 'darkoivandencic@gmail.com',
+      password: 'test123',
+      redirectTo: '/index.html'
+    },
+    {
+      email: 'darkoivandencic1@gmail.com',
+      password: 'test1231',
+      redirectTo: '/space.html'
+    }, {
+      email: 'darkoivandencic2@gmail.com',
+      password: 'test1232',
+      redirectTo: '/contactUs.html'
+    },
+    {
+      email: 'darkoivandencic3@gmail.com',
+      password: 'test1233'
+    }
+
+  ]
+}
+printData1(data)
+function printData1(data) {
+  printData2(data.results)
+
+}
+
+function printData2(data) {
+  printData3(data[0])
+}
+function printData3(data) {
+  console.log(data.email)
+
+}
+//https://api.anddine.co.uk/api/public/tags
+// https://api.anddine.co.uk/api/public/makers

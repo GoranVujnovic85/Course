@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Provera da li su kolačići prihvaćeni
   if (getCookie('cookiesAccepted') !== 'true') {
     // Ako nisu prihvaćeni, prikazujemo banner
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Prihvatamo kolačiće nakon što korisnik klikne na dugme
-  document.getElementById('acceptCookies').addEventListener('click', function() {
+  document.getElementById('acceptCookies').addEventListener('click', function () {
     const necessary = document.getElementById('necessaryCookies').checked;
     const preferences = document.getElementById('preferencesCookies').checked;
     const analytics = document.getElementById('analyticsCookies').checked;
@@ -64,4 +64,40 @@ function getCookie(name) {
     if (c.indexOf(name + "=") == 0) return c.substring(name.length + 1, c.length);
   }
   return "";
+}
+
+
+
+const data = {
+  results: [
+    {
+      image: 'images.png',
+      active: true,
+      createdAt: "Mon Nov 25 2024 11:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images2.png',
+      active: false,
+      createdAt: "Mon Nov 25 2024 12:26:46 GMT+0100 (Central European Standard Time)"
+    }, {
+      image: 'images3.png',
+      active: true,
+      createdAt: "Mon Nov 25 2024 10:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images4.png',
+      active: false,
+      createdAt: "Mon Nov 25 2024 03:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images5.png',
+      active: false,
+      createdAt: "Mon Nov 25 2024 21:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images6.png',
+      active: true,
+      createdAt: "Mon Nov 25 2024 22:26:46 GMT+0100 (Central European Standard Time)"
+    }
+  ]
 }
