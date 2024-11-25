@@ -65,3 +65,39 @@ function getCookie(name) {
   }
   return "";
 }
+
+
+
+const data ={
+  results: [
+    {
+      image: 'images.png',
+      active: true,
+      createdAt: "Mon Nov 25 2024 11:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images2.png',
+      active: false,
+      createdAt: "Mon Nov 25 2024 12:26:46 GMT+0100 (Central European Standard Time)"
+    },{
+      image: 'images3.png',
+      active: true,
+      createdAt: "Mon Nov 25 2024 10:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images4.png',
+      active: false,
+      createdAt: "Mon Nov 25 2024 03:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images5.png',
+      active: false,
+      createdAt: "Mon Nov 25 2024 21:26:46 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      image: 'images6.png',
+      active: true,
+      createdAt: "Mon Nov 25 2024 22:26:46 GMT+0100 (Central European Standard Time)"
+    }
+  ]
+}
