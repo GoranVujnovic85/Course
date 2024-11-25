@@ -14,18 +14,48 @@
     <title>Responsive login form</title>
   </head>
   <body>
-    <header class="header">
-      <nav>
-          <div class="nav__header">
-              <div class="nav__logo">
-                  <a href="index.html"><img src="./assets_for_LogIn/img/logo.jpg" alt="logo" /></a>
-              </div>
-          </div>
-          <ul class="nav__links">
-              <li class="link"><a href="index.html" class="btn">About</a></li>
-          </ul>
-      </nav>
-    </header>
+   <!-- Navigacioni meni -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="./IndexImages/gymlogo.jfif" alt="logo firme"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="news.html">News</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="space.html">Space</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactUs.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Log In</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Jezik
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" id="rsLang" onclick="changeLanguage('rs')">RS</a>
+<a class="dropdown-item" href="#" id="enLang" onclick="changeLanguage('en')">EN</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     <div class="container">
       <div class="login">
         <div class="login__content">
