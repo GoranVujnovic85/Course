@@ -36,9 +36,9 @@ function loginUser() {
 
   console.log('email', email)
   console.log('password', password)
-  for(i=0;i<data.results.length;i++){
+  for (i = 0; i < data.results.length; i++) {
     console.log(data.results[i])
-    if(data.results[i].email == email && data.results[i].password == password){
+    if (data.results[i].email == email && data.results[i].password == password) {
       alert('postoji')
     }
   }
@@ -77,3 +77,18 @@ const data = {
 
   ]
 }
+printData1(data)
+function printData1(data) {
+  printData2(data.results)
+
+}
+
+function printData2(data) {
+  printData3(data[0])
+}
+function printData3(data) {
+  console.log(data.email)
+
+}
+//https://api.anddine.co.uk/api/public/tags
+// https://api.anddine.co.uk/api/public/makers
