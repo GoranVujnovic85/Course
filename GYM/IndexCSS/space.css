@@ -29,6 +29,11 @@
   max-height: 300px; /* Zadržavanje iste visine slika */
   object-fit: cover; /* Održava proporcije slika i ispunjava prostor */
   margin: 0;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Glatki prelaz za transformaciju i senke */
+}
+.image-item img:hover {
+  transform: scale(1.1); /* Ispupčava sliku pri hoveru */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Dodaje senku pri hoveru za bolji efekat */
 }
 
 /* Stil za tekst */
