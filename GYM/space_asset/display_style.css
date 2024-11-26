@@ -1,0 +1,30 @@
+input[type="text"] {
+    display: flex; 
+	width: 800px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px; /* Manji razmak ispod input polja */
+    box-sizing: border-box;
+    color: orange;
+    background-color: black; 
+    border-radius: 55px; 
+	border: 2px solid orange;
+	align-items: center;
+	
+}
+	
+    .tag {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+      width: 300px;
+      box-sizing: border-box;
+    }
+    .tag-header {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+	
+	
