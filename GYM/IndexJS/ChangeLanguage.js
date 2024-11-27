@@ -11,7 +11,7 @@ function changeLanguage(language) {
 function updateContent(language) {
   const elements = document.querySelectorAll('[data-translate]'); // Find all elements with data-translate
   elements.forEach(element => {
-    const translationKey = element.getAttribute('data-translate');
+    //const translationKey = element.getAttribute('data-translate');
     const translation = element.getAttribute(`data-${language}`); // Get translation for selected language
 
     if (translation) {
