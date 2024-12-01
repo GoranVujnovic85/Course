@@ -607,24 +607,113 @@
 
 
 
+// Function to change language
+function changeLanguage(language) {
+  // Store the selected language in localStorage (so it persists across page reloads)
+  localStorage.setItem('selectedLanguage', language);
+
+  // Update content based on selected language
+  updateContent(language);
+}
+
+// Function to update the page content
+function updateContent(language) {
+  const elements = document.querySelectorAll('[data-translate]'); // Find all elements with data-translate
+  elements.forEach(element => {
+    // Get translation for selected language (e.g., data-en, data-fr, etc.)
+    const translation = element.getAttribute(`data-${language}`);
+
+    if (translation) {
+      element.textContent = translation; // Set the new text content
+    } else {
+      // Fallback to default language ('en') if no translation is found
+      const fallbackTranslation = element.getAttribute('data-en');
+      if (fallbackTranslation) {
+        element.textContent = fallbackTranslation;
+      }
+    }
+  });
+  
+  // Optionally highlight the selected language in the dropdown
+  highlightSelectedLanguage(language);
+}
+
+// Function to highlight the selected language in the dropdown or menu
+function highlightSelectedLanguage(language) {
+  // Remove 'active' class from all language options
+  const languageOptions = document.querySelectorAll('.language-option');
+  languageOptions.forEach(option => {
+    option.classList.remove('active');
+  });
+
+  // Add 'active' class to the selected language
+  const selectedLanguageOption = document.getElementById(`${language}Lang`);
+  if (selectedLanguageOption) {
+    selectedLanguageOption.classList.add('active');
+  }
+}
+
+// Set the language when the page is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Retrieve the selected language from localStorage (defaults to 'en' if not found)
+  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+  updateContent(selectedLanguage);
+  
+  // Optionally highlight the selected language in the dropdown
+  // highlightSelectedLanguage(selectedLanguage);
+});
+
+// Translation data for different languages
+const translations = {
+  en: {
+    freeLockers: "Number of free lockers"
+  },
+  sr: {
+    freeLockers: "Broj slobodnih ormarića"  
+  },
+  // Add more languages as needed
+};
+
+// Function to get the translated text based on a key
+function getTranslation(key, language) {
+  return translations[language]?.[key] || translations['en'][key]; // Fallback to English
+}
+
+// Function to update the result display with the translated text and dynamic count
+function updateResultDisplay(count, language) {
+  // Translate the static part based on selected language
+  const staticText = getTranslation('freeLockers', language);
+
+  // Combine translated static text with the dynamic count
+  const resultText = `${staticText}: ${count}`;
+
+  // Update the value of the resultDisplay input field
+  document.getElementById('resultDisplay').value = resultText;
+}
+
+// Locker function to calculate count and update the result display
 function locker(data) {
   let count = 0;
 
+  // Loop through the tags and count the inactive ones (free lockers)
   data.results.tags.forEach(tag => {
-    if (tag.is_active==false) {
+    if (tag.is_active === false) {
       count++;
     }
   });
 
-  // Find the resultdisplay element and update its content
-  document.getElementById('resultDisplay').value = `Broj slobodnih ormarića: ${count}`;
+  // Retrieve the selected language from localStorage (defaults to 'en' if not found)
+  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+
+  // Call updateResultDisplay with the count and the selected language
+  updateResultDisplay(count, selectedLanguage);
 }
 
 
 
 
-			// Function to get all inactive IDs from tags
-	function getInactiveIdsFromTags(data) {
+// Function to get all inactive IDs from tags
+function getInactiveIdsFromTags(data) {
     let inactiveIds = [];
 
     // Check if data and data.results.tags exist to avoid errors
@@ -651,7 +740,7 @@ function locker(data) {
 		
 		
         // Function to display inactive IDs in the input field
-        function displayInactiveIds() {
+function displayInactiveIds() {
             const inactiveIds = getInactiveIdsFromTags(data); // Get the inactive IDs
             const resultDisplay = document.getElementById('resultDisplay2'); // Get the input field
 
@@ -666,4 +755,19 @@ function locker(data) {
 		window.addEventListener('load', displayInactiveIds);
 		
 
+function resizeInput(input) {
+            // Create a temporary span element to calculate the width of the input's text
+            const span = document.createElement('span');
+            document.body.appendChild(span);
+            
+            // Set the span's text content to match the input's value
+            span.style.visibility = 'hidden'; // Hide the span element
+            span.style.position = 'absolute'; // Ensure it doesn't affect the layout
+            span.style.whiteSpace = 'pre'; // Preserve whitespace formatting
+            span.style.font = getComputedStyle(input).font; // Match font of the input
+            
+            span.textContent = input.value || input.placeholder; // Use input's value or placeholder text
+            input.style.width = span.offsetWidth + 10 + 'px'; // Set input width based on span width + padding
 
+            document.body.removeChild(span); // Remove the temporary span
+        }
