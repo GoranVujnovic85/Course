@@ -21,7 +21,7 @@ body {
 
 /* Styling for main heading */
 .container h1 {
-    color: #ffffff;
+   /* color: #ffffff; */
     text-align: center;
     font-size: 50px;
     font-weight: 800;

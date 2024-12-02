@@ -1,4 +1,5 @@
-// Function to change language
+
+
 function changeLanguage(language) {
   // Store the selected language in localStorage (so it persists across page reloads)
   localStorage.setItem('selectedLanguage', language);
@@ -7,15 +8,23 @@ function changeLanguage(language) {
   updateContent(language);
 }
 
-// Function to update the page content
 function updateContent(language) {
-  const elements = document.querySelectorAll('[data-translate]'); // Find all elements with data-translate
-  elements.forEach(element => {
-    //const translationKey = element.getAttribute('data-translate');
-    const translation = element.getAttribute(`data-${language}`); // Get translation for selected language
+  // Find all elements with data-translate
+  const elements = document.querySelectorAll('[data-translate]');
 
+  elements.forEach(element => {
+    // Update the text content for translatable elements
+    const translation = element.getAttribute(`data-${language}`);
     if (translation) {
       element.textContent = translation; // Set the new text content
+    }
+
+    // Also update placeholder attributes for input and textarea elements
+    if (element.hasAttribute('placeholder')) {
+      const placeholderTranslation = element.getAttribute(`data-placeholder-${language}`);
+      if (placeholderTranslation) {
+        element.setAttribute('placeholder', placeholderTranslation); // Update placeholder
+      }
     }
   });
 }
@@ -29,3 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Optionally highlight the selected language in the dropdown
   document.getElementById(`${selectedLanguage}Lang`).classList.add('active');
 });
+
+
