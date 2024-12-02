@@ -4,30 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- CSS za ikone i stilove -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets_for_ContactUs/css/style1.css">
-  <link rel="stylesheet" href="./assets_for_ContactUs/css/style2.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+<!--=============== REMIXICONS ===============-->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+<!--=============== CSS FILES ===============-->
+  <link rel="stylesheet" href="./assets_for_ContactUs/css/style1.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>Contact Us</title>
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-
 <body>
-  <!-- Navigacioni meni   -->
-<!-- 
+<!--=============== NAVIGATION MENU ===============--> 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html"><img src="" alt="logo firme"></a>
+      <a class="navbar-brand" href="index.html"><img src="./assets_for_ContactUs/img/logo.jpg" alt="logo firme"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
           <li class="nav-item">
-          
-           <a class="nav-link active" aria-current="page" href="index.html" data-translate="Start Page" data-en="Start page" data-rs="Početna">Početna</a>
+            <a class="nav-link" href="index.html" data-translate="Start Page" data-en="Start page" data-rs="Početna">Početna</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html" data-translate="about" data-en="About us" data-rs="O nama">O nama</a>
@@ -45,6 +40,7 @@
             <a class="nav-link" href="login.html" data-translate="login" data-en="Login" data-rs="Prijavi se">Prijavi se</a>
           </li>
         </ul>
+        <!--=============== LANGAGE SWITCHER ===============-->
         <ul class="navbar-nav ml-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-translate="language" data-en="Language" data-rs="Jezik">
@@ -55,103 +51,76 @@
               <a class="dropdown-item" href="#" id="enLang" onclick="changeLanguage('en')">EN</a>
             </div>
           </li>
-        </ul>
+        </ul>  
       </div>
     </div>
   </nav> 
-   -->
-
-  <!-- Navigacioni meni from JSON  -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html"><img src="" alt="logo firme"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-          <!-- Dinamički generisani meni -->
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-translate="language" data-en="Language" data-rs="Jezik">
-              Jezik
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#" id="rsLang" onclick="changeLanguage('rs')">RS</a>
-              <a class="dropdown-item" href="#" id="enLang" onclick="changeLanguage('en')">EN</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Glavni sadržaj -->
-  <div class="container">
-    <h1>Get in Touch</h1>
-    <p>Fill up the form to get in touch with us.</p>
-
-    <!-- Kontakt forma -->
-    <div class="contact-box">
-      <div class="container-left">
-        <h3>Fill the Form*</h3>
-        <form id="contactForm" action="/send-email" method="POST">
-          <div class="input-row">
-            <div class="input-group">
-              <label>Name*</label>
-              <input type="text" id="name" name="name" placeholder="Enter your Name" required>
-            </div>
-            <div class="input-group">
-              <label>Phone*</label>
-              <input type="text" id="phone" name="phone" placeholder="+381 21 332243" required>
-            </div>
+ <!--=============== MAIN CONTENT ===============-->
+ <div class="container">
+  <h1 data-translate="Get in Touch" data-en="Get in Touch" data-rs="Kontaktirajte nas">Get in Touch</h1>
+  <p data-translate="Fill up the form to get in touch with us." data-en="Fill up the form to get in touch with us." data-rs="Popunite formu da biste stupili u kontakt sa nama.">Fill up the form to get in touch with us.</p>
+  <!--=============== FILL THE FORM ===============-->
+  <div class="contact-box">
+    <div class="container-left">
+      <h3 data-translate="Fill the Form" data-en="Fill the Form" data-rs="Popunite formu">Fill the Form*</h3>
+      <form id="contactForm" action="/send-email" method="POST">
+        <div class="input-row">
+          <div class="input-group">
+            <label data-translate="Name" data-en="Name" data-rs="Ime">Name*</label>
+            <input type="text" id="name" name="name" placeholder="Enter your Name" data-placeholder-en="Enter your Name" data-placeholder-rs="Unesite svoje ime" required>
           </div>
-          <div class="input-row">
-            <div class="input-group">
-              <label>Email*</label>
-              <input type="email" id="email" name="email" placeholder="example@example.com" required>
-            </div>
-            <div class="input-group">
-              <label>Subject*</label>
-              <input type="text" id="subject" name="subject" placeholder="Inquiry">
-            </div>
+          <div class="input-group">
+            <label data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone*</label>
+            <input type="text" id="phone" name="phone" placeholder="+381 21 332243" required>
           </div>
-          <label>Message*</label>
-          <textarea rows="10" id="message" name="message" placeholder="Enter your Message" required></textarea>
-          <button type="submit" class="btn-submit">SEND MESSAGE</button>
-        </form>
-      </div>
-      <div class="container-right">
-        <h3>Reach Us</h3>
-        <table>
-          <tr>
-            <td>Email:</td>
-            <td>megagymNS@gmail.com</td>
-          </tr>
-          <tr>
-            <td>Phone:</td>
-            <td>+381 21 555 333</td>
-          </tr>
-          <tr>
-            <td>Address:</td>
-            <td>Mega Gym Novi Sad <br> Temerinska 95, Novi Sad <br> Serbia</td>
-          </tr>
-        </table>
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2807.829673047405!2d19.838563876202517!3d45.27145374627858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1158c4e50b23%3A0xfe3822cedd7d0308!2sMega%20Gym%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1732103410152!5m2!1ssr!2srs"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label data-translate="Email" data-en="Email" data-rs="Email">Email*</label>
+            <input type="email" id="email" name="email" placeholder="example@example.com" data-placeholder-en="example@example.com" data-placeholder-rs="primer@primer.com" required>
+          </div>
+          <div class="input-group">
+            <label data-translate="Subject" data-en="Subject" data-rs="Predmet">Subject*</label>
+            <input type="text" id="subject" name="subject" placeholder="Inquiry" data-placeholder-en="Inquiry" data-placeholder-rs="Upit">
+          </div>
+        </div>
+        <label data-translate="Message" data-en="Message" data-rs="Poruka">Message*</label>
+        <textarea rows="10" id="message" name="message" placeholder="Enter your Message" data-placeholder-en="Enter your Message" data-placeholder-rs="Unesite svoju poruku" required></textarea>
+        <button type="submit" class="btn-submit" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
+      </form>
+    </div>
+    <div class="container-right">
+      <h3 data-translate="Reach Us" data-en="Reach Us" data-rs="Kontaktirajte nas">Reach Us</h3>
+      <table>
+        <tr>
+          <td data-translate="Email" data-en="Email" data-rs="Email">Email:</td>
+          <td>megagymNS@gmail.com</td>
+        </tr>
+        <tr>
+          <td data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone:</td>
+          <td>+381 21 555 333</td>
+        </tr>
+        <tr>
+          <td data-translate="Address" data-en="Address" data-rs="Adresa">Address:</td>
+          <td>Mega Gym Novi Sad <br> Temerinska 95, Novi Sad <br> Serbia</td>
+        </tr>
+      </table>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2807.829673047405!2d19.838563876202517!3d45.27145374627858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1158c4e50b23%3A0xfe3822cedd7d0308!2sMega%20Gym%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1732103410152!5m2!1ssr!2srs"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>
-
-  <!-- Skripte -->
-  <script src="./assets_for_ContactUs/js/contactUsBtn.js"></script>
-  <script src="./assets_for_ContactUs/js/navigationMenu.js"></script>
-  <script src="./assets_for_ContactUs/js/logoConfig.js"></script>
+</div>
+<!--=============== FOOTER ===============-->
+<p class="text-center text-body-secondary" data-translate="Copyright" data-en="Copyright © 2024 Golden boys. All rights reserved." data-rs="Copyright © 2024 Golden boys. Sva prava zadržana.">Copyright © 2024 Golden boys. All rights reserved.</p>
+<!--=============== JS FILES ===============-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
+  <script src="/assets_for_ContactUs/js/contactUsBtn.js"></script>
+  <script src="/assets_for_ContactUs/js/menuBtn.js"></script>
   <script src="./IndexJS/ChangeLanguage.js"></script>
 </body>
-
 </html>
