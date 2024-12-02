@@ -1,0 +1,65 @@
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+.section{
+	width:75%;
+	margin: 75px auto;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap:25px;
+
+}
+.card{
+	box-shadow:0px 4px 8px 0px rgba(0, 0, 0, 1.0);
+}
+.image-section{
+	min-height: 250px;
+}
+.card .img-one{
+	background-image:url(../newsIMG/masaza.jpg);
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.card .img-two{
+	background-image:url(../newsIMG/novo.webp);
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.card .img-three{
+	background-image:url(../newsIMG/closed.jpeg);
+	background-repeat:no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.content{
+	text-align:center;
+	padding:20px 15px;
+
+}
+.content h2{
+	letter-spacing: 2px;
+}
+.content p{
+	font-size: 16px;
+	margin:15px 0px;
+}
+.content a{
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 16px;
+	color:#222;
+	letter-spacing: 2px;
+	display: inline-block;
+	background-color:#d6c954;
+	padding:10px;
+	border-radius: 5px;
+	margin-bottom:20px;
+}
+.content a:hover{
+	background-color:#87803d;
+	transition:1s ease;
+}
