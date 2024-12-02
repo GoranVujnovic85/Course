@@ -35,12 +35,12 @@ function updateContent(language) {
     }
   });
 }
+
  // Function to highlight the selected language in the dropdown
  function highlightSelectedLanguage(language) {
   // Remove 'active' class from both language options
   document.getElementById('rsLang').classList.remove('active');
   document.getElementById('enLang').classList.remove('active');
-
   // Add 'active' class to the selected language option
   document.getElementById(`${language}Lang`).classList.add('active');
 }
