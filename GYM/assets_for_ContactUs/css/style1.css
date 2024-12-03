@@ -1,5 +1,17 @@
 /* Importing fonts from Google Fonts API */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lexend:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Provide visual indication for fields with errors. */
+.is-invalid {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+  }
+
+/* Bold for page in navigation menu */
+.nav-link.active {
+    font-weight: bold;
+}
+
 
 /* Resetting default margin and padding for all elements */
 * {
@@ -9,9 +21,33 @@
 
 /* Setting font family for the body */
 body {
+
     font-family: "Plus Jakarta Sans", sans-serif;
     background: #061e32;
 }
+
+/* Style for light-blue-container    background: hsl(207, 95%, 55%);*/
+.light-blue-container {
+    
+    padding: 20px; 
+    border-radius: 8px; 
+    flex-basis: 40%;
+    padding: 40px 60px;
+    background:#FFEB3B;
+    color: black;
+    border-radius: 0px 20px 20px 0px;
+  }
+  
+  /* Style for inside light-blue-containers */
+  .light-blue-container a {
+    color: blue; 
+    text-decoration: none; 
+  }
+  
+  .light-blue-container a:hover {
+    text-decoration: underline; /* Dodaj podvlačenje kada se pređe mišem */
+  }
+
 
 /* Container for the main content */
 .container {
@@ -30,7 +66,7 @@ body {
 
 /* Styling for paragraph text */
 .container p {
-    color: #ffffff;
+    color:black;
     text-align: center;
     font-size: 25px;
     margin-bottom: 40px;
@@ -38,23 +74,25 @@ body {
 
 /* Styling for contact box container */
 .contact-box {
-    background: #ffffff;
-    display: flex;
-    border-radius: 20px;
+   background: #ffffff;
+   display: flex;
+   border-radius: 20px;
+   
 }
 
 /* Styling for left container inside the contact box */
 .container-left {
     flex-basis: 60%;
     padding: 40px 60px;
+
 }
 
 /* Styling for right container inside the contact box */
 .container-right {
     flex-basis: 40%;
     padding: 40px 60px;
-    background: hsl(207, 95%, 55%);
-    color: #ffffff;
+    background: #FFEB3B;
+    color: black;
     border-radius: 0px 20px 20px 0px;
 }
 
@@ -68,7 +106,7 @@ body {
 /* Styling for heading inside right container */
 .container-right h3 {
     font-size: 25px;
-    color: #ffffff;
+    color: black;
     margin-bottom: 20px;
 }
 
@@ -171,7 +209,7 @@ iframe {
     }
 
     .container p {
-        font-size: 25px;
+        font-size: 15px;
     }
 
     .container-left,
