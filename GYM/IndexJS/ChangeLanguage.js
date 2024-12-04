@@ -13,24 +13,24 @@ function changeLanguage(language) {
 function updateContent(language) {
   const elements = document.querySelectorAll('[data-translate]'); // Find all elements with data-translate
   elements.forEach(element => {
-    // Ako je element checkbox (input type="checkbox"), koristimo closest da nađemo label
+    // If the element is a checkbox (input type="checkbox"), we use closest to find the label
     if (element.tagName.toLowerCase() === 'input' && element.type === 'checkbox') {
-      const label = element.closest('label'); // Nađemo label koji je roditelj inputa
+      const label = element.closest('label'); // Find the label that is the parent of the input
       if (label) {
-        const translation = label.getAttribute(`data-${language}`); // Prevod za label
+        const translation = label.getAttribute(`data-${language}`); // Translation for the label
         if (translation) {
-          // Menjamo samo tekst u label, ali ne diramo checkbox
-          const labelText = label.querySelector('span'); // Preporučujemo da stavite tekst unutar <span> elementa
+          // We only change the text in the label, but do not modify the checkbox
+          const labelText = label.querySelector('span'); // We recommend placing the text inside a <span> element
           if (labelText) {
-            labelText.textContent = translation; // Postavimo prevod unutar span tag-a
+            labelText.textContent = translation; // Set the translation inside the <span> tag
           }
         }
       }
     } else {
-      // Ako nije checkbox, koristićemo kao ranije za druge elemente
+      // If it's not a checkbox, we will use the same approach as before for other elements
       const translation = element.getAttribute(`data-${language}`);
       if (translation) {
-        element.textContent = translation; // Postavimo novi tekst na osnovu jezika
+        element.textContent = translation; // Set the new text based on the language
       }
     }
   });
@@ -44,9 +44,6 @@ function updateContent(language) {
   // Add 'active' class to the selected language option
   document.getElementById(`${language}Lang`).classList.add('active');
 }
-  // Highlight the selected language in the dropdown
-  highlightSelectedLanguage(selectedLanguage);
-
 // Set the language when the page is loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Retrieve the selected language from localStorage (defaults to 'en' if not found)
