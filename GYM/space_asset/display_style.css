@@ -1,36 +1,72 @@
-.input  {
-    display: flex; 
-	width: 25%;
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 10px; /* Manji razmak ispod input polja */
-    box-sizing: border-box;
-    color: orange;
-    background-color: black; 
-    border-radius: 55px; 
-	border: 2px solid orange;
-	align-items: center;
-}
-
-.input2  {
-    display: flex; 
-	width: 50%;
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 10px; /* Manji razmak ispod input polja */
-    box-sizing: border-box;
-    color: orange;
-    background-color: black; 
-    border-radius: 55px; 
-	border: 2px solid orange;
-	align-items: center;
-}
-
-.center-container { /* Centering the div that contains the inputs */
+.input {
     display: flex;
-	flex-direction: column;  /* Stack inputs vertically */
-    align-items: center;     /* Center the inputs horizontally */
-    gap: 15px;               /* Optional: Space between the inputs */
+    width: 25%;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    /* Manji razmak ispod input polja */
+    box-sizing: border-box;
+    color: orange;
+    background-color: black;
+    border-radius: 55px;
+    border: 2px solid orange;
+    align-items: center;
+}
+
+.input2 {
+    display: flex;
+    width: 50%;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    /* Manji razmak ispod input polja */
+    box-sizing: border-box;
+    color: orange;
+    background-color: black;
+    border-radius: 55px;
+    border: 2px solid orange;
+    align-items: center;
+}
+
+.center-container {
+    /* Centering the div that contains the inputs */
+    display: flex;
+    flex-direction: column;
+    /* Stack inputs vertically */
+    align-items: center;
+    /* Center the inputs horizontally */
+    gap: 15px;
+    /* Optional: Space between the inputs */
+}
+
+.tag-item {
+    width: 18%;
+    background-color: black;
+    color: orange;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid orange;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Each row of tags should take full width and arrange its children */
+.tag-row {
+    display: flex;
+    justify-content: space-evenly;
+    /* Space tags evenly within the row */
+    width: 90%;
+    /* Ensure each row occupies full width */
+    margin-bottom: 15px;
+    /* Add space between rows */
+}
+
+.tag-item p {
+    margin: 5px 0;
+}
+
+.tag-item strong {
+    color: white;
 }
