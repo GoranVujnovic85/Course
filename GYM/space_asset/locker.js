@@ -939,3 +939,15 @@ function datarows(data) {
     row.appendChild(tagDiv);
   });
 }
+
+
+var LOCKER_LANGUAGE = new languageClass()
+function languageClass() {
+
+  this.initialize()
+}
+var LOCKER_LANGUAGE = new languageClass()
+function languageClass() {
+
+  this.initialize()
+}
