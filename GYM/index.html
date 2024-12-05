@@ -106,15 +106,17 @@
       <!-- Text -->
       <p id="info-text" class="info-text" data-translate="info" data-en="Our gym offers a wide range of equipment to meet all your needs, whether you're a beginner or an experienced athlete. We have 12 treadmills, 3 bench press stations, 8 spinning bikes, and 5 step machines for cardio workouts. Additionally, there are 4 back machines, 6 different leg machines, 4 shoulder machines, and 10 muscle isolation machines. For weightlifting enthusiasts, we have 20 sets of weights in various sizes, including Olympic bars and dumbbells, as well as 5 power racks and 3 leg press machines. All of our equipment is top-quality and regularly maintained, ensuring a safe and effective experience. Whether you want to improve endurance, strength, or muscle mass, our facility is equipped for anyone striving to achieve exceptional results." data-rs="Naša teretana nudi širok spektar opreme koja zadovoljava sve vaše potrebe, bilo da ste početnik ili iskusni sportista. Na raspolaganju imamo 12 traka za trčanje, 3 klupe za benč, 8 bicikala za spinning, kao i 5 stepera za kardio treninge. Takođe, tu su 4 mašine za leđa, 6 različitih sprava za noge, 4 mašine za ramena, kao i 10 mašina za izolaciju mišića. Za ljubitelje treninga sa tegovima, imamo 20 setova tegova različitih težina, uključujući olimpijske i dumbbells, kao i 5 power rack-ova i 3 leg press mašine. Svi naši uređaji su vrhunskog kvaliteta i redovno se održavaju, pružajući vam sigurno i efikasno iskustvo. Bilo da želite da poboljšate izdržljivost, snagu ili mišićnu masu, naš prostor je opremljen za svakoga ko želi da postigne vrhunske rezultate."></p>
     </div>
+    <!-- Work Time -->
     <div style="position: relative; width: 100%; height: 100vh; background-image: url('./IndexImages/baner.jfif'); background-size: contain; background-position: center; background-repeat: no-repeat; margin-left: auto; margin-right: auto; max-width: 1200px;">
-      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgb(255, 224, 224); font-size: 42px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); text-align: center; 
-      background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
-        <h2 data-translate="Work Time" data-en="Work Time" data-rs="Radno vreme"></h2>
-        <p data-translate="Time" data-en="Monday - Friday: 08:00 - 22:00" data-rs="Ponedeljak - Petak: 08:00 - 22:00"></p>
-        <p data-translate="Saturday" data-en="Saturday: 09:00 - 18:00" data-rs="Subota: 09:00 - 18:00"></p>
-        <p data-translate="Sunday" data-en="Sunday: Closed" data-rs="Nedelja: Zatvoreno"></p>
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgb(255, 224, 224); font-size: 42px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); text-align: center; background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+        <h2 id="work-time-title"></h2>
+        <p id="work-time-info"></p>
+        <p id="saturday-info"></p>
+        <p id="sunday-info"></p>
+        <p id="notice-info"></p>
       </div>
     </div>
+    <!--/Work Time -->
     <div class="membership-container" style="padding: 50px 0; background-color: #f9f9f9;">
       <div class="container">
         <h2 class="text-center" style="margin-bottom: 30px; font-size: 36px; font-weight: bold;" data-translate="Membership" data-en="Choose your membership" data-rs="Izaberite članarinu"></h2>
@@ -278,6 +280,8 @@
     <script src="./IndexJS/cookies.js"></script>
     <script src="./IndexJS/ChangeLanguage.js"></script>
     <script src="./IndexJS/images.js"></script>
+    <script src="./IndexJS/WorkTime.js"></script>
+ 
     <!--/Optional JavaScript -->
 </body>
 </html>
