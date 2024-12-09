@@ -1,121 +1,62 @@
-// Function to change language
-function changeLanguage(language) {
-  // Store the selected language in localStorage (so it persists across page reloads)
-  localStorage.setItem('selectedLanguage', language);
+// Define the object as a function (factory) that returns an object with methods
+var LANGUAGE = new languageClass();
 
-  // Update content based on selected language
-  updateContent(language);
-  // Highlight the selected language in the dropdown
-  highlightSelectedLanguage(language);
-}
-
-// Function to update the page content
-function updateContent(language) {
-  const elements = document.querySelectorAll('[data-translate]'); // Find all elements with data-translate
-  elements.forEach(element => {
-    // If the element is a checkbox (input type="checkbox"), we use closest to find the label
-    if (element.tagName.toLowerCase() === 'input' && element.type === 'checkbox') {
-      const label = element.closest('label'); // Find the label that is the parent of the input
-      if (label) {
-        const translation = label.getAttribute(`data-${language}`); // Translation for the label
-        if (translation) {
-          // We only change the text in the label, but do not modify the checkbox
-          const labelText = label.querySelector('span'); // We recommend placing the text inside a <span> element
-          if (labelText) {
-            labelText.textContent = translation; // Set the translation inside the <span> tag
-          }
-        }
-      }
-    } else {
-      // If it's not a checkbox, we will use the same approach as before for other elements
-      const translation = element.getAttribute(`data-${language}`);
-      if (translation) {
-        element.textContent = translation; // Set the new text based on the language
-      }
-    }
-  });
-}
-
-// Function to highlight the selected language in the dropdown
-function highlightSelectedLanguage(language) {
-  // Remove 'active' class from both language options
-  document.getElementById('rsLang').classList.remove('active');
-  document.getElementById('enLang').classList.remove('active');
-  // Add 'active' class to the selected language option
-  document.getElementById(`${language}Lang`).classList.add('active');
-}
-// Set the language when the page is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Retrieve the selected language from localStorage (defaults to 'en' if not found)
-  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-  updateContent(selectedLanguage);
-});
-
-// const languageClass = {
-
-
-
-// }
-
-
-var LANGUAGE = new languageClass()
 function languageClass() {
+  // Initialize the current language (retrieve from localStorage or default to 'en')
+  var currentLanguage = localStorage.getItem('selectedLanguage') || 'en';
 
-  this.initialize = function () {
-    alert('initialize changeLanguage')
-    document.addEventListener('DOMContentLoaded', () => {
-      // Retrieve the selected language from localStorage (defaults to 'en' if not found)
-      const selectedLanguage = localStorage.getItem('selectedLanguage') || CONFIG.defaultLanguage;
-      this.updateContent(selectedLanguage);
-    });
+  // Method to change the language
+  this.changeLanguage = function(language) {
+    currentLanguage = language;
+    localStorage.setItem('selectedLanguage', language); // Save the selected language to localStorage
+    this.updateContent(language); // Update the content on the page based on the selected language
+    this.highlightSelectedLanguage(language); // Highlight the selected language in the dropdown
+  };
 
-  }
-
-  this.changeLanguage = function (language) {
-
-    // Store the selected language in localStorage (so it persists across page reloads)
-    localStorage.setItem('selectedLanguage', language);
-
-    // Update content based on selected language
-    this.updateContent(language);
-    // Highlight the selected language in the dropdown
-    this.highlightSelectedLanguage(language);
-
-  }
-
-  this.updateContent = function () {
-
+  // Method to update the content on the page
+  this.updateContent = function(language) {
     const elements = document.querySelectorAll('[data-translate]'); // Find all elements with data-translate
     elements.forEach(element => {
-      // If the element is a checkbox (input type="checkbox"), we use closest to find the label
+      // If the element is a checkbox, use closest to find the label
       if (element.tagName.toLowerCase() === 'input' && element.type === 'checkbox') {
-        const label = element.closest('label'); // Find the label that is the parent of the input
+        const label = element.closest('label');
         if (label) {
-          const translation = label.getAttribute(`data-${language}`); // Translation for the label
+          const translation = label.getAttribute(`data-${language}`); // Find the translation for the label
           if (translation) {
-            // We only change the text in the label, but do not modify the checkbox
-            const labelText = label.querySelector('span'); // We recommend placing the text inside a <span> element
+            const labelText = label.querySelector('span');
             if (labelText) {
               labelText.textContent = translation; // Set the translation inside the <span> tag
             }
           }
         }
       } else {
-        // If it's not a checkbox, we will use the same approach as before for other elements
+        // If it's not a checkbox, change the text for other elements
         const translation = element.getAttribute(`data-${language}`);
         if (translation) {
           element.textContent = translation; // Set the new text based on the language
         }
       }
     });
+  };
 
-  }
-  this.highlightSelectedLanguage = function () {
+  // Method to highlight the selected language in the dropdown
+  this.highlightSelectedLanguage = function(language) {
+    // Remove 'active' class from both languages
     document.getElementById('rsLang').classList.remove('active');
     document.getElementById('enLang').classList.remove('active');
-    // Add 'active' class to the selected language option
+    // Add 'active' class to the selected language
     document.getElementById(`${language}Lang`).classList.add('active');
+  };
 
-  }
-  this.initialize()
+  // Method for initialization when the page loads
+  this.init = function() {
+    // Set the default language if it's not found in localStorage
+    this.highlightSelectedLanguage(currentLanguage);
+    this.updateContent(currentLanguage);
+  };
 }
+
+// Set the language on page load
+document.addEventListener('DOMContentLoaded', () => {
+  LANGUAGE.init(); // Initialize the language when the page is loaded
+});

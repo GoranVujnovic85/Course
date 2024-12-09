@@ -3,27 +3,22 @@
 
 <head>
   <!-- Required meta tags -->
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="./space_asset/locker.js"></script>
-  <script src="./IndexJS/ChangeLanguage.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> <!-- jQuery -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <!-- Bootstrap JS -->
 
+  <!-- Custom JS files -->
+  <script src="./IndexJS/ChangeLanguage.js"></script> <!-- Change Language Script -->
+  <script src="./space_asset/locker.js"></script> <!-- Locker JS Script -->
 
-  <!-- Bootstrap CSS -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" -->
-  <!-- integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <!-- Additional Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="./IndexCSS/carousell.css">
-  <!-- <link rel="stylesheet" href="./IndexCSS/space.css"> -->
   <link rel="stylesheet" href="./IndexCSS/membership.css">
   <link rel="stylesheet" href="./IndexCSS/gymbar.css">
   <link rel="stylesheet" href="./space_asset/display_style.css">
-
-
 
   <title>Space</title>
 </head>
@@ -68,8 +63,8 @@
               Jezik
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#" id="rsLang" onclick="changeLanguage('rs')">RS</a>
-              <a class="dropdown-item" href="#" id="enLang" onclick="changeLanguage('en')">EN</a>
+              <a class="dropdown-item" href="#" id="rsLang" onclick="LOCKER.changeLanguage('rs')">RS</a>
+              <a class="dropdown-item" href="#" id="enLang" onclick="LOCKER.changeLanguage('en')">EN</a>
             </div>
           </li>
         </ul>
@@ -83,7 +78,7 @@
   <br>
   <br>
   <div class="container">
-    <h1 align="center" style="color:orange;" data-translate="h1content"
+    <h1 style="color:orange;text-align: center;" data-translate="h1content"
       data-en="In our gym you will enjoy a pleasant environment where 
       you'll find a wide range of the latest exercise equipment at your disposal. Our employees are at your disposal and will be happy to help you with all your questions."
       data-rs="U našoj teratani uživaćete u prijatnom ambijentu gde na

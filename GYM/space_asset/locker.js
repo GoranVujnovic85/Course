@@ -601,353 +601,201 @@ const data = {
     }
   }
 }
-
-
-// --------------------------------------- TRANSLATER and DROPDOWN---------------------------------------------------
-
-
-
-// Function to change language
-function changeLanguage(language) {
-  // Store the selected language in localStorage
-  localStorage.setItem('selectedLanguage', language);
-
-  // Immediately update content based on selected language
-  updateContent(language);  // Update content
-  locker(data);             // Update locker display (if it's needed based on data)
-
-  displayInactiveIds();
-  highlightSelectedLanguage(language);  // Highlight the language in the dropdown
-  datarows(data);
-  // Log to confirm
-  console.log("changelanguage function:", localStorage.getItem('selectedLanguage'));
-}
-
-
-// Function to update the page content
-function updateContent(language) {
-  const elements = document.querySelectorAll('[data-translate]'); // Find all elements with data-translate
-  elements.forEach(element => {
-    // If the element is a checkbox (input type="checkbox"), we use closest to find the label
-    if (element.tagName.toLowerCase() === 'input' && element.type === 'checkbox') {
-      const label = element.closest('label'); // Find the label that is the parent of the input
-      if (label) {
-        const translation = label.getAttribute(`data-${language}`); // Translation for the label
-        if (translation) {
-          // We only change the text in the label, but do not modify the checkbox
-          const labelText = label.querySelector('span'); // We recommend placing the text inside a <span> element
-          if (labelText) {
-            labelText.textContent = translation; // Set the translation inside the <span> tag
-          }
-        }
-      }
-    } else {
-      // If it's not a checkbox, we will use the same approach as before for other elements
-      const translation = element.getAttribute(`data-${language}`);
-      if (translation) {
-        element.textContent = translation; // Set the new text based on the language
-      }
-    }
-  });
-}
-
-// Function to highlight the selected language in the dropdown
-function highlightSelectedLanguage(language) {
-  // Remove 'active' class from both language options
-  document.getElementById('rsLang').classList.remove('active');
-  document.getElementById('enLang').classList.remove('active');
-  // Add 'active' class to the selected language option
-  document.getElementById(`${language}Lang`).classList.add('active');
-}
-// Set the language when the page is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Retrieve the selected language from localStorage (defaults to 'en' if not found)
-  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-  updateContent(selectedLanguage);
-});
-
-
-// --------------------------------------- /TRANSLATER and DROPDOWN---------------------------------------------------
-
-
-// --------------------------------------- TRANSLATER FOR STATIC STRING AND DROPDOWN MENU CHANGE---------------------------------------------------
-
-
+// Define translations object with default values for English and Serbian
 const translations = {
   en: {
-    freeLockers: "Number of free lockers",
-    freeLockersMessage: "Free lockers are: ",  // New translation
-    noFreeLockersMessage: "No free lockers", // New translation
-    tagId: "Locker number",
-    createdAt: "Available from",
-    name: "User",
-    lockersPlaceholder: "Occupied locker and their users"
+    freeLockers: "Free Lockers",
+    freeLockersMessage: "The following lockers are free:",
+    noFreeLockersMessage: "No free lockers available.",
+    lockersPlaceholder: "Lockers will be displayed here",
+    tagId: "Tag ID",
+    name: "Name",
   },
   rs: {
-    freeLockers: "Broj slobodnih ormarića",
-    freeLockersMessage: "Slobodni ormarići su: ", // Serbian translation
-    noFreeLockersMessage: "Nema slobodnih ormarića", // Serbian translation
-    tagId: "Broj ormarića",
-    createdAt: "Slobodan od",
-    name: "Korisnik",
-    lockersPlaceholder: "Zauzeti ormarići i njihovi korisnici"
-  },
-  // Add more languages as needed
+    freeLockers: "Slobodni ormarići",
+    freeLockersMessage: "Sledeći ormarići su slobodni:",
+    noFreeLockersMessage: "Nema slobodnih ormarića.",
+    lockersPlaceholder: "Ormarići će biti prikazani ovde",
+    tagId: "ID oznake",
+    name: "Naziv",
+  }
 };
 
-function updateContent(language) {
-  const elements = document.querySelectorAll('[data-translate]');
-  elements.forEach(element => {
-    // Get the translation key from the data-translate attribute
-    const translationKey = element.getAttribute('data-translate');
-    const translation = translations[language][translationKey];
+// Create LOCKER object as an instance of lockerClass
+var LOCKER = new lockerClass();
 
-    if (translation) {
-      // If the element is an input and has a placeholder, update the placeholder text
-      if (element.tagName.toLowerCase() === 'input' && element.hasAttribute('placeholder')) {
-        element.setAttribute('placeholder', translation); // Update placeholder text
-      } else {
-        element.textContent = translation; // Update regular text content
-      }
-    }
-  });
-}
-
-
-// Function to update the result display with the translated text and dynamic count
-function updateResultDisplay(count, language) {
-  const staticText = getTranslation('freeLockers', language);
-  const resultText = `${staticText}: ${count}`;
-  document.getElementById('resultDisplay').value = resultText;
-}
-
-// Function to get the translated text based on a key
-function getTranslation(key, language) {
-  const languageTranslations = translations[language];
-  if (languageTranslations && languageTranslations[key]) {
-    return languageTranslations[key];
-  }
-  return translations['en'][key]; // Fallback to English
-}
-
-// Locker function to calculate count and update the result display
-function locker(data) {
-  console.log("Running locker function..."); // Debugging line
-
-  let count = 0;
-  data.results.tags.forEach(tag => {
-    if (tag.is_active === false) {
-      count++;
-    }
-  });
-
-  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-  console.log("Selected language from localStorage:", selectedLanguage); // Debugging line
-
-  updateResultDisplay(count, selectedLanguage); // Update the display with the correct language and count
-}
-
-// Listen for the DOMContentLoaded event
-document.addEventListener('DOMContentLoaded', function () {
-  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en'; // Default to 'en'
-
-  // Update content based on selected language
-  updateContent(selectedLanguage);
-
-  // Call the locker function to update the result display with the correct count
-  locker(data);  // Ensure this is called after the page has initialized
-  displayInactiveIds();
+function lockerClass() {
+  // Function to change language
+  this.changeLanguage = function(language) {
+    // Store the selected language in localStorage
+    localStorage.setItem('selectedLanguage', language);
   
-});
+    // Use the LANGUAGE object to change language and update content
+    LANGUAGE.changeLanguage(language);  // Pozivajte funkciju iz ChangeLanguage.js
+    
+    // Update the page content immediately after changing the language
+    this.updateContent(language); // Pozivanje updateContent odmah
+    this.locker(data);             
+    this.displayInactiveIds();
+    this.datarows(data);
+    
+    console.log("changelanguage function:", localStorage.getItem('selectedLanguage'));
+  };
 
-// Handle language change in the dropdown menu
-document.querySelectorAll('.dropdown-item').forEach(item => {
-  item.addEventListener('click', function (event) {
-    const newLanguage = event.target.getAttribute('data-lang');
-    console.log("Language changed to:", newLanguage);  // Debugging when language changes
+  this.updateContent = function(language) {
+    LANGUAGE.updateContent(language); // Calling function from ChangeLanguage.js
+    
+   // Setting translations for placeholder fields
+const placeholders = document.querySelectorAll('input[data-translate]'); // Use data-translate instead of placeholder
+placeholders.forEach(input => {
+  const placeholderKey = input.getAttribute('data-translate'); // Get the key from the data-translate attribute
+  const translatedText = this.getTranslation(placeholderKey, language); // Get the translated text using the key and language
+  input.setAttribute('placeholder', translatedText); // Set the translated text as the placeholder
+    });
+  };
 
-    // Set the new language in localStorage
-    localStorage.setItem('selectedLanguage', newLanguage);
-    console.log("Language saved to localStorage:", newLanguage);  // Log to check if language is saved
+  // Locker function to calculate count and update the result display
+  this.locker = function(data) {
+    console.log("Running locker function..."); // Debugging line
 
-    // Update content and result display immediately when language changes
-    updateContent(newLanguage);
-    locker(data);  // Update the locker count in the selected language
-    displayInactiveIds();
-    datarows(data); 
-  });
-});
-
-
-// --------------------------------------- /TRANSLATER FOR STATIC STRING AND DROPDOWN MENU CHANGE---------------------------------------------------
-
-
-
-
-// --------------------------------------- TRANSLATER FOR STATIC STRING AND DROPDOWN MENU CHANGE FOR SECOND PLACEHOLDER---------------------------------------------------
-
-
-
-// Function to get all inactive IDs from tags
-function getInactiveIdsFromTags(data) {
-  let inactiveIds = [];
-
-  // Check if data and data.results.tags exist to avoid errors
-  if (data && data.results && Array.isArray(data.results.tags)) {
-    // Iterate through the tags and find those with is_active = false
+    let count = 0;
     data.results.tags.forEach(tag => {
       if (tag.is_active === false) {
-        inactiveIds.push(tag.id); // Add the ID to the array
+        count++;
       }
     });
-
-    // Sort the array in ascending order (numeric sort)
-    inactiveIds.sort((a, b) => a - b);
-  } else {
-    console.error("No free locker");
+    const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    console.log("Selected language from localStorage:", selectedLanguage); // Debugging line
+    this.updateResultDisplay(count, selectedLanguage); // Update the display with the correct language and count
   }
 
-  return inactiveIds;
-}
-
-// Function to get all inactive IDs from tags
-function getActiveIdsFromTags(data) {
-  let activeIds = [];
-
-  // Check if data and data.results.tags exist to avoid errors
-  if (data && data.results && Array.isArray(data.results.tags)) {
-    // Iterate through the tags and find those with is_active = false
-    data.results.tags.forEach(tag => {
-      if (tag.is_active === true) {
-        activeIds.push(tag.id); // Add the ID to the array
-      }
-    });
-
-    // Sort the array in ascending order (numeric sort)
-    activeIds.sort((a, b) => a - b);
-  } else {
-    console.error("No active locker");
+  // Function to update the result display with the translated text and dynamic count
+  this.updateResultDisplay = function(count, language) {
+    const staticText = this.getTranslation('freeLockers', language);
+    const resultText = `${staticText}: ${count}`;
+    document.getElementById('resultDisplay').value = resultText;
   }
 
-  return activeIds;
-}
+  // Get inactive IDs from tags
+  this.getInactiveIdsFromTags = function(data) {
+    let inactiveIds = [];
 
+    if (data && data.results && Array.isArray(data.results.tags)) {
+      data.results.tags.forEach(tag => {
+        if (tag.is_active === false) {
+          inactiveIds.push(tag.id);
+        }
+      });
 
-
-
-// Function to display inactive IDs in the input field
-function displayInactiveIds() {
-  const inactiveIds = getInactiveIdsFromTags(data); // Get the inactive IDs
-  const resultDisplay = document.getElementById('resultDisplay2'); // Get the input field
-
-  // Retrieve the selected language from localStorage
-  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-
-  // Get the translated messages
-  const inactiveLockersText = getTranslation('freeLockersMessage', selectedLanguage);
-  const noInactiveLockersText = getTranslation('noFreeLockersMessage', selectedLanguage);
-
-  // Display the inactive IDs or a message if none are found
-  if (inactiveIds.length > 0) {
-    resultDisplay.value = `${inactiveLockersText} ${inactiveIds.join(', ')}`; // Join IDs with commas
-  } else {
-    resultDisplay.value = noInactiveLockersText; // Display message if no inactive IDs
-  }
-  locker(data);
-  datarows(data);
-}
-// window.addEventListener('load', locker);
-window.addEventListener('load', displayInactiveIds);
-
-// --------------------------------------- TRANSLATER FOR STATIC STRING AND DROPDOWN MENU CHANGE FOR SECOND PLACEHOLDER---------------------------------------------------
-
-function resizeInput(input) {
-  // Create a temporary span element to calculate the width of the input's text
-  const span = document.createElement('span');
-  document.body.appendChild(span);
-
-  // Set the span's text content to match the input's value
-  span.style.visibility = 'hidden'; // Hide the span element
-  span.style.position = 'absolute'; // Ensure it doesn't affect the layout
-  span.style.whiteSpace = 'pre'; // Preserve whitespace formatting
-  span.style.font = getComputedStyle(input).font; // Match font of the input
-
-  span.textContent = input.value || input.placeholder; // Use input's value or placeholder text
-  input.style.width = span.offsetWidth + 10 + 'px'; // Set input width based on span width + padding
-
-  document.body.removeChild(span); // Remove the temporary span
-}
-
-
-// Retrieve the selected language from localStorage
-const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-
-
-
-
-
-// Ensure datarows is defined in the global scope
-function datarows(data) {
-  // Get inactive IDs from the tags
-  const activeIds = getActiveIdsFromTags(data);
-  console.log("Inactive IDs:", activeIds); // Log inactive IDs
-
-  // Access the tags array from the data
-  const tags = data.results.tags;
-
-  // Filter tags based on inactive IDs
-  const activeTags = tags.filter(tag => activeIds.includes(tag.id));
-
-  // Sort the inactive tags by their ID (ascending order)
-  activeTags.sort((a, b) => a.id - b.id); // Compare by ID for numeric sorting
-
-  // Get the container where tags will be inserted
-  const container = document.querySelector('.data-container');
-
-  // Clear any existing content inside the container (optional)
-  container.innerHTML = '';
-
-  // Initialize a variable to hold the current row
-  let row;
-
-  // Retrieve the selected language from localStorage
-  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-
-  // Get the selected translations based on the selected language
-  const selectedTranslations = translations[selectedLanguage];
-
-  // Loop through the sorted inactive tags and create HTML elements for each tag
-  activeTags.forEach((tag, index) => {
-    // Create a new row every 5 items
-    if (index % 5 === 0) {
-      row = document.createElement('div'); // Create a new div for the row
-      row.classList.add('tag-row'); // Add a class for styling the row
-      container.appendChild(row); // Append the row to the container
+      inactiveIds.sort((a, b) => a - b);
+    } else {
+      console.error("No free locker");
     }
 
-    // Create a div to represent each tag
-    const tagDiv = document.createElement('div');
-    tagDiv.classList.add('tag-item'); // Add a class for styling purposes (optional)
+    return inactiveIds;
+  }
 
-    // Create HTML content for the tag
-    tagDiv.innerHTML = `
-    <p><strong>${selectedTranslations.tagId}:</strong> ${tag.id}</p>
-    <p><strong>${selectedTranslations.name}:</strong> ${tag.name}</p>
-    `;
+  // Function to display inactive IDs in the input field
+  this.displayInactiveIds = function() {
+    const inactiveIds = this.getInactiveIdsFromTags(data);
+    const resultDisplay = document.getElementById('resultDisplay2');
 
-    // Append the tag div to the current row
-    row.appendChild(tagDiv);
+    const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+
+    const inactiveLockersText = this.getTranslation('freeLockersMessage', selectedLanguage);
+    const noInactiveLockersText = this.getTranslation('noFreeLockersMessage', selectedLanguage);
+
+    if (inactiveIds.length > 0) {
+      resultDisplay.value = `${inactiveLockersText} ${inactiveIds.join(', ')}`;
+    } else {
+      resultDisplay.value = noInactiveLockersText;
+    }
+    this.locker(data);
+    this.datarows(data);
+  }
+
+  // Function to get all active IDs from tags
+  this.getActiveIdsFromTags = function(data) {
+    let activeIds = [];
+
+    if (data && data.results && Array.isArray(data.results.tags)) {
+      data.results.tags.forEach(tag => {
+        if (tag.is_active === true) {
+          activeIds.push(tag.id);
+        }
+      });
+
+      activeIds.sort((a, b) => a - b);
+    } else {
+      console.error("No active locker");
+    }
+
+    return activeIds;
+  }
+
+  // Function to handle the display of data rows based on active tags
+  this.datarows = function(data) {
+    const activeIds = this.getActiveIdsFromTags(data);
+    const tags = data.results.tags;
+    const activeTags = tags.filter(tag => activeIds.includes(tag.id));
+    activeTags.sort((a, b) => a.id - b.id);
+
+    const container = document.querySelector('.data-container');
+    container.innerHTML = '';
+
+    let row;
+    const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    const selectedTranslations = translations[selectedLanguage]; // Use translations where necessary
+
+    activeTags.forEach((tag, index) => {
+      if (index % 5 === 0) {
+        row = document.createElement('div');
+        row.classList.add('tag-row');
+        container.appendChild(row);
+      }
+
+      const tagDiv = document.createElement('div');
+      tagDiv.classList.add('tag-item');
+      tagDiv.innerHTML = `
+        <p><strong>${selectedTranslations.tagId}:</strong> ${tag.id}</p>
+        <p><strong>${selectedTranslations.name}:</strong> ${tag.name}</p>
+      `;
+
+      row.appendChild(tagDiv);
+    });
+  }
+
+  // Function to get the translated text based on a key
+  this.getTranslation = function(key, language) {
+    // Fallback to translations object for non-LANGUAGE supported keys
+    const languageTranslations = translations[language];
+    if (languageTranslations && languageTranslations[key]) {
+      return languageTranslations[key];
+    }
+    return translations['en'][key]; // Fallback to English
+  }
+
+  // Event listener for language changes
+  document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function (event) {
+      const newLanguage = event.target.getAttribute('data-lang');
+      console.log("Language changed to:", newLanguage);
+
+      localStorage.setItem('selectedLanguage', newLanguage);
+      console.log("Language saved to localStorage:", newLanguage);
+
+      LANGUAGE.changeLanguage(newLanguage);
+      LOCKER.locker(data);
+      LOCKER.displayInactiveIds();
+      LOCKER.datarows(data);
+    });
   });
-}
 
-
-var LOCKER_LANGUAGE = new languageClass()
-function languageClass() {
-
-  this.initialize()
-}
-var LOCKER_LANGUAGE = new languageClass()
-function languageClass() {
-
-  this.initialize()
+  // Call locker and datarows when page loads
+  document.addEventListener('DOMContentLoaded', function () {
+    const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    LOCKER.updateContent(selectedLanguage);
+    LOCKER.locker(data);
+    LOCKER.displayInactiveIds();
+  });
 }
