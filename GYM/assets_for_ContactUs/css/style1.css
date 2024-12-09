@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 /* Provide visual indication for fields with errors. */
 .is-invalid {
-    border: 2px solid red;
-    background-color: #ffe6e6;
+    border: 2px solid rgba(10, 10, 1, 0.973);
+    background-color: whitesmoke;
   }
 
 /* Bold for page in navigation menu */
