@@ -2,6 +2,7 @@ var NEWS = new newsClass()
 function newsClass(){
 
   this.initialize  = function(){
+    debugger
     alert('initialize newsClass')
 
   }
@@ -12,7 +13,7 @@ function newsClass(){
   }
 
   this.locker = function(){
-    
+
   }
   this.updateContent = function(){
     this.changeLanguage()

@@ -626,36 +626,36 @@ var LOCKER = new lockerClass();
 
 function lockerClass() {
   // Function to change language
-  this.changeLanguage = function(language) {
+  this.changeLanguage = function (language) {
     // Store the selected language in localStorage
     localStorage.setItem('selectedLanguage', language);
-  
+
     // Use the LANGUAGE object to change language and update content
     LANGUAGE.changeLanguage(language);  // Pozivajte funkciju iz ChangeLanguage.js
-    
+
     // Update the page content immediately after changing the language
     this.updateContent(language); // Pozivanje updateContent odmah
-    this.locker(data);             
+    this.locker(data);
     this.displayInactiveIds();
     this.datarows(data);
-    
+
     console.log("changelanguage function:", localStorage.getItem('selectedLanguage'));
   };
 
-  this.updateContent = function(language) {
+  this.updateContent = function (language) {
     LANGUAGE.updateContent(language); // Calling function from ChangeLanguage.js
-    
-   // Setting translations for placeholder fields
-const placeholders = document.querySelectorAll('input[data-translate]'); // Use data-translate instead of placeholder
-placeholders.forEach(input => {
-  const placeholderKey = input.getAttribute('data-translate'); // Get the key from the data-translate attribute
-  const translatedText = this.getTranslation(placeholderKey, language); // Get the translated text using the key and language
-  input.setAttribute('placeholder', translatedText); // Set the translated text as the placeholder
+
+    // Setting translations for placeholder fields
+    const placeholders = document.querySelectorAll('input[data-translate]'); // Use data-translate instead of placeholder
+    placeholders.forEach(input => {
+      const placeholderKey = input.getAttribute('data-translate'); // Get the key from the data-translate attribute
+      const translatedText = this.getTranslation(placeholderKey, language); // Get the translated text using the key and language
+      input.setAttribute('placeholder', translatedText); // Set the translated text as the placeholder
     });
   };
 
   // Locker function to calculate count and update the result display
-  this.locker = function(data) {
+  this.locker = function (data) {
     console.log("Running locker function..."); // Debugging line
 
     let count = 0;
@@ -670,14 +670,14 @@ placeholders.forEach(input => {
   }
 
   // Function to update the result display with the translated text and dynamic count
-  this.updateResultDisplay = function(count, language) {
+  this.updateResultDisplay = function (count, language) {
     const staticText = this.getTranslation('freeLockers', language);
     const resultText = `${staticText}: ${count}`;
     document.getElementById('resultDisplay').value = resultText;
   }
 
   // Get inactive IDs from tags
-  this.getInactiveIdsFromTags = function(data) {
+  this.getInactiveIdsFromTags = function (data) {
     let inactiveIds = [];
 
     if (data && data.results && Array.isArray(data.results.tags)) {
@@ -696,7 +696,7 @@ placeholders.forEach(input => {
   }
 
   // Function to display inactive IDs in the input field
-  this.displayInactiveIds = function() {
+  this.displayInactiveIds = function () {
     const inactiveIds = this.getInactiveIdsFromTags(data);
     const resultDisplay = document.getElementById('resultDisplay2');
 
@@ -715,7 +715,7 @@ placeholders.forEach(input => {
   }
 
   // Function to get all active IDs from tags
-  this.getActiveIdsFromTags = function(data) {
+  this.getActiveIdsFromTags = function (data) {
     let activeIds = [];
 
     if (data && data.results && Array.isArray(data.results.tags)) {
@@ -734,7 +734,8 @@ placeholders.forEach(input => {
   }
 
   // Function to handle the display of data rows based on active tags
-  this.datarows = function(data) {
+  this.datarows = function (data) {
+
     const activeIds = this.getActiveIdsFromTags(data);
     const tags = data.results.tags;
     const activeTags = tags.filter(tag => activeIds.includes(tag.id));
@@ -756,17 +757,38 @@ placeholders.forEach(input => {
 
       const tagDiv = document.createElement('div');
       tagDiv.classList.add('tag-item');
-      tagDiv.innerHTML = `
-        <p><strong>${selectedTranslations.tagId}:</strong> ${tag.id}</p>
-        <p><strong>${selectedTranslations.name}:</strong> ${tag.name}</p>
-      `;
+      // bottom - up
+      // --------------------------------------------------------------------------
+      // top - down
+      tagDiv.innerHTML = TEMPLATE.render('locker', 'datarow', [
+        {
+          key: 'asglkjhgjgsjghalghsakjg',
+          value: selectedTranslations.tagId
+        },
+        {
+          key: 'TEST2',
+          value: selectedTranslations.name
+        },
+        {
+          key: 'tagId',
+          value: tag.id
+        },
+        {
+          key: 'tagName',
+          value: tag.name
+        },
+        {
+          key: 'CLASS',
+          value: 'test123'
+        }
+      ])
 
       row.appendChild(tagDiv);
     });
   }
 
   // Function to get the translated text based on a key
-  this.getTranslation = function(key, language) {
+  this.getTranslation = function (key, language) {
     // Fallback to translations object for non-LANGUAGE supported keys
     const languageTranslations = translations[language];
     if (languageTranslations && languageTranslations[key]) {

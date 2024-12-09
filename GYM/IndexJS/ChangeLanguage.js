@@ -54,6 +54,7 @@ function languageClass() {
     this.highlightSelectedLanguage(currentLanguage);
     this.updateContent(currentLanguage);
   };
+  
 }
 
 // Set the language on page load
