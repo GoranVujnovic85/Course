@@ -1,6 +1,27 @@
 /* Importing fonts from Google Fonts API */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lexend:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.location {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    padding: 15px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.location a {
+    display: inline-block; 
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    text-align: center;
+}
 /* Provide visual indication for fields with errors. */
 .is-invalid {
     border: 2px solid rgba(10, 10, 1, 0.973);
@@ -42,7 +63,9 @@ body {
   .light-blue-container a {
     color: blue; 
     text-decoration: none; 
+    text-align: center;
   }
+  
   
   .light-blue-container a:hover {
     text-decoration: underline; /* Dodaj podvlačenje kada se pređe mišem */
