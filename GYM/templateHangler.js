@@ -4,32 +4,36 @@ function templateClass() {
         document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
         document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
     
-        // Proveri koja je stranica i izvrši specifične promene
-        const currentPage = window.location.pathname.split('/').pop();  // Uzmi samo ime stranice (npr. "index.html")
+        // Check which page is currently loaded and apply specific changes
+        const currentPage = window.location.pathname.split('/').pop();  // Get only page name (etc. "index.html")
         
-        // Ukloni klasu 'active' sa svih linkova u navbaru
+        // Remove 'active' class from all links in navbar
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => link.classList.remove('active'));
     
-        // Dodaj klasu 'active' na trenutnu stranicu
+        // Add 'active' class on current page
         navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href').split('/').pop();  // Uzimamo samo ime stranice sa href-a
+            const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
             if (linkHref === currentPage) {
                 link.classList.add('active');
-                link.setAttribute('aria-current', 'page'); // Dodaj aria-current za pristupačnost
+                link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
             }
         });
     
         if (window.location.pathname.includes('index.html')) {
-            // Ako je index.html, učitaj karusel
+            // If it's index.html, load the carousel
             document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
+            document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+            document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
+            document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
+            document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
         }
     
         if (window.location.pathname.includes('space.html')) {
-            // Ako je space.html, učitaj specifičan karusel
+            // If it's space.html, load a specific carousel
             document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
-            
-            // Promeni jezičke linkove za space stranicu
+            document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+            // Modify language links for the space page
             let languageLinks = document.querySelectorAll('.dropdown-item');
             languageLinks.forEach(link => {
                 if (link.id === 'rsLang') {
@@ -213,7 +217,82 @@ function templateClass() {
       </div>
     </div>
             `
-        },
+        ,membership:`
+         <div class="container">
+        <h2 class="text-center" style="margin-bottom: 30px; font-size: 36px; font-weight: bold;" data-translate="Membership" data-en="Choose your membership" data-rs="Izaberite članarinu"></h2>
+        <div class="row">
+          <!-- Basic membership -->
+          <div class="col-md-4">
+            <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <img src="./IndexImages/basic.jfif" class="card-img-top" alt="Basic" style="width: 100%; height: 200px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Basic membership" data-rs="Basic članarina"></h5>
+                <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Basic membership is ideal for those who want to focus on strength training. This membership includes access to all weights and weightlifting equipment, such as dumbbells, strength training weights, and muscle-building machines." data-rs="Basic članarina je idealna za one koji žele da se fokusiraju na trening snage. Ova članarina uključuje pristup svim tegovima i spravama sa tegovima, kao što su bučice, tegovi za vežbe snage i sprave za trening mišića."></p>
+                <a href="login.html" class="btn btn-primary" style="background-color: #ff6f00; border: none; font-size: 16px; padding: 10px 20px; border-radius: 5px;" data-translate="Membership" data-en="Login" data-rs="Prijavi se"></a>
+              </div>
+            </div>
+          </div>
+          <!--/Basic membership -->
+          <!-- Premium membership -->
+          <div class="col-md-4">
+            <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <img src="./IndexImages/premium.jfif" class="card-img-top" alt="Premium" style="width: 100%; height: 200px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Premium membership" data-rs="Premium članarina"></h5>
+                <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Premium membership offers full access to all gym facilities, including weights and weightlifting equipment, as well as all cardio machines. It is perfect for those who want to combine strength training with aerobic exercises." data-rs="Premium članarina nudi kompletan pristup svim sadržajima u teretani, uključujući tegovima i spravama sa tegovima, kao i svim kardio aparatima. Idealna je za one koji žele da kombinuju trening snage sa aerobnim vežbama."></p>
+                <a href="login.html" class="btn btn-primary" style="background-color: #ff6f00; border: none; font-size: 16px; padding: 10px 20px; border-radius: 5px;" data-translate="Membership" data-en="Login" data-rs="Prijavi se"></a>
+              </div>
+            </div>
+          </div>
+          <!--/Premium membership -->
+          <!-- Platinum membership -->
+          <div class="col-md-4">
+            <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+              <img src="./IndexImages/platinum.jfif" class="card-img-top" alt="Platinum" style="width: 100%; height: 200px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Platinum membership" data-rs="Platinum članarina"></h5>
+                <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Platinum membership includes all the benefits of the Premium membership, with full access to weights, weightlifting equipment, and all cardio machines. Additionally, it offers the extra privilege of complimentary shakes at the bar." data-rs="Platinum članarina uključuje sve pogodnosti Premium članarine, sa potpunim pristupom tegovima, spravama sa tegovima i svim kardio aparatima, a uz to, pruža vam i dodatnu privilegiju besplatnih šejkova u baru."></p>
+                <a href="login.html" class="btn btn-primary" style="background-color: #ff6f00; border: none; font-size: 16px; padding: 10px 20px; border-radius: 5px;" data-translate="Membership" data-en="Login" data-rs="Prijavi se"></a>
+              </div>
+            </div>
+          </div>
+          <!--/Platinum membership -->
+        </div>
+      </div> 
+        `
+      ,worktime:`
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgb(255, 224, 224); font-size: 42px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); text-align: center; background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+        <h2 id="work-time-title"></h2>
+        <p id="work-time-info"></p>
+        <p id="saturday-info"></p>
+        <p id="sunday-info"></p>
+        <p id="notice-info"></p>
+      </div>
+      `
+      ,gymbar:`
+      <img src="./IndexImages/GymBar.jfif" class="gymbar-img" alt="GymBar">
+      <div class="gymbar-overlay">
+        <h5 class="gymbar-title" data-translate="GymBar" data-en="GymBar - Energy and Recovery" data-rs="GymBar - Energija i oporavak"></h5>
+        <p class="gymbar-text" data-translate="GymBar" data-en="At our GymBar, we offer a wide selection of refreshing drinks, including healthy protein shakes and energy drinks. You can also enjoy delicious protein meals that will help you recover after an intense workout and achieve your fitness goals." data-rs="U našem GymBaru nudi se veliki izbor osvežavajućih pića, uključujući zdrave proteinske šejkove i energetske napitke. Takođe, uživajte u ukusnim proteinskim obrocima koji će vam pomoći da se oporavite nakon napornog treninga i postignete svoje fitnes ciljeve."></p>
+      </div>
+      `
+      ,cookies:`
+        <p style="margin: 0;" data-translate="Cookies" data-en="This website uses cookies to enhance the user experience. By clicking Accept,you agree to the use of cookies." data-rs="Ova stranica koristi kolačiće za poboljšanje korisničkog iskustva. Klikom na ''Prihvatam''', slažete se sa korišćenjem kolačića."></p>
+      <label for="necessaryCookies" data-en="Necessary Cookies" data-rs="Neophodni kolačići">
+        <input type="checkbox" id="necessaryCookies" data-translate="CookiesAccept">
+        <span></span>
+      </label>
+      <label for="preferencesCookies" data-en="Preference Cookies" data-rs="Kolačići za podešavanja">
+        <input type="checkbox" id="preferencesCookies" data-translate="CookiesAccept">
+        <span></span>
+      </label>
+      <label for="analyticsCookies" data-en="Analytical Cookies" data-rs="Analitički kolačići">
+        <input type="checkbox" id="analyticsCookies" data-translate="CookiesAccept">
+        <span></span>
+      </label>
+      <br>
+      <button id="acceptCookies" style="background-color: #007bff; border: none; color: white; padding: 8px 16px; font-size: 14px; cursor: pointer; margin-top: 5px;" data-translate="CookiesAccept" data-en="Accept" data-rs="Prihvatam"></button>
+      `},
         contact: {},
         locker: {
             carousel:`
