@@ -2,14 +2,9 @@
 {
   "locations": [
     {
-      "address": "Petra Kocica 14b, Zemun, Serbia",
-      "mapLink": "https://www.google.com/maps/place/Mega+Gym+Zemun,+Zelena+Avenija+-+Najbolja+Teretana+i+Fitnes+Centar/@44.8385307,20.4038976,17.29z/data=!4m6!3m5!1s0x475a656573d80bd1:0x52ea786d5d0dd3c8!8m2!3d44.8381614!4d20.4043769!16s%2Fg%2F11fnxv_ydv?hl=sr&entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D",
-      "visible": false
-    },
-    {
       "address": "Omladinskih brigada 65a, Novi Beograd, Serbia",
       "mapLink": "https://www.google.com/maps/place/Mega+Gym+Novi+Beograd/@44.8002934,20.4023666,17z/data=!3m1!4b1!4m6!3m5!1s0x475a6f9745555555:0xa6c1806f5dc591c2!8m2!3d44.8002934!4d20.4023666!16s%2Fg%2F11c545wzd5?hl=sr&entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D",
-      "visible": false
+      "visible": true
     },
     {
       "address": "Kralja Mihaila Zetskog 6, Batajnica, Serbia",
@@ -24,12 +19,12 @@
     {
       "address": "Dimitrija Davidovica 10, Smederevo, Serbia",
       "mapLink": "https://www.google.com/maps/place/Mega+Gym+Smederevo/@44.6622306,20.9290837,17z/data=!4m6!3m5!1s0x475093f1552b8d2f:0x92ca600d0c023efd!8m2!3d44.6622962!4d20.9297847!16s%2Fg%2F11mvvqx6gg?hl=en-GB&entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D",
-      "visible": true
+      "visible": false
     },
     {
       "address": "Obala Mica Ljubibratica bb, Trebinje, Bosna i Hercegovina",
       "mapLink": "https://www.google.com/maps/place/Mega+Gym+Trebinje/@42.7138793,18.3481844,17z/data=!3m1!4b1!4m6!3m5!1s0x134c69f36eb2d8af:0x321edc27285b973!8m2!3d42.7138793!4d18.3481844!16s%2Fg%2F11vqtvp8t3?hl=sr&entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D",
-      "visible": false
+      "visible": true
     }
   ]
 }

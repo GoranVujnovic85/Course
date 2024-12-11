@@ -20,9 +20,9 @@
       <!--=============== JS CUSTOM FILES ===============-->
       <script defer src="./IndexJS/ChangeLanguage.js"></script>
       <script defer src="./assets_for_ContactUs/js/boldBtn.js"></script>
-      <!--<script defer src="./assets_for_ContactUs/js/locations.js"></script>-->
       <script src="./assets_for_ContactUs/js/contactUsBtn.js"></script>
       <script src="./assets_for_ContactUs/js/config.js"></script>
+      <script src="./assets_for_ContactUs/js/autoRefreshPage.js"></script>
       <!--=============== /JS CUSTOM FILES ===============-->
     <!--=============== /JS FILES ===============-->
 
@@ -61,8 +61,8 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-translate="language" data-en="Language" data-rs="Jezik">Jezik</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" id="rsLang" onclick="changeLanguage('rs')">RS</a>
-                <a class="dropdown-item" href="#" id="enLang" onclick="changeLanguage('en')">EN</a>
+                <a class="dropdown-item" href="#" id="rsLang" onclick="LANGUAGE.changeLanguage('rs')">RS</a>
+                <a class="dropdown-item" href="#" id="enLang" onclick="LANGUAGE.changeLanguage('en')">EN</a>
               </div>
             </li>
           </ul>
@@ -150,7 +150,15 @@
     <!--=============== FOOTER ===============-->
     <p class="text-center text-body-secondary" data-translate="Copyright" data-en="Copyright © 2024 Golden boys. All rights reserved." data-rs="Copyright © 2024 Golden boys. Sva prava zadržana.">Copyright © 2024 Golden boys. All rights reserved.</p>
     <!--=============== /FOOTER ===============-->
-    
+
+    <!-- This functionality automatically reloading a webpage at regular intervals, typically to update content dynamically without user intervention.-->
+    <script>
+      window.onload = function() {
+        setInterval(function() { location.reload(); } , 3000);
+      };
+    </script>
+    <!-- / This functionality automatically reloading a webpage at regular intervals, typically to update content dynamically without user intervention.-->
+   
   </body>
 </html>
 

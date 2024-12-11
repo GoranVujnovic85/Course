@@ -1,15 +1,16 @@
 /*======= OOP programming - Using Class ========*/
 
 class LocationLoader {
-
   constructor(locations) {
-
     this.locations = locations;
   }
 
   loadLocations() {
     const container = document.querySelector('.light-blue-container .row');
     
+    // Clear previous content
+    container.innerHTML = '';
+
     this.locations.forEach(location => {
       // Check if the location is visible
       if (!location.visible) {
@@ -44,6 +45,9 @@ class LocationLoader {
 // When the DOM is loaded we continue
 document.addEventListener('DOMContentLoaded', async function () {
   try {
+    // Automatic refresh page
+    //autoRefresh(3000);
+
     // URL to your JSON file
     const jsonUrl = 'http://localhost/Course/GYM/assets_for_ContactUs/json/config.json';
 
@@ -57,10 +61,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Initialize the class and load the locations
     const loader = new LocationLoader(data.locations);
     loader.loadLocations();
+
   } catch (error) {
     console.error('Error loading JSON:', error);
   }
 });
-
-
-
