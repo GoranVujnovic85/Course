@@ -1,68 +1,68 @@
-// Kreiramo objekat COOKIES kao instancu objekta klase cookiesClass
+// Create the COOKIES object as an instance of the cookiesClass
 var COOKIES = new cookiesClass();
 
 function cookiesClass() {
-  // Metoda koja se poziva prilikom učitavanja stranice
+  // Method called on page load
   this.init = function () {
-    // Proveravamo da li su kolačići već prihvaćeni
+    // Check if cookies have already been accepted
     if (this.getCookie('cookiesAccepted') !== 'true') {
-      // Ako nisu prihvaćeni, prikazujemo baner
+      // If not accepted, display the banner
       document.getElementById('cookieConsent').style.display = 'block';
     } else {
-      // Ako su kolačići već prihvaćeni, omogućavamo funkcionalnosti
+      // If cookies are already accepted, enable functionalities
       this.enableCookies();
     }
 
-    // Dodajemo event listener za prihvatanje kolačića
+    // Add an event listener for accepting cookies
     document.getElementById('acceptCookies').addEventListener('click', this.acceptCookies.bind(this));
   };
 
-  // Metoda za prihvatanje kolačića
+  // Method for accepting cookies
   this.acceptCookies = function () {
     const necessary = document.getElementById('necessaryCookies').checked;
     const preferences = document.getElementById('preferencesCookies').checked;
     const analytics = document.getElementById('analyticsCookies').checked;
 
-    // Postavljamo kolačiće na osnovu izbora korisnika
+    // Set cookies based on user selection
     this.setCookie('cookiesAccepted', 'true', 365);
     this.setCookie('necessaryCookies', necessary ? 'true' : 'false', 365);
     this.setCookie('preferencesCookies', preferences ? 'true' : 'false', 365);
     this.setCookie('analyticsCookies', analytics ? 'true' : 'false', 365);
 
-    // Sakrivamo baner
+    // Hide the banner
     document.getElementById('cookieConsent').style.display = 'none';
 
-    // Omogućavamo kolačiće na osnovu izbora korisnika
+    // Enable cookies based on user selection
     this.enableCookies();
   };
 
-  // Metoda za omogućavanje kolačića
+  // Method to enable cookies
   this.enableCookies = function () {
     if (this.getCookie('necessaryCookies') === 'true') {
-      console.log("Neophodni kolačići omogućeni.");
-      // Dodajte kod za omogućavanje neophodnih kolačića
+      console.log("Necessary cookies enabled.");
+      // Add code to enable necessary cookies
     }
 
     if (this.getCookie('preferencesCookies') === 'true') {
-      console.log("Kolačići za podešavanja omogućeni.");
-      // Dodajte kod za omogućavanje kolačića za podešavanja
+      console.log("Preferences cookies enabled.");
+      // Add code to enable preferences cookies
     }
 
     if (this.getCookie('analyticsCookies') === 'true') {
-      console.log("Analitički kolačići omogućeni.");
-      // Dodajte kod za omogućavanje analitičkih kolačića
+      console.log("Analytics cookies enabled.");
+      // Add code to enable analytics cookies
     }
   };
 
-  // Metoda za postavljanje kolačića
+  // Method to set a cookie
   this.setCookie = function (name, value, days) {
     const d = new Date();
-    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000)); // Računanje isteka kolačića
+    d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000)); // Calculate cookie expiration time
     const expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
   };
 
-  // Metoda za dobijanje vrednosti kolačića
+  // Method to retrieve a cookie value
   this.getCookie = function (name) {
     const decodedCookie = decodeURIComponent(document.cookie);
     const ca = decodedCookie.split(';');
@@ -75,7 +75,7 @@ function cookiesClass() {
   };
 }
 
-// Inicijalizujemo objekat pri učitavanju stranice
+// Initialize the object on page load
 document.addEventListener('DOMContentLoaded', function () {
-  COOKIES.init(); // Inicijalizujemo kolačiće prilikom učitavanja stranice
+  COOKIES.init(); // Initialize cookies on page load
 });
