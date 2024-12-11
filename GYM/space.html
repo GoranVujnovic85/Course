@@ -14,6 +14,7 @@
   <script src="./templateHangler.js"></script> <!-- Locker JS Script -->
   <script src="./IndexJS/ChangeLanguage.js"></script> <!-- Change Language Script -->
   <script src="./space_asset/locker.js"></script> <!-- Locker JS Script -->
+  
 
 
   <!-- Additional Styles -->
@@ -29,51 +30,6 @@
 
 <body style="background-color:lightgray;">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html"><img src="./IndexImages/gymlogo.jfif" alt="logo firme"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html" data-translate="Start Page" data-en="Start page"
-              data-rs="Početna">Početna</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html" data-translate="about" data-en="About us" data-rs="O nama">O nama</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="news.html" data-translate="news" data-en="News" data-rs="Vesti">Vesti</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="space.html" data-translate="space" data-en="Space"
-              data-rs="Prostor">Prostor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contactUs.html" data-translate="contact" data-en="Contact page"
-              data-rs="Kontakt">Kontakt</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html" data-translate="login" data-en="Login" data-rs="Prijavi se">Prijavi
-              se</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false" data-translate="language" data-en="Language" data-rs="Jezik">
-              Jezik
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#" id="rsLang" onclick="LOCKER.changeLanguage('rs')">RS</a>
-              <a class="dropdown-item" href="#" id="enLang" onclick="LOCKER.changeLanguage('en')">EN</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
   </nav>
   <br>
   <br>
@@ -93,55 +49,7 @@
 
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="1"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="2"></li>
-        <li data-target="#carouselExampleControls" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="1000">
-          <img src="https://t3.ftcdn.net/jpg/02/62/10/64/240_F_262106415_YAGm6VXylwGHZhOUQMUIYekQ3Mq9xRdL.jpg"
-            class="d-block w-100" alt="slika1">
-          <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="bicycle" data-en="Training bicycle" data-rs="Trenažni bicikli">Trenažni bicikli</h5>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="1000">
-          <img src="https://t4.ftcdn.net/jpg/01/71/23/49/240_F_171234990_cSNErNz2LkXTP7YxMNzRY3jDhz0laMa2.jpg"
-            class="d-block w-100" alt="slika2">
-          <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="Treadmills" data-en="Tread mills" data-rs="Trake za trčanje">Trake za trčanje</h5>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="1000">
-          <img src="https://t3.ftcdn.net/jpg/00/93/55/88/240_F_93558844_zsJSg3nGtgXX0HSToxWJeBjEt1OIyTHo.jpg"
-            class="d-block w-100" alt="slika3">
-          <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="dumbbells" data-en="Weights and dumbbells" data-rs="Tegovi i bučice">Tegovi i bučice
-            </h5>
-          </div>
-        </div>
-        <div class="carousel-item" data-bs-interval="1000">
-          <img src="https://t3.ftcdn.net/jpg/01/62/91/42/240_F_162914286_O4BwMXsYDASlf49pe69tbUwgT9O7LqNa.jpg"
-            class="d-block w-100" alt="slika3">
-          <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="ambience" data-en="Pleasant ambience" data-rs="Prijatan ambijent">Prijatan ambijent</h5>
-          </div>
-        </div>
-        <div>
-          <!-- Left and right controls -->
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
+     
     </div>
 
 

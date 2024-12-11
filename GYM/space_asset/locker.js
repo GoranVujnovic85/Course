@@ -631,10 +631,10 @@ function lockerClass() {
     localStorage.setItem('selectedLanguage', language);
 
     // Use the LANGUAGE object to change language and update content
-    LANGUAGE.changeLanguage(language);  // Pozivajte funkciju iz ChangeLanguage.js
+    LANGUAGE.changeLanguage(language);  // Call the function from ChangeLanguage.js
 
     // Update the page content immediately after changing the language
-    this.updateContent(language); // Pozivanje updateContent odmah
+    this.updateContent(language); // Call updateContent immediately
     this.locker(data);
     this.displayInactiveIds();
     this.datarows(data);
@@ -694,6 +694,10 @@ function lockerClass() {
 
     return inactiveIds;
   }
+  this.activeClass = function (page) {
+    const currentPage = window.location.pathname.split('/').pop(); // Uzmi ime trenutne stranice iz URL-a
+    return currentPage === page ? 'active' : ''; // Ako je trenutna stranica ta koja je u parametru, dodaj klasu 'active'
+};
 
   // Function to display inactive IDs in the input field
   this.displayInactiveIds = function () {
@@ -762,11 +766,11 @@ function lockerClass() {
       // top - down
       tagDiv.innerHTML = TEMPLATE.render('locker', 'datarow', [
         {
-          key: 'asglkjhgjgsjghalghsakjg',
+          key: 'TranslatedTagId',
           value: selectedTranslations.tagId
         },
         {
-          key: 'TEST2',
+          key: 'TranslatedName',
           value: selectedTranslations.name
         },
         {
@@ -777,12 +781,7 @@ function lockerClass() {
           key: 'tagName',
           value: tag.name
         },
-        {
-          key: 'CLASS',
-          value: 'test123'
-        }
       ])
-
       row.appendChild(tagDiv);
     });
   }
