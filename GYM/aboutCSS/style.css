@@ -32,18 +32,22 @@
 	flex:1;
 	margin-left:2px;
 }
-.joinNow{
-	margin-top:20px;
+.joinNow {
+	margin-top: 20px;
 	display: inline-block;
-	padding: :10px, 20px;
-	background-color:blue;
-	font-size:17px;
-	color:#fff;
+	padding: 10px 20px; /* Fixed padding syntax */
+	background-color: blue;
+	font-size: 17px;
+	color: #fff;
 	text-decoration: none;
 	font-weight: bold;
-	border-radius:10px;
-	transition:0.3s ease;
+	border-radius: 10px;
+	transition: 0.3s ease;
 }
-.joinNow:hover{
-	background-color:#;
+
+.joinNow:hover {
+	background-color: darkblue; /* Replace with a suitable color on hover */
+}
+.nav-link.active {
+  font-weight: bold;
 }

@@ -1,54 +1,61 @@
 var TEMPLATE = new templateClass()
 function templateClass() {
-    this.init = () => {
+  this.init = () => {
+    // Check if we are on the login page first
+    if (window.location.pathname.includes('login.html')) {
+        // If it's login.html, only load the header from the 'common' section
+        document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+    } else {
+        // If it's not login.html, load both header and footer
         document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
         document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+    }
+
+    // Check which page is currently loaded and apply specific changes
+    const currentPage = window.location.pathname.split('/').pop();  // Get only page name (etc. "index.html")
     
-        // Check which page is currently loaded and apply specific changes
-        const currentPage = window.location.pathname.split('/').pop();  // Get only page name (etc. "index.html")
-        
-        // Remove 'active' class from all links in navbar
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => link.classList.remove('active'));
-    
-        // Add 'active' class on current page
-        navLinks.forEach(link => {
-            const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
-            if (linkHref === currentPage) {
-                link.classList.add('active');
-                link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
+    // Remove 'active' class from all links in navbar
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => link.classList.remove('active'));
+
+    // Add 'active' class on current page
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
+        }
+    });
+
+    if (window.location.pathname.includes('index.html')) {
+        // If it's index.html, load the carousel
+        document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
+        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+        document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
+        document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
+        document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
+    }
+
+    if (window.location.pathname.includes('space.html')) {
+        // If it's space.html, load a specific carousel
+        document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
+        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+        // Modify language links for the space page
+        let languageLinks = document.querySelectorAll('.dropdown-item');
+        languageLinks.forEach(link => {
+            if (link.id === 'rsLang') {
+                link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
+            } else if (link.id === 'enLang') {
+                link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
             }
         });
-    
-        if (window.location.pathname.includes('index.html')) {
-            // If it's index.html, load the carousel
-            document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
-            document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-            document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
-            document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
-            document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
-        }
-    
-        if (window.location.pathname.includes('space.html')) {
-            // If it's space.html, load a specific carousel
-            document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
-            document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-            // Modify language links for the space page
-            let languageLinks = document.querySelectorAll('.dropdown-item');
-            languageLinks.forEach(link => {
-                if (link.id === 'rsLang') {
-                    link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
-                } else if (link.id === 'enLang') {
-                    link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
-                }
-            });
-        }
     }
+}
     this.templates = {
         common: {
             header:`
                 <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="./IndexImages/gymlogo.jfif" alt="logo firme"></a>
+                <a class="navbar-brand" href="index.html"><img src="./assets_for_Index/IndexImages/gymlogo.jfif" alt="logo firme"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -224,7 +231,7 @@ function templateClass() {
           <!-- Basic membership -->
           <div class="col-md-4">
             <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-              <img src="./IndexImages/basic.jfif" class="card-img-top" alt="Basic" style="width: 100%; height: 200px; object-fit: cover;">
+              <img src="./assets_for_Index/IndexImages/basic.jfif" class="card-img-top" alt="Basic" style="width: 100%; height: 200px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Basic membership" data-rs="Basic članarina"></h5>
                 <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Basic membership is ideal for those who want to focus on strength training. This membership includes access to all weights and weightlifting equipment, such as dumbbells, strength training weights, and muscle-building machines." data-rs="Basic članarina je idealna za one koji žele da se fokusiraju na trening snage. Ova članarina uključuje pristup svim tegovima i spravama sa tegovima, kao što su bučice, tegovi za vežbe snage i sprave za trening mišića."></p>
@@ -236,7 +243,7 @@ function templateClass() {
           <!-- Premium membership -->
           <div class="col-md-4">
             <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-              <img src="./IndexImages/premium.jfif" class="card-img-top" alt="Premium" style="width: 100%; height: 200px; object-fit: cover;">
+              <img src="./assets_for_Index/IndexImages/premium.jfif" class="card-img-top" alt="Premium" style="width: 100%; height: 200px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Premium membership" data-rs="Premium članarina"></h5>
                 <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Premium membership offers full access to all gym facilities, including weights and weightlifting equipment, as well as all cardio machines. It is perfect for those who want to combine strength training with aerobic exercises." data-rs="Premium članarina nudi kompletan pristup svim sadržajima u teretani, uključujući tegovima i spravama sa tegovima, kao i svim kardio aparatima. Idealna je za one koji žele da kombinuju trening snage sa aerobnim vežbama."></p>
@@ -248,7 +255,7 @@ function templateClass() {
           <!-- Platinum membership -->
           <div class="col-md-4">
             <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-              <img src="./IndexImages/platinum.jfif" class="card-img-top" alt="Platinum" style="width: 100%; height: 200px; object-fit: cover;">
+              <img src="./assets_for_Index/IndexImages/platinum.jfif" class="card-img-top" alt="Platinum" style="width: 100%; height: 200px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Platinum membership" data-rs="Platinum članarina"></h5>
                 <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Platinum membership includes all the benefits of the Premium membership, with full access to weights, weightlifting equipment, and all cardio machines. Additionally, it offers the extra privilege of complimentary shakes at the bar." data-rs="Platinum članarina uključuje sve pogodnosti Premium članarine, sa potpunim pristupom tegovima, spravama sa tegovima i svim kardio aparatima, a uz to, pruža vam i dodatnu privilegiju besplatnih šejkova u baru."></p>
@@ -270,7 +277,7 @@ function templateClass() {
       </div>
       `
       ,gymbar:`
-      <img src="./IndexImages/GymBar.jfif" class="gymbar-img" alt="GymBar">
+      <img src="./assets_for_Index/IndexImages/GymBar.jfif" class="gymbar-img" alt="GymBar">
       <div class="gymbar-overlay">
         <h5 class="gymbar-title" data-translate="GymBar" data-en="GymBar - Energy and Recovery" data-rs="GymBar - Energija i oporavak"></h5>
         <p class="gymbar-text" data-translate="GymBar" data-en="At our GymBar, we offer a wide selection of refreshing drinks, including healthy protein shakes and energy drinks. You can also enjoy delicious protein meals that will help you recover after an intense workout and achieve your fitness goals." data-rs="U našem GymBaru nudi se veliki izbor osvežavajućih pića, uključujući zdrave proteinske šejkove i energetske napitke. Takođe, uživajte u ukusnim proteinskim obrocima koji će vam pomoći da se oporavite nakon napornog treninga i postignete svoje fitnes ciljeve."></p>
