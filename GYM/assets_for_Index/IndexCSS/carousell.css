@@ -1,0 +1,20 @@
+#carouselExampleControls {
+  width: 100%; /* Podesite širinu da bude 100% od roditeljskog elementa */
+  max-width: 1200px; /* Maksimalna širina carousela (možete prilagoditi po želji) */
+  margin: 0 auto; /* Centriranje carousela */
+  padding: 20px; /* Dodavanje margine oko carousela */
+}
+
+.carousel-item {
+  height: 500px; /* Fiksna visina za svaku sliku u carouselu */
+  object-fit: cover; /* Osigurava da slike popune prostor bez da se deformišu */
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Poluprovidna pozadina za bolju čitljivost teksta */
+  padding: 10px;
+  border-radius: 10px;
+}
+.nav-link.active {
+  font-weight: bold;
+}

@@ -11,8 +11,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> <!-- Bootstrap JS -->
 
   <!-- Custom JS files -->
-  <script src="./templateHangler.js"></script> <!-- Locker JS Script -->
-  <script src="./IndexJS/ChangeLanguage.js"></script> <!-- Change Language Script -->
+  <script src="./templateHangler.js"></script> <!-- Templates JS Script -->
+  <script src="./ChangeLanguage.js"></script> <!-- Change Language Script -->
   <script src="./space_asset/locker.js"></script> <!-- Locker JS Script -->
   
 
@@ -20,9 +20,9 @@
   <!-- Additional Styles -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./IndexCSS/carousell.css">
-  <link rel="stylesheet" href="./IndexCSS/membership.css">
-  <link rel="stylesheet" href="./IndexCSS/gymbar.css">
+  <link rel="stylesheet" href="./assets_for_Index/IndexCSS/carousell.css">
+  <link rel="stylesheet" href="./assets_for_Index/IndexCSS/membership.css">
+  <link rel="stylesheet" href="./assets_for_Index/IndexCSS/gymbar.css">
   <link rel="stylesheet" href="./space_asset/display_style.css">
 
   <title>Space</title>
@@ -83,6 +83,19 @@
     </footer>
     <!-- Footer -->
   </div>
+
+  <!--========================= Auto Refresh Page ===========================-->
+    <!-- The auto-refresh is initiated from the autoRefresh.js file. ----------> 
+    <!-- The interval is a global variable that is also located in that file.-->
+    <script type="module">
+      import AutoRefresh from './assets_for_ContactUs/js/autoRefresh.js';
+
+      // Create an instance and start auto-refreshing.
+      const autoRefresh = new AutoRefresh();
+      autoRefresh.start();
+
+    </script>
+  <!--======================== /Auto Refresh Page ===========================-->
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
