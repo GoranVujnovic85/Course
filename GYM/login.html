@@ -6,7 +6,6 @@
     <!--=============== REMIXICONS ===============-->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
     <!--=============== /REMIXICONS ===============-->
-
     <!--=============== CSS FILES ===============-->
       <link rel="stylesheet" href="./assets_for_LogIn/css/styles1.css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -20,7 +19,7 @@
       <!--=============== JS CUSTOM FILES ===============-->
       <script src="./templateHangler.js"></script> 
       <script src="./assets_for_LogIn/js/showHiddenPassword.js"></script>
-      <script src="./assets_for_LogIn/js/userMenager.js"></script>
+      <script src="./assets_for_LogIn/js/config.js"></script>
       <script src="./ChangeLanguage.js"></script>
     <!--=============== /JS CUSTOM FILES ===============-->
     <!--=============== /JS FILES ===============-->
@@ -29,14 +28,9 @@
   <body>
     <!--=============== NAVIGATION MENU ===============--> 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="./assets_for_ContactUs/img/logo.jpg" alt="logo firme"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-           
+      <!------------------------------------------------------------>
+      <!-- The navigation menu is displayed through the TEMPLATE. -->
+      <!------------------------------------------------------------>
     </nav> 
     <!--=============== /NAVIGATION MENU ===============--> 
 
@@ -79,11 +73,9 @@
           <div>
           <div class="login__buttons">
             <button class="login__button" id="login__button_ID" data-translate="Log In" data-en="Log In" data-rs="Prijavi se">Log In</button>
-            <button class="login__button login__button-ghost" data-translate="Sign Up" data-en="Sign Up" data-rs="Registruj se">Sign Up</button>
+            <button type="button" id="signup__button_ID" class="login__button login__button-ghost" data-translate="Sign Up" data-en="Sign Up" data-rs="Registruj se">Sign Up</button>
           </div>
-          <!--=============== FORGOT PASSWORD ===============--> 
-          <a class="login__forgot" href="./assets_for_LogIn/html/Reset_Password.html" data-translate="Forgot Password?" data-en="Forgot Password?" data-rs="Zaboravljena lozinka?">Forgot Password?</a>
-          <!--=============== /FORGOT PASSWORD ===============--> 
+          <a class="login__forgot" href="#" data-translate="Forgot Password?" data-en="Forgot Password?" data-rs="Zaboravljena lozinka?">Forgot Password?</a>
         </div>
         <!--=============== /LOG IN FORM ===============--> 
       </div>
@@ -91,14 +83,8 @@
     <!--=============== /MAIN CONTENT ===============-->
 
     <!--=============== FOOTER ===============-->
-    <div class="container">
-      <footer class="text-center text-lg-start bg-body-tertiary text-muted">
-      <!------------------------------------------------>
-      <!-- Foother is displayed through the TEMPLATE. -->
-      <!------------------------------------------------>
-      </footer>
-    </div>
-    <!--=============== /FOOTER ===============-->
+    <!--------------- In progress... ----------->
+    <!--============== /FOOTER ===============-->
 
     <!--========================= Auto Refresh Page ===========================-->
     <!-- The auto-refresh is initiated from the autoRefresh.js file. ----------> 
