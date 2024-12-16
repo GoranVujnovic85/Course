@@ -608,16 +608,16 @@ const translations = {
     freeLockersMessage: "The following lockers are free:",
     noFreeLockersMessage: "No free lockers available.",
     lockersPlaceholder: "Lockers will be displayed here",
-    tagId: "Tag ID",
-    name: "Name",
+    tagId: "Locker number",
+    name: "User name",
   },
   rs: {
     freeLockers: "Slobodni ormarići",
     freeLockersMessage: "Sledeći ormarići su slobodni:",
     noFreeLockersMessage: "Nema slobodnih ormarića.",
     lockersPlaceholder: "Ormarići će biti prikazani ovde",
-    tagId: "ID oznake",
-    name: "Naziv",
+    tagId: "Broj ormarića",
+    name: "Ime korisnika",
   }
 };
 
@@ -697,7 +697,7 @@ function lockerClass() {
   this.activeClass = function (page) {
     const currentPage = window.location.pathname.split('/').pop(); // Uzmi ime trenutne stranice iz URL-a
     return currentPage === page ? 'active' : ''; // Ako je trenutna stranica ta koja je u parametru, dodaj klasu 'active'
-};
+  };
 
   // Function to display inactive IDs in the input field
   this.displayInactiveIds = function () {

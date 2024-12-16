@@ -3,57 +3,58 @@ function templateClass() {
   this.init = () => {
     // Check if we are on the login page first
     if (window.location.pathname.includes('login.html')) {
-        // If it's login.html, only load the header from the 'common' section
-        document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+      // If it's login.html, only load the header from the 'common' section
+      document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
     } else {
-        // If it's not login.html, load both header and footer
-        document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
-        document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+      // If it's not login.html, load both header and footer
+      document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
+      document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
     }
 
     // Check which page is currently loaded and apply specific changes
     const currentPage = window.location.pathname.split('/').pop();  // Get only page name (etc. "index.html")
-    
+
     // Remove 'active' class from all links in navbar
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => link.classList.remove('active'));
 
     // Add 'active' class on current page
     navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
-        if (linkHref === currentPage) {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
-        }
+      const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
+      if (linkHref === currentPage) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
+      }
     });
 
     if (window.location.pathname.includes('index.html')) {
-        // If it's index.html, load the carousel
-        document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
-        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-        document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
-        document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
-        document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
+      // If it's index.html, load the carousel
+      document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
+      document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+      document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
+      document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
+      document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
     }
 
     if (window.location.pathname.includes('space.html')) {
-        // If it's space.html, load a specific carousel
-        document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
-        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-        // Modify language links for the space page
-        let languageLinks = document.querySelectorAll('.dropdown-item');
-        languageLinks.forEach(link => {
-            if (link.id === 'rsLang') {
-                link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
-            } else if (link.id === 'enLang') {
-                link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
-            }
-        });
+      // If it's space.html, load a specific carousel
+      document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
+      document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+      document.getElementById('containertext').innerHTML = this.render('locker', 'container', []);
+      // Modify language links for the space page
+      let languageLinks = document.querySelectorAll('.dropdown-item');
+      languageLinks.forEach(link => {
+        if (link.id === 'rsLang') {
+          link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
+        } else if (link.id === 'enLang') {
+          link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
+        }
+      });
     }
-}
-    this.templates = {
-        common: {
-            header:`
+  }
+  this.templates = {
+    common: {
+      header: `
                 <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="./assets_for_Index/IndexImages/gymlogo.jfif" alt="logo firme"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -100,7 +101,7 @@ function templateClass() {
                 </div>
                 </div>
             `
-            ,footer: `<!-- Section: Links  -->
+      , footer: `<!-- Section: Links  -->
                 <section class="container">
                     <div class="container text-center text-md-start mt-5">
                     <!-- Grid row -->
@@ -184,9 +185,9 @@ function templateClass() {
                     data-rs="Copyright © 2024 Golden boys. Sva prava zadržana.">Copyright © 2024 Golden boys. All rights reserved.
                 </p>
         `
-        },
-        index: {
-            carousel:`
+    },
+    index: {
+      carousel: `
             <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="https://img.freepik.com/free-photo/portrait-fitness-influencer_23-2151564844.jpg" class="d-block w-100" alt="slika1">
@@ -224,7 +225,7 @@ function templateClass() {
       </div>
     </div>
             `
-        ,membership:`
+      , membership: `
          <div class="container">
         <h2 class="text-center" style="margin-bottom: 30px; font-size: 36px; font-weight: bold;" data-translate="Membership" data-en="Choose your membership" data-rs="Izaberite članarinu"></h2>
         <div class="row">
@@ -267,7 +268,7 @@ function templateClass() {
         </div>
       </div> 
         `
-      ,worktime:`
+      , worktime: `
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: rgb(255, 224, 224); font-size: 42px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); text-align: center; background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
         <h2 id="work-time-title"></h2>
         <p id="work-time-info"></p>
@@ -276,14 +277,14 @@ function templateClass() {
         <p id="notice-info"></p>
       </div>
       `
-      ,gymbar:`
+      , gymbar: `
       <img src="./assets_for_Index/IndexImages/GymBar.jfif" class="gymbar-img" alt="GymBar">
       <div class="gymbar-overlay">
         <h5 class="gymbar-title" data-translate="GymBar" data-en="GymBar - Energy and Recovery" data-rs="GymBar - Energija i oporavak"></h5>
         <p class="gymbar-text" data-translate="GymBar" data-en="At our GymBar, we offer a wide selection of refreshing drinks, including healthy protein shakes and energy drinks. You can also enjoy delicious protein meals that will help you recover after an intense workout and achieve your fitness goals." data-rs="U našem GymBaru nudi se veliki izbor osvežavajućih pića, uključujući zdrave proteinske šejkove i energetske napitke. Takođe, uživajte u ukusnim proteinskim obrocima koji će vam pomoći da se oporavite nakon napornog treninga i postignete svoje fitnes ciljeve."></p>
       </div>
       `
-      ,cookies:`
+      , cookies: `
         <p style="margin: 0;" data-translate="Cookies" data-en="This website uses cookies to enhance the user experience. By clicking Accept,you agree to the use of cookies." data-rs="Ova stranica koristi kolačiće za poboljšanje korisničkog iskustva. Klikom na ''Prihvatam''', slažete se sa korišćenjem kolačića."></p>
       <label for="necessaryCookies" data-en="Necessary Cookies" data-rs="Neophodni kolačići">
         <input type="checkbox" id="necessaryCookies" data-translate="CookiesAccept">
@@ -300,9 +301,9 @@ function templateClass() {
       <br>
       <button id="acceptCookies" style="background-color: #007bff; border: none; color: white; padding: 8px 16px; font-size: 14px; cursor: pointer; margin-top: 5px;" data-translate="CookiesAccept" data-en="Accept" data-rs="Prihvatam"></button>
       `},
-        contact: {},
-        locker: {
-            carousel:`
+    contact: {},
+    locker: {
+      carousel: `
              <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleControls" data-slide-to="0" class="active"></li>
@@ -353,26 +354,35 @@ function templateClass() {
         </div>
       </div>
             `
-            ,datarow: `
+      ,
+      container: `    
+      <h1 style="color:orange;text-align: center;" data-translate="h1content"
+      data-en="In our gym you will enjoy a pleasant environment where 
+      you'll find a wide range of the latest exercise equipment at your disposal. Our employees are at your disposal and will be happy to help you with all your questions."
+      data-rs="U našoj teratani uživaćete u prijatnom ambijentu gde na
+      raspolaganju imate bogat asortiman najnovije opreme za vežbanje. Naši zaposleni Vam stoje na raspolaganju i rado će Vam pomoći oko svih vaših pitanja."> U našoj teratani uživaćete u prijatnom ambijentu gde na
+      raspolaganju imate bogat asortiman najnovije opreme za vežbanje. Naši zaposleni Vam stoje na raspolaganju i rado
+      će Vam pomoći oko svih vaših pitanja. </h1>`
+      , datarow: `
                 <p class="{{selectedTranslations.tagId}}"><strong>{{TranslatedTagId}}:</strong> {{tagId}}</p>
       <p class="{{selectedTranslations.name}}"><strong>{{TranslatedName}}:</strong> {{tagName}}</p>
             `
-        }
     }
+  }
 
-    this.render = (templateRegion, templateName, translate) => {
-        let dataReturn = this.templates[templateRegion][templateName];
-    
-        translate.forEach((translateObject) => {
-            dataReturn = dataReturn.replace('{{' + translateObject.key + '}}', translateObject.value);
-        });
-    
-        return dataReturn;
-    }
+  this.render = (templateRegion, templateName, translate) => {
+    let dataReturn = this.templates[templateRegion][templateName];
+
+    translate.forEach((translateObject) => {
+      dataReturn = dataReturn.replace('{{' + translateObject.key + '}}', translateObject.value);
+    });
+
+    return dataReturn;
+  }
 }
 
 
 // Set the language on page load
 document.addEventListener('DOMContentLoaded', () => {
-    TEMPLATE.init(); // Initialize the language when the page is loaded
-  });
+  TEMPLATE.init(); // Initialize the language when the page is loaded
+});
