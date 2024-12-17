@@ -10,7 +10,7 @@ export default class AutoRefresh {
       this.timerId = null;
     }
     // Static variable for global interval
-    static globalInterval = 15000; 
+    static globalInterval = 30000; 
   
     start() {
       if (!this.timerId) {

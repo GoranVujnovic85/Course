@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   try {
        
     // URL to your JSON file
-    const jsonUrl = 'http://localhost/Course/GYM/assets_for_ContactUs/json/config.json?timestamp=${Date.now()}';
+    const jsonUrl = `http://localhost/Course/GYM/assets_for_ContactUs/json/config.json?timestamp=${Date.now()}`;
    
     // Loading the JSON file
     const response = await fetch(jsonUrl);
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const data = await response.json();
-   
+   debugger
     // Initialize the class and load the locations
     const loader = new LocationLoader(data.locations);
     loader.loadLocations();
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     
     // Start the auto-refresh.
     autoRefresh.start();
-     
+    
   } 
   catch (error) {
     //console.error('Error loading JSON:', error);

@@ -1,0 +1,36 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-image: url('/Course/GYM/assets_for_Maintenance/img/image.avif'); 
+  background-size: cover; 
+  background-position: center; 
+}
+
+.container {
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: black;
+}
+
+p {
+  font-size: 1.2em;
+  margin: 20px 0;
+  color: black;
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 0.9em;
+  color: black;
+}
