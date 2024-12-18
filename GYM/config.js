@@ -675,5 +675,4 @@ function configClass() {
     }
 
     this.defaultLanguage =  'en';
-    this.maintanence =  true;
 }

@@ -10,47 +10,21 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  <!--========================= Auto Refresh Page ===========================-->
+    <!-- The auto-refresh is initiated from the autoRefresh.js file. ----------> 
+    <!-- The interval is a global variable that is also located in that file.-->
+ <!--  <script src="./assets_for_ContactUs/js/autoRefresh.js"></script> I think this should only be enabled when there is maintenance mode ON-->
+  <!--======================== /Auto Refresh Page ===========================-->
   <!--Custom JS-->
   <script src="./templateHangler.js"></script>
   <script src="./ChangeLanguage.js"></script>
 
-  <title>About us</title>
+  <title data-translate="title" data-en="About us" data-rs="O nama"></title>
 </head>
-
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
   </nav>
-
-  <div class="containter">
-    <h1 class="title" data-translate="About Us" data-en="About Us" data-rs="O nama">O nama</h1>
-    <div class="about-content">
-    <div class="image">
-      <img src="aboutIMG/n1.webp">
-    </div>  
-      <div class="content">
-        <p data-translate="massage" data-en="The first Mega Gym fitness center was opened in June 2016 in New Belgrade.
-
-Mega Gym is the only regional chain of fitness clubs located in seven locations in Serbia and one in Bosnia and Herzegovina (Dorćol, Novi Beograd, Zemun, Zemun Polje, Batajnica, Smederevo, Trebinje and Novi Sad).
-
-The concept of Mega Gym was created on the basis of many years of experience of the owner in the field of sports management, fitness and recreation. It is a perfect combination of superior space design and latest generation equipment. The result is a completely different place for recreation compared to everything that has been seen so far in the offer of fitness clubs in Serbia. Mega Gym is a place where you will find refuge from everyday stress and feel the energy of our Mega team." data-rs="Prvi Mega Gym fitnes centar otvoren je u junu 2016. godine na Novom Beogradu.
-
-Mega Gym je jedini regionalni lanac fitnes klubova koji se nalazi na sedam lokacija u Srbiji i jednoj na teritoriji Bosne i Hercegovine (Dorćol, Novi Beograd, Zemun, Zemun Polje, Batajnica, Smederevo, Trebinje i Novi Sad).
-
-Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblasti sportskog menadžmenta, fitnesa i rekreacije. U pitanju je savršen spoj vrhunskog dizajna prostora i opreme poslednje generacije.  Rezultat je potpuno drugačije mesto za rekreaciju u odnosu na sve što je do sada viđeno u ponudi fitnes klubova u Srbiji.  Mega Gym je mesto na kojem ćete naći utočište od svakodnevnog stresa i osetiti energiju našeg Mega tima.">Prvi Mega Gym fitnes centar otvoren je u junu 2016. godine na Novom Beogradu.
-
-Mega Gym je jedini regionalni lanac fitnes klubova koji se nalazi na sedam lokacija u Srbiji i jednoj na teritoriji Bosne i Hercegovine (Dorćol, Novi Beograd, Zemun, Zemun Polje, Batajnica, Smederevo, Trebinje i Novi Sad).
-
-Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblasti sportskog menadžmenta, fitnesa i rekreacije. U pitanju je savršen spoj vrhunskog dizajna prostora i opreme poslednje generacije.  Rezultat je potpuno drugačije mesto za rekreaciju u odnosu na sve što je do sada viđeno u ponudi fitnes klubova u Srbiji.  Mega Gym je mesto na kojem ćete naći utočište od svakodnevnog stresa i osetiti energiju našeg Mega tima.
-</p>
-<p data-translate="About Us" data-en="Mega Gym fitness centers are equipped with the best cardio machines and a large number of places for exercise. They have multifunctional halls (integrated exercise space), monitors for watching TV programs, changing rooms with a large number of wardrobes, showers and toilets. Each location has plenty of natural light, as well as state-of-the-art ventilation systems. Special attention is paid to the sound system and the selection of adequate music, which will motivate you to give your best on the way to achieving results." data-rs="Fitnes centri Mega Gym opremljeni su najboljim kardio mašinama i velikim brojem mesta za vežbanje. Poseduju multifunkcionalne sale (integrisan prostor za vežbanje), monitore za praćenje TV programa, svlačionice sa velikim brojem garderobnih ormarića, tuševa i toaleta. Svaka lokacija ima dosta prirodnog svetla, ali i najsavremenije sisteme ventilacije. Posebna pažnja je posvećena ozvučenju i odabiru adekvatne muzike, koja će vas motivisati da date najbolje od sebe na putu ka ostvarenju rezultata.">Fitnes centri Mega Gym opremljeni su najboljim kardio mašinama i velikim brojem mesta za vežbanje. Poseduju multifunkcionalne sale (integrisan prostor za vežbanje), monitore za praćenje TV programa, svlačionice sa velikim brojem garderobnih ormarića, tuševa i toaleta. Svaka lokacija ima dosta prirodnog svetla, ali i najsavremenije sisteme ventilacije. Posebna pažnja je posvećena ozvučenju i odabiru adekvatne muzike, koja će vas motivisati da date najbolje od sebe na putu ka ostvarenju rezultata.
-
-</p>
-        
-        <a href="login.html" class="joinNow" data-translate="Join" data-en="Join now" data-rs="Prijavi se"></a>
-      </div>
-    </div>   
+  <div class="containter" id="title-info">    
   </div>
 
   <!--Footer-->
@@ -58,23 +32,6 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
     <footer class="text-center text-lg-start bg-body-tertiary text-muted">
       
     </footer>
-<<<<<<< HEAD
-
-    <!--========================= Auto Refresh Page ===========================-->
-    <!-- The auto-refresh is initiated from the autoRefresh.js file. ----------> 
-    <!-- The interval is a global variable that is also located in that file.-->
-    <script type="module">
-      import AutoRefresh from './assets_for_ContactUs/js/autoRefresh.js';
-
-      // Create an instance and start auto-refreshing.
-      const autoRefresh = new AutoRefresh();
-      autoRefresh.start();
-
-    </script>
-  <!--======================== /Auto Refresh Page ===========================-->
-  
-=======
->>>>>>> f5ae3fa4fec18d77c8c0fa0f3d7a2234eb4920d3
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

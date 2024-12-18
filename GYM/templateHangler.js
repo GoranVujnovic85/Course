@@ -2,14 +2,9 @@ var TEMPLATE = new templateClass()
 function templateClass() {
   this.init = () => {
     // Check if we are on the login page first
-    if (window.location.pathname.includes('login.html')) {
-      // If it's login.html, only load the header from the 'common' section
-      document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
-    } else {
-      // If it's not login.html, load both header and footer
-      document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
-      document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
-    }
+    document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+    document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
+  
 
     // Check which page is currently loaded and apply specific changes
     const currentPage = window.location.pathname.split('/').pop();  // Get only page name (etc. "index.html")
@@ -31,6 +26,7 @@ function templateClass() {
       // If it's index.html, load the carousel
       document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
       document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+      document.getElementById('image-info').innerHTML = this.render('index', 'image', []);
       document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
       document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
       document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
@@ -50,6 +46,20 @@ function templateClass() {
           link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
         }
       });
+    }
+    if (window.location.pathname.includes('about.html')) {
+      // If it's about.html, load specific content
+      document.getElementById('title-info').innerHTML = this.render('about', 'title', []);
+      document.getElementById('about-gym').innerHTML = this.render('about', 'info', []);
+    }
+    if (window.location.pathname.includes('contactUs.html')) {
+      // If it's contactus.html, load specific content
+      document.getElementById('Contact-container').innerHTML = this.render('contact', 'form', []);
+      document.getElementById('Locations-container').innerHTML = this.render('contact', 'locations', []);
+    }
+    if (window.location.pathname.includes('login.html')) {
+      // If it's login.html, load specific content for login page
+      document.getElementById('login-form').innerHTML = this.render('login', 'form', []);
     }
   }
   this.templates = {
@@ -225,6 +235,9 @@ function templateClass() {
       </div>
     </div>
             `
+            ,image:`
+            <p id="info-text" class="info-text" data-translate="info" data-en="Our gym offers a wide range of equipment to meet all your needs, whether you're a beginner or an experienced athlete. We have 12 treadmills, 3 bench press stations, 8 spinning bikes, and 5 step machines for cardio workouts. Additionally, there are 4 back machines, 6 different leg machines, 4 shoulder machines, and 10 muscle isolation machines. For weightlifting enthusiasts, we have 20 sets of weights in various sizes, including Olympic bars and dumbbells, as well as 5 power racks and 3 leg press machines. All of our equipment is top-quality and regularly maintained, ensuring a safe and effective experience. Whether you want to improve endurance, strength, or muscle mass, our facility is equipped for anyone striving to achieve exceptional results." data-rs="Naša teretana nudi širok spektar opreme koja zadovoljava sve vaše potrebe, bilo da ste početnik ili iskusni sportista. Na raspolaganju imamo 12 traka za trčanje, 3 klupe za benč, 8 bicikala za spinning, kao i 5 stepera za kardio treninge. Takođe, tu su 4 mašine za leđa, 6 različitih sprava za noge, 4 mašine za ramena, kao i 10 mašina za izolaciju mišića. Za ljubitelje treninga sa tegovima, imamo 20 setova tegova različitih težina, uključujući olimpijske i dumbbells, kao i 5 power rack-ova i 3 leg press mašine. Svi naši uređaji su vrhunskog kvaliteta i redovno se održavaju, pružajući vam sigurno i efikasno iskustvo. Bilo da želite da poboljšate izdržljivost, snagu ili mišićnu masu, naš prostor je opremljen za svakoga ko želi da postigne vrhunske rezultate."></p>
+            `
       , membership: `
          <div class="container">
         <h2 class="text-center" style="margin-bottom: 30px; font-size: 36px; font-weight: bold;" data-translate="Membership" data-en="Choose your membership" data-rs="Izaberite članarinu"></h2>
@@ -301,7 +314,102 @@ function templateClass() {
       <br>
       <button id="acceptCookies" style="background-color: #007bff; border: none; color: white; padding: 8px 16px; font-size: 14px; cursor: pointer; margin-top: 5px;" data-translate="CookiesAccept" data-en="Accept" data-rs="Prihvatam"></button>
       `},
-    contact: {},
+      about:{
+        info:`
+        <p data-translate="massage" data-en="The first Mega Gym fitness center was opened in June 2016 in New Belgrade.
+
+Mega Gym is the only regional chain of fitness clubs located in seven locations in Serbia and one in Bosnia and Herzegovina (Dorćol, Novi Beograd, Zemun, Zemun Polje, Batajnica, Smederevo, Trebinje and Novi Sad).
+
+The concept of Mega Gym was created on the basis of many years of experience of the owner in the field of sports management, fitness and recreation. It is a perfect combination of superior space design and latest generation equipment. The result is a completely different place for recreation compared to everything that has been seen so far in the offer of fitness clubs in Serbia. Mega Gym is a place where you will find refuge from everyday stress and feel the energy of our Mega team." data-rs="Prvi Mega Gym fitnes centar otvoren je u junu 2016. godine na Novom Beogradu.
+
+Mega Gym je jedini regionalni lanac fitnes klubova koji se nalazi na sedam lokacija u Srbiji i jednoj na teritoriji Bosne i Hercegovine (Dorćol, Novi Beograd, Zemun, Zemun Polje, Batajnica, Smederevo, Trebinje i Novi Sad).
+
+Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblasti sportskog menadžmenta, fitnesa i rekreacije. U pitanju je savršen spoj vrhunskog dizajna prostora i opreme poslednje generacije.  Rezultat je potpuno drugačije mesto za rekreaciju u odnosu na sve što je do sada viđeno u ponudi fitnes klubova u Srbiji.  Mega Gym je mesto na kojem ćete naći utočište od svakodnevnog stresa i osetiti energiju našeg Mega tima."></p>
+<p data-translate="About Us" data-en="Mega Gym fitness centers are equipped with the best cardio machines and a large number of places for exercise. They have multifunctional halls (integrated exercise space), monitors for watching TV programs, changing rooms with a large number of wardrobes, showers and toilets. Each location has plenty of natural light, as well as state-of-the-art ventilation systems. Special attention is paid to the sound system and the selection of adequate music, which will motivate you to give your best on the way to achieving results." data-rs="Fitnes centri Mega Gym opremljeni su najboljim kardio mašinama i velikim brojem mesta za vežbanje. Poseduju multifunkcionalne sale (integrisan prostor za vežbanje), monitore za praćenje TV programa, svlačionice sa velikim brojem garderobnih ormarića, tuševa i toaleta. Svaka lokacija ima dosta prirodnog svetla, ali i najsavremenije sisteme ventilacije. Posebna pažnja je posvećena ozvučenju i odabiru adekvatne muzike, koja će vas motivisati da date najbolje od sebe na putu ka ostvarenju rezultata."></p>
+        
+        <a href="login.html" class="joinNow" data-translate="Join" data-en="Join now" data-rs="Prijavi se"></a>
+        `
+      ,title:`
+      <h1 class="title" data-translate="About Us" data-en="About Us" data-rs="O nama"></h1>
+    <div class="about-content">
+    <div class="image">
+      <img src="aboutIMG/n1.webp">
+    </div>  
+      <div class="content" id="about-gym">  
+      </div>
+    </div> 
+      `},
+  contact: {
+      form:`
+        <h1 data-translate="Get in Touch" data-en="Get in Touch" data-rs="Kontaktirajte nas">Get in Touch</h1>
+      <p data-translate="Fill up the form to get in touch with us." data-en="Fill up the form to get in touch with us." data-rs="Popunite formu da biste stupili u kontakt sa nama.">Fill up the form to get in touch with us.</p>
+      <!--=============== FILL THE FORM ===============-->
+      <div class="contact-box">
+        <div class="container-left">
+          <h3 data-translate="Fill the Form" data-en="Fill the Form" data-rs="Popunite formu">Fill the Form*</h3>
+          <div id="contactForm">
+            <div class="input-row">
+              <div class="input-group">
+                <label data-translate="Name" data-en="Name" data-rs="Ime">Name*</label>
+                <input type="text" id="name" name="name" placeholder="Enter your Name" data-placeholder-en="Enter your Name" data-placeholder-rs="Unesite svoje ime" required>
+              </div>
+              <div class="input-group">
+                <label data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone*</label>
+                <input type="text" id="phone" name="phone" placeholder="+381 21 332243" required>
+              </div>
+            </div>
+            <div class="input-row">
+            <div class="input-group">
+              <label data-translate="Email" data-en="Email" data-rs="Email">Email*</label>
+              <input type="email" id="email" name="email" placeholder="example@example.com" data-placeholder-en="example@example.com" data-placeholder-rs="primer@primer.com" required>
+            </div>
+            <div class="input-group">
+              <label data-translate="Subject" data-en="Subject" data-rs="Predmet">Subject*</label>
+              <input type="text" id="subject" name="subject" placeholder="Inquiry" data-placeholder-en="Inquiry" data-placeholder-rs="Upit">
+            </div>
+          </div>
+          <label data-translate="Message" data-en="Message" data-rs="Poruka">Message*</label>
+          <textarea rows="10" id="message" name="message" placeholder="Enter your Message" data-placeholder-en="Enter your Message" data-placeholder-rs="Unesite svoju poruku" required></textarea>
+          <button type="button" id="submit" class="btn-submit" onclick="submitForm()" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
+          <!--<button type="submit" id="submit" class="btn-submit" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>-->
+        </div>
+      </div>
+      <!--=============== /FILL THE FORM ===============-->
+
+      <!--=============== INFO CONTAINER ===============-->
+      <div class="container-right">
+        <h3 data-translate="Reach Us" data-en="Reach Us" data-rs="Kontaktirajte nas">Reach Us</h3>
+        <table>
+          <tr>
+            <td data-translate="Email" data-en="Email" data-rs="Email">Email:</td>
+            <td>megagymNS@gmail.com</td>
+          </tr>
+          <tr>
+            <td data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone:</td>
+            <td>+381 21 555 333</td>
+          </tr>
+          <tr>
+            <td data-translate="Address" data-en="Address" data-rs="Adresa">Address:</td>
+            <td>Mega Gym Novi Sad <br> Temerinska 95, Novi Sad <br> Serbia</td>
+          </tr>
+        </table>
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2807.829673047405!2d19.838563876202517!3d45.27145374627858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1158c4e50b23%3A0xfe3822cedd7d0308!2sMega%20Gym%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1732103410152!5m2!1ssr!2srs"
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <!--=============== /INFO CONTAINER ===============-->
+    </div>
+      `
+    ,locations:`
+     <h3 data-translate="Other Locations" data-en="Other Locations:" data-rs="Ostale Lokacije:"></h3>
+      <div class="row"id="gym-locations">
+        <!--------------------------------------------------------->
+        <!--Other Locations are called from the config.json file-->
+        <!--------------------------------------------------------->
+      </div>
+    `},
     locker: {
       carousel: `
              <!-- Indicators -->
@@ -367,6 +475,55 @@ function templateClass() {
                 <p class="{{selectedTranslations.tagId}}"><strong>{{TranslatedTagId}}:</strong> {{tagId}}</p>
       <p class="{{selectedTranslations.name}}"><strong>{{TranslatedName}}:</strong> {{tagName}}</p>
             `
+    },
+    login:{
+      form:`
+       <div class="login">
+            <div class="login__content">
+              <img class="login__img" src="./assets_for_LogIn/img/image.jpg" alt="Login image" />
+              <!--=============== LOG IN FORM ===============-->
+              <div class="login__form">
+                <div>
+                  <h1 class="login__title">
+                    <span data-translate="Welcome" data-en="Welcome" data-rs="Dobrodošli"></span> 
+                    <span data-translate="Back" data-en="Back" data-rs="Nazad"></span>
+                  </h1>
+                  <p class="login__description" data-translate="Welcome! Please login to continue." data-en="Welcome! Please login to continue." data-rs="Dobrodošli! Molimo vas prijavite se da nastavite.">Welcome! Please login to continue.</p>
+                </div>
+                <div>
+                  <div class="login__inputs">
+                    <div>
+                      <label for="email" class="login__label" data-translate="Email" data-en="Email" data-rs="Email">Email</label>
+                      <input class="login__input" type="email" id="email" placeholder="Enter your email address" data-en="Enter your email address" data-rs="Unesite vašu email adresu" required autocomplete="new-password"/>
+                    </div>
+                    <div>
+                      <label for="password" class="login__label" data-translate="Password" data-en="Password" data-rs="Lozinka">Password</label>
+                      <div class="login__box">
+                        <input class="login__input" type="password" id="password" placeholder="Enter your password" data-en="Enter your password" data-rs="Unesite vašu lozinku" required autocomplete="new-password"/>
+                        <i class="ri-eye-off-line login__eye" id="input-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="login__check">
+                    <label class="login__check-label" for="check">
+                      <input class="login__check-input" type="checkbox" id="check" />
+                      <i class="ri-check-line login__check-icon"></i>
+                      <span data-translate="Remember me" data-en="Remember me" data-rs="Zapamti me">Remember me</span>
+                    </label>
+                  </div>
+                </div>
+              <div>
+              <div class="login__buttons">
+                <button class="login__button" id="login__button_ID" data-translate="Log In" data-en="Log In" data-rs="Prijavi se">Log In</button>
+                <button type="button" id="signup__button_ID" class="login__button login__button-ghost" data-translate="Sign Up" data-en="Sign Up" data-rs="Registruj se">Sign Up</button>
+              </div>
+              <a class="login__forgot" href="#" data-translate="Forgot Password?" data-en="Forgot Password?" data-rs="Zaboravljena lozinka?">Forgot Password?</a>
+            </div>
+            <!--=============== /LOG IN FORM ===============--> 
+            </div>
+            </div>
+          </div>
+      `
     }
   }
 

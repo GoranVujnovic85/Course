@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title data-translate="Contact" data-en="Contact page" data-rs="Kontakt strana"></title>
     <!--=============== REMIXICONS ===============-->
       <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
     <!--=============== /REMIXICONS ===============-->
@@ -18,11 +19,12 @@
       <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script>
       <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
       <!--=============== JS CUSTOM FILES ===============-->
+      <script src="./templateHangler.js"></script>
       <script defer src="./ChangeLanguage.js"></script>
       <script src="./assets_for_ContactUs/js/contactUsBtn.js"></script>
       <!-- If you use export-import You must add --type="module"-- so autoRefresh.js will be loaded automatically because it is imported inside config.js -->
       <script type="module" src="./assets_for_ContactUs/js/config.js"></script>
-      <script src="./templateHangler.js"></script>
+      
       <!--=============== /JS CUSTOM FILES ===============-->
     <!--=============== /JS FILES ===============-->
   </head>
@@ -35,78 +37,13 @@
     </nav> 
     <!--=============== /NAVIGATION MENU ===============--> 
 
-    <!--=============== MAIN CONTENT ===============-->
-    <div class="container">
-      <h1 data-translate="Get in Touch" data-en="Get in Touch" data-rs="Kontaktirajte nas">Get in Touch</h1>
-      <p data-translate="Fill up the form to get in touch with us." data-en="Fill up the form to get in touch with us." data-rs="Popunite formu da biste stupili u kontakt sa nama.">Fill up the form to get in touch with us.</p>
-      <!--=============== FILL THE FORM ===============-->
-      <div class="contact-box">
-        <div class="container-left">
-          <h3 data-translate="Fill the Form" data-en="Fill the Form" data-rs="Popunite formu">Fill the Form*</h3>
-          <div id="contactForm">
-            <div class="input-row">
-              <div class="input-group">
-                <label data-translate="Name" data-en="Name" data-rs="Ime">Name*</label>
-                <input type="text" id="name" name="name" placeholder="Enter your Name" data-placeholder-en="Enter your Name" data-placeholder-rs="Unesite svoje ime" required>
-              </div>
-              <div class="input-group">
-                <label data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone*</label>
-                <input type="text" id="phone" name="phone" placeholder="+381 21 332243" required>
-              </div>
-            </div>
-            <div class="input-row">
-            <div class="input-group">
-              <label data-translate="Email" data-en="Email" data-rs="Email">Email*</label>
-              <input type="email" id="email" name="email" placeholder="example@example.com" data-placeholder-en="example@example.com" data-placeholder-rs="primer@primer.com" required>
-            </div>
-            <div class="input-group">
-              <label data-translate="Subject" data-en="Subject" data-rs="Predmet">Subject*</label>
-              <input type="text" id="subject" name="subject" placeholder="Inquiry" data-placeholder-en="Inquiry" data-placeholder-rs="Upit">
-            </div>
-          </div>
-          <label data-translate="Message" data-en="Message" data-rs="Poruka">Message*</label>
-          <textarea rows="10" id="message" name="message" placeholder="Enter your Message" data-placeholder-en="Enter your Message" data-placeholder-rs="Unesite svoju poruku" required></textarea>
-          <button type="button" id="submit" class="btn-submit" onclick="submitForm()" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
-          <!--<button type="submit" id="submit" class="btn-submit" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>-->
-        </div>
-      </div>
-      <!--=============== /FILL THE FORM ===============-->
-
-      <!--=============== INFO CONTAINER ===============-->
-      <div class="container-right">
-        <h3 data-translate="Reach Us" data-en="Reach Us" data-rs="Kontaktirajte nas">Reach Us</h3>
-        <table>
-          <tr>
-            <td data-translate="Email" data-en="Email" data-rs="Email">Email:</td>
-            <td>megagymNS@gmail.com</td>
-          </tr>
-          <tr>
-            <td data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone:</td>
-            <td>+381 21 555 333</td>
-          </tr>
-          <tr>
-            <td data-translate="Address" data-en="Address" data-rs="Adresa">Address:</td>
-            <td>Mega Gym Novi Sad <br> Temerinska 95, Novi Sad <br> Serbia</td>
-          </tr>
-        </table>
-        <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2807.829673047405!2d19.838563876202517!3d45.27145374627858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1158c4e50b23%3A0xfe3822cedd7d0308!2sMega%20Gym%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1732103410152!5m2!1ssr!2srs"
-          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
-      <!--=============== /INFO CONTAINER ===============-->
-    </div>
+    <div class="container" id="Contact-container">
+     
     <!--=============== /MAIN CONTENT ===============-->
-
+    </div>
     <!--=============== OTHER LOCATIONS ===============-->
-    <div class="container my-5 light-blue-container">
-      <h3 data-translate="Other Locations" data-en="Other Locations:" data-rs="Ostale Lokacije:">Other Locations</h3>
-      <div class="row"id="gym-locations">
-        <!--------------------------------------------------------->
-        <!--Other Locations are called from the config.json file-->
-        <!--------------------------------------------------------->
-      </div>
+    <div class="container my-5 light-blue-container" id="Locations-container">
+     
     </div>
     <!--=============== /OTHER LOCATIONS ===============-->
       

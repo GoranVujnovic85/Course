@@ -39,9 +39,10 @@
       <img class="modal-content" id="modal-image">
     </div>
         <!--/Space images -->
-
+      <div id="image-info">
+      </div>
         <!-- Text -->
-        <p id="info-text" class="info-text" data-translate="info" data-en="Our gym offers a wide range of equipment to meet all your needs, whether you're a beginner or an experienced athlete. We have 12 treadmills, 3 bench press stations, 8 spinning bikes, and 5 step machines for cardio workouts. Additionally, there are 4 back machines, 6 different leg machines, 4 shoulder machines, and 10 muscle isolation machines. For weightlifting enthusiasts, we have 20 sets of weights in various sizes, including Olympic bars and dumbbells, as well as 5 power racks and 3 leg press machines. All of our equipment is top-quality and regularly maintained, ensuring a safe and effective experience. Whether you want to improve endurance, strength, or muscle mass, our facility is equipped for anyone striving to achieve exceptional results." data-rs="Naša teretana nudi širok spektar opreme koja zadovoljava sve vaše potrebe, bilo da ste početnik ili iskusni sportista. Na raspolaganju imamo 12 traka za trčanje, 3 klupe za benč, 8 bicikala za spinning, kao i 5 stepera za kardio treninge. Takođe, tu su 4 mašine za leđa, 6 različitih sprava za noge, 4 mašine za ramena, kao i 10 mašina za izolaciju mišića. Za ljubitelje treninga sa tegovima, imamo 20 setova tegova različitih težina, uključujući olimpijske i dumbbells, kao i 5 power rack-ova i 3 leg press mašine. Svi naši uređaji su vrhunskog kvaliteta i redovno se održavaju, pružajući vam sigurno i efikasno iskustvo. Bilo da želite da poboljšate izdržljivost, snagu ili mišićnu masu, naš prostor je opremljen za svakoga ko želi da postigne vrhunske rezultate."></p>
+        
   </div>
     <!--/Text -->
     <!-- Work Time -->
@@ -71,18 +72,10 @@
     </footer>
     <!--/Footer -->
   </div>
-
   <!--========================= Auto Refresh Page ===========================-->
     <!-- The auto-refresh is initiated from the autoRefresh.js file. ----------> 
     <!-- The interval is a global variable that is also located in that file.-->
-    <script type="module">
-      import AutoRefresh from './assets_for_ContactUs/js/autoRefresh.js';
-
-      // Create an instance and start auto-refreshing.
-      const autoRefresh = new AutoRefresh();
-      autoRefresh.start();
-
-    </script>
+ <!--  <script src="./assets_for_ContactUs/js/autoRefresh.js"></script> I think this should only be enabled when there is maintenance mode ON-->
   <!--======================== /Auto Refresh Page ===========================-->
 
   <!-- Optional JavaScript -->
@@ -103,7 +96,7 @@
     <script src="./assets_for_Index/IndexJS/WorkTime.js"></script>
     <script src="./assets_for_Index/IndexJS/cookies.js"></script>
     <!---------------- MAINTANANCE MODE ------------------------------>
-    <script src="./assets_for_Maintenance/js/config.js" defer></script>
+    <!-- <script src="./assets_for_Maintenance/js/config.js"></script>-->
     <!---------------- /MAINTANANCE MODE ----------------------------->
  
     <!--/Optional JavaScript -->
