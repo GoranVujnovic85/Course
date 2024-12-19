@@ -13,7 +13,7 @@ console.log(darko2)
 const darko3 = {test:123}
 console.log(darko3)
 
-const darko = {
+const darko4 = {
     bojan: 123,
     goran: 'test',
     ogi: true,
@@ -41,7 +41,7 @@ data = {
             }
         },{
             user: {
-                name: 'user3' --------
+                name: 'user3' 
             }
         },{
             user: {
@@ -66,7 +66,7 @@ console.log(data.results) = [
         }
     },{
         user: {
-            name: 'user3' --------
+            name: 'user3'
         }
     },{
         user: {
@@ -89,12 +89,12 @@ const test = {
     data: {}
 }
 
-const darko = {
+const darko6 = {
     name: 'darko123'
 }
 
 test.data = darko
 
-console.log(test.data.name) = 'darko123''
+console.log(test.data.name) = 'darko123'
 
 
