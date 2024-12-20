@@ -64,13 +64,13 @@ const data = {
         {
             email: null,
             password: null,
-            redirectTo: './assets_for_LogIn/html/sing_up.html',
+            redirectTo: './sing_up.html',
             purpose: 'signUp'
         },
         {
             email: null,
             password: null,
-            redirectTo: './assets_for_LogIn/html/reset_password.html',
+            redirectTo: './reset_password.html',
             purpose: 'forgotPassword'
         },
     ],
