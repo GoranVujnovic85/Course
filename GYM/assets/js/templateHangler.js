@@ -66,7 +66,7 @@ function templateClass() {
     common: {
       header: `
                 <div class="container-fluid">
-                 <img src="/Course/GYM/assets/img/indexgymlogo.jfif?timestamp=<?= time() ?>" alt="logo firme">
+                <a class="navbar-brand" href="index.html"><img src="../Assets/img/indexgymlogo.jfif" alt="logo firme"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -139,14 +139,13 @@ function templateClass() {
                         </h6>
                         <p>
                             <a href="index.html" class="text-reset" data-translate="Start Page" data-en="Start Page"
-                            data-rs="Početna">Početna</a>
+                            data-rs="Početna"></a>
                         </p>
                         <p>
-                            <a href="about.html" class="text-reset" data-translate="About us" data-en="About us" data-rs="O nama">O
-                            nama</a>
+                            <a href="about.html" class="text-reset" data-translate="About us" data-en="About us" data-rs="O nama"></a>
                         </p>
                         <p>
-                            <a href="news.html" class="text-reset" data-translate="News" data-en="News" data-rs="Vesti">Vesti</a>
+                            <a href="news.html" class="text-reset" data-translate="News" data-en="News" data-rs="Vesti"></a>
                         </p>
                         </div>
 
@@ -154,20 +153,19 @@ function templateClass() {
 
                         <h6 class="text-uppercase fw-bold mb-4" data-translate="Useful links" data-en="Useful links"
                             data-rs="Korisni linkovi">
-                            Korisni linkovi
                         </h6>
                         <p>
                             <a href="https://www.pansport.rs/tekstoteka/zdravlje/saveti-za-pocetnike-u-teretani" class="text-reset"
-                            data-translate="Useful advices" data-en="Useful advices" data-rs="Korisni saveti">Korisni saveti</a>
+                            data-translate="Useful advices" data-en="Useful advices" data-rs="Korisni saveti"></a>
                         </p>
                         <p>
                             <a href="https://supplementstore.rs/" class="text-reset" data-translate="Suplements"
-                            data-en="Suplements" data-rs="Suplementi">Suplementi</a>
+                            data-en="Suplements" data-rs="Suplementi"></a>
                         </p>
                         <p>
                             <a href="https://rzsport.gov.rs/usluge/sportsko-medicinski-pregledi/" class="text-reset"
                             data-translate="Sports medical" data-en="Sports Medical Check-ups"
-                            data-rs="Sportski pregledi">Sportski pregledi</a>
+                            data-rs="Sportski pregledi"></a>
                         </p>
                         </div>
                         <!-- Grid column -->
@@ -176,7 +174,7 @@ function templateClass() {
                         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4" data-translate="Contact" data-en="Contact" data-rs="Kontakt">
-                            Kontakt</h6>
+                            </h6>
                         <p><i class="fas fa-home me-3"></i> Temerinska 95, Novi Sad Serbia</p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
@@ -192,7 +190,7 @@ function templateClass() {
                 <!-- Copyright -->
                 <p class="text-center text-body-secondary" data-translate="Copyright"
                     data-en="Copyright © 2024 Golden boys. All rights reserved."
-                    data-rs="Copyright © 2024 Golden boys. Sva prava zadržana.">Copyright © 2024 Golden boys. All rights reserved.
+                    data-rs="Copyright © 2024 Golden boys. Sva prava zadržana.">
                 </p>
         `
     },
@@ -245,7 +243,7 @@ function templateClass() {
           <!-- Basic membership -->
           <div class="col-md-4">
             <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-              <img src="./assets_for_Index/IndexImages/basic.jfif" class="card-img-top" alt="Basic" style="width: 100%; height: 200px; object-fit: cover;">
+              <img src="../Assets/img/indexbasic.jfif" class="card-img-top" alt="Basic" style="width: 100%; height: 200px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Basic membership" data-rs="Basic članarina"></h5>
                 <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Basic membership is ideal for those who want to focus on strength training. This membership includes access to all weights and weightlifting equipment, such as dumbbells, strength training weights, and muscle-building machines." data-rs="Basic članarina je idealna za one koji žele da se fokusiraju na trening snage. Ova članarina uključuje pristup svim tegovima i spravama sa tegovima, kao što su bučice, tegovi za vežbe snage i sprave za trening mišića."></p>
@@ -257,7 +255,7 @@ function templateClass() {
           <!-- Premium membership -->
           <div class="col-md-4">
             <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-              <img src="./assets_for_Index/IndexImages/premium.jfif" class="card-img-top" alt="Premium" style="width: 100%; height: 200px; object-fit: cover;">
+              <img src="../Assets/img/indexpremium.jfif" class="card-img-top" alt="Premium" style="width: 100%; height: 200px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Premium membership" data-rs="Premium članarina"></h5>
                 <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Premium membership offers full access to all gym facilities, including weights and weightlifting equipment, as well as all cardio machines. It is perfect for those who want to combine strength training with aerobic exercises." data-rs="Premium članarina nudi kompletan pristup svim sadržajima u teretani, uključujući tegovima i spravama sa tegovima, kao i svim kardio aparatima. Idealna je za one koji žele da kombinuju trening snage sa aerobnim vežbama."></p>
@@ -269,7 +267,7 @@ function templateClass() {
           <!-- Platinum membership -->
           <div class="col-md-4">
             <div class="card" style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-              <img src="./assets_for_Index/IndexImages/platinum.jfif" class="card-img-top" alt="Platinum" style="width: 100%; height: 200px; object-fit: cover;">
+              <img src="../Assets/img/indexplatinum.jfif" class="card-img-top" alt="Platinum" style="width: 100%; height: 200px; object-fit: cover;">
               <div class="card-body">
                 <h5 class="card-title" style="font-size: 22px; font-weight: bold;" data-translate="Membership" data-en="Platinum membership" data-rs="Platinum članarina"></h5>
                 <p class="card-text" style="font-size: 16px; color: #555;" data-translate="Membership" data-en="The Platinum membership includes all the benefits of the Premium membership, with full access to weights, weightlifting equipment, and all cardio machines. Additionally, it offers the extra privilege of complimentary shakes at the bar." data-rs="Platinum članarina uključuje sve pogodnosti Premium članarine, sa potpunim pristupom tegovima, spravama sa tegovima i svim kardio aparatima, a uz to, pruža vam i dodatnu privilegiju besplatnih šejkova u baru."></p>
@@ -291,7 +289,7 @@ function templateClass() {
       </div>
       `
       , gymbar: `
-      <img src="./assets_for_Index/IndexImages/GymBar.jfif" class="gymbar-img" alt="GymBar">
+      <img src="../Assets/img/indexGymBar.jfif" class="gymbar-img" alt="GymBar">
       <div class="gymbar-overlay">
         <h5 class="gymbar-title" data-translate="GymBar" data-en="GymBar - Energy and Recovery" data-rs="GymBar - Energija i oporavak"></h5>
         <p class="gymbar-text" data-translate="GymBar" data-en="At our GymBar, we offer a wide selection of refreshing drinks, including healthy protein shakes and energy drinks. You can also enjoy delicious protein meals that will help you recover after an intense workout and achieve your fitness goals." data-rs="U našem GymBaru nudi se veliki izbor osvežavajućih pića, uključujući zdrave proteinske šejkove i energetske napitke. Takođe, uživajte u ukusnim proteinskim obrocima koji će vam pomoći da se oporavite nakon napornog treninga i postignete svoje fitnes ciljeve."></p>
@@ -319,11 +317,8 @@ function templateClass() {
         <p data-translate="massage" data-en="The first Mega Gym fitness center was opened in June 2016 in New Belgrade.
 
 Mega Gym is the only regional chain of fitness clubs located in seven locations in Serbia and one in Bosnia and Herzegovina (Dorćol, Novi Beograd, Zemun, Zemun Polje, Batajnica, Smederevo, Trebinje and Novi Sad).
-
 The concept of Mega Gym was created on the basis of many years of experience of the owner in the field of sports management, fitness and recreation. It is a perfect combination of superior space design and latest generation equipment. The result is a completely different place for recreation compared to everything that has been seen so far in the offer of fitness clubs in Serbia. Mega Gym is a place where you will find refuge from everyday stress and feel the energy of our Mega team." data-rs="Prvi Mega Gym fitnes centar otvoren je u junu 2016. godine na Novom Beogradu.
-
 Mega Gym je jedini regionalni lanac fitnes klubova koji se nalazi na sedam lokacija u Srbiji i jednoj na teritoriji Bosne i Hercegovine (Dorćol, Novi Beograd, Zemun, Zemun Polje, Batajnica, Smederevo, Trebinje i Novi Sad).
-
 Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblasti sportskog menadžmenta, fitnesa i rekreacije. U pitanju je savršen spoj vrhunskog dizajna prostora i opreme poslednje generacije.  Rezultat je potpuno drugačije mesto za rekreaciju u odnosu na sve što je do sada viđeno u ponudi fitnes klubova u Srbiji.  Mega Gym je mesto na kojem ćete naći utočište od svakodnevnog stresa i osetiti energiju našeg Mega tima."></p>
 <p data-translate="About Us" data-en="Mega Gym fitness centers are equipped with the best cardio machines and a large number of places for exercise. They have multifunctional halls (integrated exercise space), monitors for watching TV programs, changing rooms with a large number of wardrobes, showers and toilets. Each location has plenty of natural light, as well as state-of-the-art ventilation systems. Special attention is paid to the sound system and the selection of adequate music, which will motivate you to give your best on the way to achieving results." data-rs="Fitnes centri Mega Gym opremljeni su najboljim kardio mašinama i velikim brojem mesta za vežbanje. Poseduju multifunkcionalne sale (integrisan prostor za vežbanje), monitore za praćenje TV programa, svlačionice sa velikim brojem garderobnih ormarića, tuševa i toaleta. Svaka lokacija ima dosta prirodnog svetla, ali i najsavremenije sisteme ventilacije. Posebna pažnja je posvećena ozvučenju i odabiru adekvatne muzike, koja će vas motivisati da date najbolje od sebe na putu ka ostvarenju rezultata."></p>
         
@@ -333,7 +328,7 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
       <h1 class="title" data-translate="About Us" data-en="About Us" data-rs="O nama"></h1>
     <div class="about-content">
     <div class="image">
-      <img src="aboutIMG/n1.webp">
+      <img src="../Assets/img/aboutn1.webp">
     </div>  
       <div class="content" id="about-gym">  
       </div>
@@ -342,34 +337,34 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
   contact: {
       form:`
         <h1 data-translate="Get in Touch" data-en="Get in Touch" data-rs="Kontaktirajte nas">Get in Touch</h1>
-      <p data-translate="Fill up the form to get in touch with us." data-en="Fill up the form to get in touch with us." data-rs="Popunite formu da biste stupili u kontakt sa nama.">Fill up the form to get in touch with us.</p>
+      <p data-translate="Fill up the form to get in touch with us." data-en="Fill up the form to get in touch with us." data-rs="Popunite formu da biste stupili u kontakt sa nama."></p>
       <!--=============== FILL THE FORM ===============-->
       <div class="contact-box">
         <div class="container-left">
-          <h3 data-translate="Fill the Form" data-en="Fill the Form" data-rs="Popunite formu">Fill the Form*</h3>
+          <h3 data-translate="Fill the Form" data-en="Fill the Form" data-rs="Popunite formu"></h3>
           <div id="contactForm">
             <div class="input-row">
               <div class="input-group">
-                <label data-translate="Name" data-en="Name" data-rs="Ime">Name*</label>
-                <input type="text" id="name" name="name" placeholder="Enter your Name" data-placeholder-en="Enter your Name" data-placeholder-rs="Unesite svoje ime" required>
+                <label data-translate="Name" data-en="Name" data-rs="Ime"></label>
+                <input type="text" id="name" name="name" placeholder="Enter your Name" data-translate="" data-en="Enter your Name" data-rs="Unesite svoje ime" required>
               </div>
               <div class="input-group">
-                <label data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone*</label>
+                <label data-translate="Phone" data-en="Phone" data-rs="Telefon"></label>
                 <input type="text" id="phone" name="phone" placeholder="+381 21 332243" required>
               </div>
             </div>
             <div class="input-row">
             <div class="input-group">
-              <label data-translate="Email" data-en="Email" data-rs="Email">Email*</label>
-              <input type="email" id="email" name="email" placeholder="example@example.com" data-placeholder-en="example@example.com" data-placeholder-rs="primer@primer.com" required>
+              <label data-translate="Email" data-en="Email" data-rs="Email"></label>
+              <input type="email" id="email" name="email" data-translate="" placeholder="example@example.com" data-en="example@example.com" data-rs="primer@primer.com" required>
             </div>
             <div class="input-group">
-              <label data-translate="Subject" data-en="Subject" data-rs="Predmet">Subject*</label>
-              <input type="text" id="subject" name="subject" placeholder="Inquiry" data-placeholder-en="Inquiry" data-placeholder-rs="Upit">
+              <label data-translate="Subject" data-en="Subject" data-rs="Predmet"></label>
+              <input type="text" id="subject" name="subject" data-translate="" placeholder="Inquiry" data-en="Inquiry" data-rs="Upit">
             </div>
           </div>
-          <label data-translate="Message" data-en="Message" data-rs="Poruka">Message*</label>
-          <textarea rows="10" id="message" name="message" placeholder="Enter your Message" data-placeholder-en="Enter your Message" data-placeholder-rs="Unesite svoju poruku" required></textarea>
+          <label data-translate="Message" data-en="Message" data-rs="Poruka"></label>
+          <textarea rows="10" id="message" name="message" data-translate="" data-en="Enter your Message" data-rs="Unesite svoju poruku" required></textarea>
           <button type="button" id="submit" class="btn-submit" onclick="submitForm()" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
           <!--<button type="submit" id="submit" class="btn-submit" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>-->
         </div>
@@ -378,18 +373,18 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
 
       <!--=============== INFO CONTAINER ===============-->
       <div class="container-right">
-        <h3 data-translate="Reach Us" data-en="Reach Us" data-rs="Kontaktirajte nas">Reach Us</h3>
+        <h3 data-translate="Reach Us" data-en="Reach Us" data-rs="Kontaktirajte nas"></h3>
         <table>
           <tr>
-            <td data-translate="Email" data-en="Email" data-rs="Email">Email:</td>
+            <td data-translate="Email" data-en="Email" data-rs="Email"></td>
             <td>megagymNS@gmail.com</td>
           </tr>
           <tr>
-            <td data-translate="Phone" data-en="Phone" data-rs="Telefon">Phone:</td>
+            <td data-translate="Phone" data-en="Phone" data-rs="Telefon"></td>
             <td>+381 21 555 333</td>
           </tr>
           <tr>
-            <td data-translate="Address" data-en="Address" data-rs="Adresa">Address:</td>
+            <td data-translate="Address" data-en="Address" data-rs="Adresa"></td>
             <td>Mega Gym Novi Sad <br> Temerinska 95, Novi Sad <br> Serbia</td>
           </tr>
         </table>
@@ -403,8 +398,8 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
     </div>
       `
     ,locations:`
-    <h3 data-translate="Other Locations" data-en="Other Locations:" data-rs="Ostale Lokacije:"></h3>
-     <div class="row"id="gym-locations">
+     <h3 data-translate="Other Locations" data-en="Other Locations:" data-rs="Ostale Lokacije:"></h3>
+      <div class="row"id="gym-locations">
         <!--------------------------------------------------------->
         <!--Other Locations are called from the config.json file-->
         <!--------------------------------------------------------->
@@ -424,29 +419,28 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
           <img src="https://t3.ftcdn.net/jpg/02/62/10/64/240_F_262106415_YAGm6VXylwGHZhOUQMUIYekQ3Mq9xRdL.jpg"
             class="d-block w-100" alt="slika1">
           <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="bicycle" data-en="Training bicycle" data-rs="Trenažni bicikli">Trenažni bicikli</h5>
+            <h5 data-translate="bicycle" data-en="Training bicycle" data-rs="Trenažni bicikli"></h5>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="1000">
           <img src="https://t4.ftcdn.net/jpg/01/71/23/49/240_F_171234990_cSNErNz2LkXTP7YxMNzRY3jDhz0laMa2.jpg"
             class="d-block w-100" alt="slika2">
           <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="Treadmills" data-en="Tread mills" data-rs="Trake za trčanje">Trake za trčanje</h5>
+            <h5 data-translate="Treadmills" data-en="Tread mills" data-rs="Trake za trčanje"></h5>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="1000">
           <img src="https://t3.ftcdn.net/jpg/00/93/55/88/240_F_93558844_zsJSg3nGtgXX0HSToxWJeBjEt1OIyTHo.jpg"
             class="d-block w-100" alt="slika3">
           <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="dumbbells" data-en="Weights and dumbbells" data-rs="Tegovi i bučice">Tegovi i bučice
-            </h5>
+            <h5 data-translate="dumbbells" data-en="Weights and dumbbells" data-rs="Tegovi i bučice"></h5>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="1000">
           <img src="https://t3.ftcdn.net/jpg/01/62/91/42/240_F_162914286_O4BwMXsYDASlf49pe69tbUwgT9O7LqNa.jpg"
             class="d-block w-100" alt="slika3">
           <div class="carousel-caption d-none d-md-block">
-            <h5 data-translate="ambience" data-en="Pleasant ambience" data-rs="Prijatan ambijent">Prijatan ambijent</h5>
+            <h5 data-translate="ambience" data-en="Pleasant ambience" data-rs="Prijatan ambijent"></h5>
           </div>
         </div>
         <div>
@@ -468,9 +462,7 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
       data-en="In our gym you will enjoy a pleasant environment where 
       you'll find a wide range of the latest exercise equipment at your disposal. Our employees are at your disposal and will be happy to help you with all your questions."
       data-rs="U našoj teratani uživaćete u prijatnom ambijentu gde na
-      raspolaganju imate bogat asortiman najnovije opreme za vežbanje. Naši zaposleni Vam stoje na raspolaganju i rado će Vam pomoći oko svih vaših pitanja."> U našoj teratani uživaćete u prijatnom ambijentu gde na
-      raspolaganju imate bogat asortiman najnovije opreme za vežbanje. Naši zaposleni Vam stoje na raspolaganju i rado
-      će Vam pomoći oko svih vaših pitanja. </h1>`
+      raspolaganju imate bogat asortiman najnovije opreme za vežbanje. Naši zaposleni Vam stoje na raspolaganju i rado će Vam pomoći oko svih vaših pitanja."></h1>`
       , datarow: `
                 <p class="{{selectedTranslations.tagId}}"><strong>{{TranslatedTagId}}:</strong> {{tagId}}</p>
       <p class="{{selectedTranslations.name}}"><strong>{{TranslatedName}}:</strong> {{tagName}}</p>
@@ -480,7 +472,7 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
       form:`
        <div class="login">
             <div class="login__content">
-              <img class="login__img" src="/Course/GYM/assets/img/loginimage.jpg" alt="Login image" />
+              <img class="login__img" src="../Assets/img/loginimage.jpg" alt="Login image" />
               <!--=============== LOG IN FORM ===============-->
               <div class="login__form">
                 <div>
@@ -488,16 +480,16 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
                     <span data-translate="Welcome" data-en="Welcome" data-rs="Dobrodošli"></span> 
                     <span data-translate="Back" data-en="Back" data-rs="Nazad"></span>
                   </h1>
-                  <p class="login__description" data-translate="Welcome! Please login to continue." data-en="Welcome! Please login to continue." data-rs="Dobrodošli! Molimo vas prijavite se da nastavite.">Welcome! Please login to continue.</p>
+                  <p class="login__description" data-translate="Welcome! Please login to continue." data-en="Welcome! Please login to continue." data-rs="Dobrodošli! Molimo vas prijavite se da nastavite."></p>
                 </div>
                 <div>
                   <div class="login__inputs">
                     <div>
-                      <label for="email" class="login__label" data-translate="Email" data-en="Email" data-rs="Email">Email</label>
+                      <label for="email" class="login__label" data-translate="Email" data-en="Email" data-rs="Email"></label>
                       <input class="login__input" type="email" id="email" placeholder="Enter your email address" data-en="Enter your email address" data-rs="Unesite vašu email adresu" required autocomplete="new-password"/>
                     </div>
                     <div>
-                      <label for="password" class="login__label" data-translate="Password" data-en="Password" data-rs="Lozinka">Password</label>
+                      <label for="password" class="login__label" data-translate="Password" data-en="Password" data-rs="Lozinka"></label>
                       <div class="login__box">
                         <input class="login__input" type="password" id="password" placeholder="Enter your password" data-en="Enter your password" data-rs="Unesite vašu lozinku" required autocomplete="new-password"/>
                         <i class="ri-eye-off-line login__eye" id="input-icon"></i>
@@ -508,16 +500,17 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
                     <label class="login__check-label" for="check">
                       <input class="login__check-input" type="checkbox" id="check" />
                       <i class="ri-check-line login__check-icon"></i>
-                      <span data-translate="Remember me" data-en="Remember me" data-rs="Zapamti me">Remember me</span>
+                      <span data-translate="Remember me" data-en="Remember me" data-rs="Zapamti me"></span>
                     </label>
                   </div>
                 </div>
               <div>
               <div class="login__buttons">
-                <button class="login__button" id="login__button_ID" data-translate="Log In" data-en="Log In" data-rs="Prijavi se">Log In</button>
-                <button type="button" id="signup__button_ID" class="login__button login__button-ghost" data-translate="Sign Up" data-en="Sign Up" data-rs="Registruj se">Sign Up</button>
+                <button class="login__button" id="login__button_ID" data-translate="Log In" data-en="Log In" data-rs="Prijavi se"></button>
+                <button type="button" id="signup__button_ID" class="login__button login__button-ghost" data-translate="Sign Up" data-en="Sign Up" data-rs="Registruj se">
+                </button>
               </div>
-              <a class="login__forgot" href="#" data-translate="Forgot Password?" data-en="Forgot Password?" data-rs="Zaboravljena lozinka?">Forgot Password?</a>
+              <a class="login__forgot" href="#" data-translate="Forgot Password?" data-en="Forgot Password?" data-rs="Zaboravljena lozinka?"></a>
             </div>
             <!--=============== /LOG IN FORM ===============--> 
             </div>
