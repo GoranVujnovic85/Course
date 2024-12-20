@@ -30,19 +30,19 @@ class MaintenanceChecker {
   
         if (config.maintenance) {
             if (!currentPage.includes("maintenance.html")) {
-                window.location.href =  "http://localhost/Course/GYM/assets_for_Maintenance/html/maintenance.html";
+                window.location.href =  "http://localhost/Course/GYM/pages/maintenance.html";
             }
         } 
         else {
             if (currentPage.includes("maintenance.html")) {
-                window.location.href = "http://localhost/Course/GYM/index.html";
+                window.location.href = "http://localhost/Course/GYM/pages/index.html";
             }
         }
     }
 }
   
 // URL to your JSON file
-const jsonUrl = `http://localhost/Course/GYM/assets_for_Maintenance/json/config.json?timestamp=${Date.now()}`;
+const jsonUrl = `http://localhost/Course/GYM/assets/json/contactusconfig.json?timestamp=${Date.now()}`;
   
 //Creating instances of the class and calling the method to load the configuration.
 const maintenanceChecker = new MaintenanceChecker(jsonUrl);

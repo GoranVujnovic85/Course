@@ -66,7 +66,7 @@ function templateClass() {
     common: {
       header: `
                 <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="./assets_for_Index/IndexImages/gymlogo.jfif" alt="logo firme"></a>
+                 <img src="/Course/GYM/assets/img/indexgymlogo.jfif?timestamp=<?= time() ?>" alt="logo firme">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -403,8 +403,8 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
     </div>
       `
     ,locations:`
-     <h3 data-translate="Other Locations" data-en="Other Locations:" data-rs="Ostale Lokacije:"></h3>
-      <div class="row"id="gym-locations">
+    <h3 data-translate="Other Locations" data-en="Other Locations:" data-rs="Ostale Lokacije:"></h3>
+     <div class="row"id="gym-locations">
         <!--------------------------------------------------------->
         <!--Other Locations are called from the config.json file-->
         <!--------------------------------------------------------->
@@ -480,7 +480,7 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
       form:`
        <div class="login">
             <div class="login__content">
-              <img class="login__img" src="./assets_for_LogIn/img/image.jpg" alt="Login image" />
+              <img class="login__img" src="/Course/GYM/assets/img/loginimage.jpg" alt="Login image" />
               <!--=============== LOG IN FORM ===============-->
               <div class="login__form">
                 <div>
