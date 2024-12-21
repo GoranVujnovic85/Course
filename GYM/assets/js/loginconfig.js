@@ -64,7 +64,7 @@ const data = {
         {
             email: null,
             password: null,
-            redirectTo: './sing_up.html',
+            redirectTo: './sign_up.html',
             purpose: 'signUp'
         },
         {
