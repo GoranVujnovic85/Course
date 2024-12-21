@@ -364,9 +364,9 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
             </div>
           </div>
           <label data-translate="Message" data-en="Message" data-rs="Poruka"></label>
-          <textarea rows="10" id="message" name="message" data-translate="" data-en="Enter your Message" data-rs="Unesite svoju poruku" required></textarea>
-          <button type="button" id="submit" class="btn-submit" onclick="submitForm()" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
-          <!--<button type="submit" id="submit" class="btn-submit" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>-->
+          <textarea rows="10" id="message" name="message" placeholder="Enter your Message" data-translate="Message" data-en="Enter your Message" data-rs="Unesite svoju poruku" required></textarea>
+          <button type="button" id="submit" class="btn-submit" onclick="submitForm()" data-translate="SEND MESSAGE" data-en="SEND MESSAGE" data-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
+          <!--<button type="submit" id="submit" class="btn-submit" data-translate="SEND MESSAGE" data-en="SEND MESSAGE" data-rs="POŠALJITE PORUKU">SEND MESSAGE</button>-->
         </div>
       </div>
       <!--=============== /FILL THE FORM ===============-->
