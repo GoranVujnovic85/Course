@@ -1,67 +1,76 @@
 var TEMPLATE = new templateClass()
 function templateClass() {
   this.init = () => {
-    // Check if we are on the login page first
-    document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
-    document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
-  
+    // Check if the current page is sign_up.html
+    const currentPage = window.location.pathname.split('/').pop();  // Get only page name (e.g., "index.html")
+
+    if (currentPage === 'sign_up.html') {
+        // Only render nav if it's the sign_up.html page
+        document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+        document.getElementById('sign-page').innerHTML = this.render('signup', 'signform', []);
+    } else {
+        // For all other pages, render both nav and footer
+        document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+        document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
+    }
 
     // Check which page is currently loaded and apply specific changes
-    const currentPage = window.location.pathname.split('/').pop();  // Get only page name (etc. "index.html")
-
     // Remove 'active' class from all links in navbar
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => link.classList.remove('active'));
 
     // Add 'active' class on current page
     navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
-      if (linkHref === currentPage) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
-      }
+        const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
+        }
     });
 
     if (window.location.pathname.includes('index.html')) {
-      // If it's index.html, load the carousel
-      document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
-      document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-      document.getElementById('image-info').innerHTML = this.render('index', 'image', []);
-      document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
-      document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
-      document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
+        // If it's index.html, load the carousel
+        document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
+        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+        document.getElementById('image-info').innerHTML = this.render('index', 'image', []);
+        document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
+        document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
+        document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
     }
 
     if (window.location.pathname.includes('space.html')) {
-      // If it's space.html, load a specific carousel
-      document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
-      document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-      document.getElementById('containertext').innerHTML = this.render('locker', 'container', []);
-      // Modify language links for the space page
-      let languageLinks = document.querySelectorAll('.dropdown-item');
-      languageLinks.forEach(link => {
-        if (link.id === 'rsLang') {
-          link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
-        } else if (link.id === 'enLang') {
-          link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
-        }
-      });
+        // If it's space.html, load a specific carousel
+        document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
+        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+        document.getElementById('containertext').innerHTML = this.render('locker', 'container', []);
+        // Modify language links for the space page
+        let languageLinks = document.querySelectorAll('.dropdown-item');
+        languageLinks.forEach(link => {
+            if (link.id === 'rsLang') {
+                link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
+            } else if (link.id === 'enLang') {
+                link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
+            }
+        });
     }
+
     if (window.location.pathname.includes('about.html')) {
-      // If it's about.html, load specific content
-      document.getElementById('title-info').innerHTML = this.render('about', 'title', []);
-      document.getElementById('about-gym').innerHTML = this.render('about', 'info', []);
+        // If it's about.html, load specific content
+        document.getElementById('title-info').innerHTML = this.render('about', 'title', []);
+        document.getElementById('about-gym').innerHTML = this.render('about', 'info', []);
     }
+
     if (window.location.pathname.includes('contactUs.html')) {
-      // If it's contactus.html, load specific content
-      document.getElementById('Contact-container').innerHTML = this.render('contact', 'form', []);
-      document.getElementById('Locations-container').innerHTML = this.render('contact', 'locations', []);
+        // If it's contactus.html, load specific content
+        document.getElementById('Contact-container').innerHTML = this.render('contact', 'form', []);
+        document.getElementById('Locations-container').innerHTML = this.render('contact', 'locations', []);
     }
+
     if (window.location.pathname.includes('login.html')) {
-      // If it's login.html, load specific content for login page
-      document.getElementById('login-form').innerHTML = this.render('login', 'form', []);
+        // If it's login.html, load specific content for login page
+        document.getElementById('login-form').innerHTML = this.render('login', 'form', []);
     }
-  }
+}
   this.templates = {
     common: {
       header: `
@@ -516,6 +525,79 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
             </div>
             </div>
           </div>
+      `
+    }
+    ,signup:{
+      signform:`
+      <div class="image-container">
+            <img src="../Assets/img/loginlogo.jpg" alt="Logo" class="logo">  
+            <img src="../Assets/img/loginUntitled.jpg" class="illustration" alt="">
+            <p class="quote" data-translate="Offers" data-en="Sign up today to get exciting offers..!" data-rs="Registruj se danas uz uzbudljive ponude...!"></p> 
+        </div>
+        <!--=============== MAIN CONTENT ===============-->
+        <form action="" method="">
+            <div class="form-container slideRight-animation">
+
+                <h1 class="form-header" data-translate="Start" data-en="Get Started" data-rs="Započni registraciju">
+                </h1>
+
+                <div class="input-container">
+                    <label for="f-name"></label>
+                    <input type="text" name="f-name" id="f-name" required>
+                    <span data-translate="Name" data-en="First name" data-rs="Ime">
+                    </span>
+                    <div class="error"></div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="l-name"></label>
+                    <input type="text" name="l-name" id="l-name" required>
+                    <span data-translate="Name" data-en="Last name" data-rs="Prezime">
+                    </span>
+                    <div class="error"></div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="mail">
+                    </label>
+                    <input type="email" name="mail" id="mail" required>
+                    <span>
+                        E-mail
+                    </span>
+                    <div class="error"></div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="phone">
+                    </label>
+                    <input type="tel" name="phone" id="phone" required>
+                    <span data-translate="Phone" data-en="Phone" data-rs="Telefon"></span>
+                    <div class="error"></div>
+                </div>
+    
+                <div class="input-container">
+                    <label for="user-password"></label>
+                    <input type="password" name="user-password" id="user-password" class="user-password" required>
+                    <span data-translate="Password" data-en="Password" data-rs="Lozinka">Password</span>
+                    <div class="error"></div>
+                </div>
+
+                <div class="input-container">
+                    <label for="user-password-confirm"></label>
+                    <input type="password" name="user-password-confirm" id="user-password-confirm" class="password-confirmation" required>
+                    <span data-translate="Confirm Password" data-en="Confirm Password" data-rs="Potvrdi Lozinku">
+                    </span>
+                    <div class="error"></div>
+                </div>
+
+                <div id="btm">
+                    <button type="submit" class="submit-btn" data-translate="Account" data-en="Create Account" data-rs="Kreiraj nalog"></button>
+          <p class="btm-text" data-translate="Phone" data-en="Already have an account..? <a href='../pages/login.html'>Log in</a>"  data-rs="Već imaš nalog...? <a href='../pages/login.html'>Prijavi se</a>">>
+                    </p>
+                  </p>
+                </div>
+            </div>
+        </form>
       `
     }
   }
