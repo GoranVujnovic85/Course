@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lexend:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-
 /* Provide visual indication for fields with errors. */
 .is-invalid {
     border: 2px solid rgba(10, 10, 1, 0.973);
@@ -17,12 +16,8 @@
     font-weight: bold;
 }
 
-
 /* Resetting default margin and padding for all elements */
-* {
-    margin: 0;
-    padding: 0;
-}
+
 
 /* Setting font family for the body */
 body {
@@ -42,20 +37,8 @@ body {
     color: black;
     border-radius: 0px 20px 20px 0px;
   }
-  
-  /* Style for inside light-blue-containers */
-  .light-blue-container a {
-    color: blue; 
-    text-decoration: none; 
-    text-align: center;
-  }
-  
-  
-  .light-blue-container a:hover {
-    text-decoration: underline; /* Dodaj podvlačenje kada se pređe mišem */
-  }
 
-
+  
 /* Container for the main content */
 .container {
     width: 80%;
@@ -161,28 +144,16 @@ label {
     color: #353535;
 }
 
+
 /* Styling for buttons */
 button {
     font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: 600;
     font-size: 15px;
-    background: #000000;
+    background: #FFEB3B;
     border: none;
     outline: none;
-    color: #fff;
-    width: 20%;
-    height: 40px;
-    border-radius: 25px;
-    margin-top: 20px;
-    transition: all 0.5s ease 0s;
-    box-shadow: 0px 5px 10px 0px #0000003a;
-}
-
-/* Hover styling for buttons */
-button:hover {
-    color: #fff;
-    background: hsl(207, 97%, 35%);
-    box-shadow: 0px 5px 10px 0px hsla(207, 97%, 35%, 0.431);
+    color: black;  
 }
 
 /* Styling for table cells */
@@ -207,6 +178,7 @@ iframe {
 
 /* CSS for larger screens (laptop) */
 @media only screen and (min-width: 1367px) {
+ 
     .container {
         width: 70%;
     }
@@ -224,125 +196,8 @@ iframe {
         padding: 40px;
     }
 
-    .input-row .input-group {
-        flex-basis: 48%;
-    }
+    
+    
 
-    button {
-        width: 30%;
-    }
-}
-
-/* CSS for larger screens (laptop) */
-@media only screen and (max-width: 1366px) {
-    .container {
-        width: 70%;
-    }
-
-    .container h1 {
-        font-size: 45px;
-    }
-
-    .container p {
-        font-size: 22px;
-    }
-
-    .container-left,
-    .container-right {
-        padding: 40px;
-    }
-
-    input {
-        width: 90%;
-    }
-
-    .input-row .input-group {
-        flex-basis: 48%;
-    }
-
-    button {
-        width: 60%;
-    }
-}
-
-/* CSS for medium-sized screens (tablet) */
-@media only screen and (max-width: 1024px) {
-
-    .contact-box {
-        flex-direction: column;
-    }
-
-    .container {
-        width: 80%;
-    }
-
-    .container h1 {
-        font-size: 40px;
-    }
-
-    .container p {
-        font-size: 22px;
-    }
-
-    .container-left,
-    .container-right {
-        padding: 30px;
-    }
-
-    .input-row {
-        flex-wrap: wrap;
-    }
-
-    .input-row .input-group {
-        flex-basis: 100%;
-        margin-bottom: 15px;
-    }
-
-    button {
-        width: 25%;
-    }
-}
-
-/* CSS for smaller screens (mobile) */
-@media only screen and (max-width: 767px) {
-    .container {
-        width: 90%;
-    }
-
-    .container h1 {
-        font-size: 40px;
-    }
-
-    .container p {
-        font-size: 18px;
-    }
-
-    .container-left,
-    .container-right {
-        padding: 20px;
-    }
-
-    .input-row {
-        flex-direction: column; /* Stack input rows vertically */
-    }
-
-    .input-row .input-group {
-        flex-basis: 100%;
-        margin-bottom: 15px;
-    }
-
-    input,
-    textarea {
-        padding: 8px;
-    }
-
-    button {
-        width: 60%;
-    }
-
-    tr td:first-child {
-        font-size: 15px;
-        font-weight: 600;
-        padding-right: 10px;
-    }
+    
 }

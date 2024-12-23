@@ -1,118 +1,122 @@
 var TEMPLATE = new templateClass()
 function templateClass() {
   this.init = () => {
-    // Check if we are on the login page first
-    document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
-    document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
-  
+    // Check if the current page is sign_up.html
+    const currentPage = window.location.pathname.split('/').pop();  // Get only page name (e.g., "index.html")
+
+    if (currentPage === 'sign_up.html') {
+        // Only render nav if it's the sign_up.html page
+        document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+        document.getElementById('sign-page').innerHTML = this.render('signup', 'signform', []);
+    } else {
+        // For all other pages, render both nav and footer
+        document.getElementsByTagName('nav')[0].innerHTML = this.render('common', 'header', []);
+        document.getElementsByTagName('footer')[0].innerHTML = this.render('common', 'footer', []);
+    }
 
     // Check which page is currently loaded and apply specific changes
-    const currentPage = window.location.pathname.split('/').pop();  // Get only page name (etc. "index.html")
-
     // Remove 'active' class from all links in navbar
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => link.classList.remove('active'));
 
     // Add 'active' class on current page
     navLinks.forEach(link => {
-      const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
-      if (linkHref === currentPage) {
-        link.classList.add('active');
-        link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
-      }
+        const linkHref = link.getAttribute('href').split('/').pop();  // Extract only the page name from the href
+        if (linkHref === currentPage) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page'); // Add aria-current for accessibility
+        }
     });
 
     if (window.location.pathname.includes('index.html')) {
-      // If it's index.html, load the carousel
-      document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
-      document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-      document.getElementById('image-info').innerHTML = this.render('index', 'image', []);
-      document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
-      document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
-      document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
+        // If it's index.html, load the carousel
+        document.getElementById('carouselExampleControls').innerHTML = this.render('index', 'carousel', []);
+        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+        document.getElementById('image-info').innerHTML = this.render('index', 'image', []);
+        document.getElementById('WorkTime-info').innerHTML = this.render('index', 'worktime', []);
+        document.getElementById('GymBar-info').innerHTML = this.render('index', 'gymbar', []);
+        document.getElementById('cookieConsent').innerHTML = this.render('index', 'cookies', []);
     }
 
     if (window.location.pathname.includes('space.html')) {
-      // If it's space.html, load a specific carousel
-      document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
-      document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
-      document.getElementById('containertext').innerHTML = this.render('locker', 'container', []);
-      // Modify language links for the space page
-      let languageLinks = document.querySelectorAll('.dropdown-item');
-      languageLinks.forEach(link => {
-        if (link.id === 'rsLang') {
-          link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
-        } else if (link.id === 'enLang') {
-          link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
-        }
-      });
+        // If it's space.html, load a specific carousel
+        document.getElementById('carouselExampleControls').innerHTML = this.render('locker', 'carousel', []);
+        document.getElementById('membership-info').innerHTML = this.render('index', 'membership', []);
+        document.getElementById('containertext').innerHTML = this.render('locker', 'container', []);
+        // Modify language links for the space page
+        let languageLinks = document.querySelectorAll('.dropdown-item');
+        languageLinks.forEach(link => {
+            if (link.id === 'rsLang') {
+                link.setAttribute('onclick', "LOCKER.changeLanguage('rs')");
+            } else if (link.id === 'enLang') {
+                link.setAttribute('onclick', "LOCKER.changeLanguage('en')");
+            }
+        });
     }
+
     if (window.location.pathname.includes('about.html')) {
-      // If it's about.html, load specific content
-      document.getElementById('title-info').innerHTML = this.render('about', 'title', []);
-      document.getElementById('about-gym').innerHTML = this.render('about', 'info', []);
+        // If it's about.html, load specific content
+        document.getElementById('title-info').innerHTML = this.render('about', 'title', []);
+        document.getElementById('about-gym').innerHTML = this.render('about', 'info', []);
     }
+
     if (window.location.pathname.includes('contactUs.html')) {
-      // If it's contactus.html, load specific content
-      document.getElementById('Contact-container').innerHTML = this.render('contact', 'form', []);
-      document.getElementById('Locations-container').innerHTML = this.render('contact', 'locations', []);
+        // If it's contactus.html, load specific content
+        document.getElementById('Contact-container').innerHTML = this.render('contact', 'form', []);
+        document.getElementById('Locations-container').innerHTML = this.render('contact', 'locations', []);
     }
+
     if (window.location.pathname.includes('login.html')) {
-      // If it's login.html, load specific content for login page
-      document.getElementById('login-form').innerHTML = this.render('login', 'form', []);
+        // If it's login.html, load specific content for login page
+        document.getElementById('login-form').innerHTML = this.render('login', 'form', []);
     }
-  }
-  this.templates = {
-    common: {
-      header: `
-                <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="../Assets/img/indexgymlogo.jfif" alt="logo firme"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html" data-translate="Start Page" data-en="Start page"
-                        data-rs="Početna">Početna</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html" data-translate="about" data-en="About us" data-rs="O nama">O nama</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="news.html" data-translate="news" data-en="News" data-rs="Vesti">Vesti</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="space.html" data-translate="space" data-en="Space"
-                        data-rs="Prostor">Prostor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contactUs.html" data-translate="contact" data-en="Contact page"
-                        data-rs="Kontakt">Kontakt</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html" data-translate="login" data-en="Login" data-rs="Prijavi se">Prijavi
-                        se</a>
-                    </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" data-translate="language" data-en="Language" data-rs="Jezik">
-                        Jezik
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#" id="rsLang" onclick="LANGUAGE.changeLanguage('rs')">RS</a>
-                        <a class="dropdown-item" href="#" id="enLang" onclick="LANGUAGE.changeLanguage('en')">EN</a>
-                        </div>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            `
-      , footer: `<!-- Section: Links  -->
-                <section class="container">
+}
+    this.templates = {
+      common: {
+        header: `
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="../Assets/img/indexgymlogo.jfif" alt="logo firme"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html" data-translate="Start Page" data-en="Start page"
+                      data-rs="Početna">Početna</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html" data-translate="about" data-en="About us" data-rs="O nama">O nama</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="news.html" data-translate="news" data-en="News" data-rs="Vesti">Vesti</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="space.html" data-translate="space" data-en="Space" data-rs="Prostor">Prostor</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contactUs.html" data-translate="contact" data-en="Contact page" data-rs="Kontakt">Kontakt</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login.html" data-translate="login" data-en="Login" data-rs="Prijavi se">Prijavi se</a>
+                  </li>
+                  <!--======================================== LANGAGE SWITCHER ===============================================-->
+                    <div class="language-switcher">
+                      <button class="flag-button" data-language="rs" onclick="LANGUAGE.changeLanguage('rs')">
+                        <img src="https://flagcdn.com/rs.svg" alt="Serbia" class="flag-icon">
+                      </button>
+                      <button class="flag-button" data-language="en" onclick="LANGUAGE.changeLanguage('en')">
+                        <img src="https://flagcdn.com/us.svg" alt="English" class="flag-icon">
+                      </button>
+                    </div>
+                  <!--======================================= /LANGAGE SWITCHER ===============================================-->         
+              </div>
+          </div>
+        `
+      , footer: `
+          <!-- Section: Links  -->
+            <section class="container">
                     <div class="container text-center text-md-start mt-5">
                     <!-- Grid row -->
                     <div class="row mt-3">
@@ -362,11 +366,11 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
               <label data-translate="Subject" data-en="Subject" data-rs="Predmet"></label>
               <input type="text" id="subject" name="subject" data-translate="" placeholder="Inquiry" data-en="Inquiry" data-rs="Upit">
             </div>
-          </div>
+            </div>
           <label data-translate="Message" data-en="Message" data-rs="Poruka"></label>
-          <textarea rows="10" id="message" name="message" data-translate="" data-en="Enter your Message" data-rs="Unesite svoju poruku" required></textarea>
-          <button type="button" id="submit" class="btn-submit" onclick="submitForm()" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
-          <!--<button type="submit" id="submit" class="btn-submit" data-translate="SEND MESSAGE" data-placeholder-en="SEND MESSAGE" data-placeholder-rs="POŠALJITE PORUKU">SEND MESSAGE</button>-->
+          <textarea rows="10" id="message" name="message" placeholder="Enter your Message" data-translate="Message" data-en="Enter your Message" data-rs="Unesite svoju poruku" required></textarea>
+          <button type="button" id="submit" class="btn-submit" onclick="submitForm()" data-translate="SEND MESSAGE" data-en="SEND MESSAGE" data-rs="POŠALJITE PORUKU">SEND MESSAGE</button>
+          <!--<button type="submit" id="submit" class="btn-submit" data-translate="SEND MESSAGE" data-en="SEND MESSAGE" data-rs="POŠALJITE PORUKU">SEND MESSAGE</button>-->
         </div>
       </div>
       <!--=============== /FILL THE FORM ===============-->
@@ -486,12 +490,12 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
                   <div class="login__inputs">
                     <div>
                       <label for="email" class="login__label" data-translate="Email" data-en="Email" data-rs="Email"></label>
-                      <input class="login__input" type="email" id="email" placeholder="Enter your email address" data-en="Enter your email address" data-rs="Unesite vašu email adresu" required autocomplete="new-password"/>
+                      <input class="login__input" type="email" id="email" data-translate="" placeholder="Enter your email address" data-en="Enter your email address" data-rs="Unesite vašu email adresu" required autocomplete="new-password"/>
                     </div>
                     <div>
                       <label for="password" class="login__label" data-translate="Password" data-en="Password" data-rs="Lozinka"></label>
                       <div class="login__box">
-                        <input class="login__input" type="password" id="password" placeholder="Enter your password" data-en="Enter your password" data-rs="Unesite vašu lozinku" required autocomplete="new-password"/>
+                        <input class="login__input" type="password" id="password" data-translate="" placeholder="Enter your password" data-en="Enter your password" data-rs="Unesite vašu lozinku" required autocomplete="new-password"/>
                         <i class="ri-eye-off-line login__eye" id="input-icon"></i>
                       </div>
                     </div>
@@ -517,7 +521,8 @@ Koncept Mega Gym-a nastao je na osnovu višegodišnjeg iskustva vlasnika u oblas
             </div>
           </div>
       `
-    }
+    },
+   
   }
 
   this.render = (templateRegion, templateName, translate) => {

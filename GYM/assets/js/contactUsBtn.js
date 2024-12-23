@@ -1,4 +1,3 @@
-
 /*======= Switcher for selecting the code to execute depending on the value of a variable. ========*/
 
 /*----- codeSelector = 1 --> Procedural programming -----*/

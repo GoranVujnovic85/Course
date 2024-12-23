@@ -4,33 +4,50 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>We'll Be Back Soon!</title>
-
-        <!--=============== CSS FILE ===============-->
-        <link rel="stylesheet" href="../css/styles.css">
-        <!--=============== /CSS FILE ===============-->
-
-        <!--=============== JS FILE ===============-->
-        <script src="../js/config.js" defer></script>
-        <!--=============== /JS FILE ===============-->
-
+        <!--========================================== CSS FILE =====================================================-->
+            <link rel="stylesheet" href="../assets/css/maintanance.css">
+        <!--========================================== /CSS FILE ====================================================-->
+    
+        <!--============================================ JS FILE ====================================================-->
+            <script src="../assets/js/maintenanceconfig.js"></script>
+            <script src="../assets/js/ChangeLanguage.js"></script>
+        <!--=========================================== /JS FILE ====================================================-->
     </head>
     <body>
-        <div class="container">
-            <h1>We'll Be Back Soon!</h1>
-            <p>
-                The Golden Boys are currently working on the page. 
-                hey apologize and thank you for your patience.
-            </p>
-            <p>
-                Estimated time of completion: <strong>24 hours</strong>.
-            </p>
-            <p>
-                If you need immediate assistance, please contact us at:  
-                <a href="mailto: megagymNS@gmail.com"> megagymNS@gmail.com</a>.
-            </p>
-            <div class="footer">
-                Copyright © 2024 Golden boys. All rights reserved.
+        <!--========================================== MAIN CONTENT =================================================-->
+            <div class="container">
+                <h1 data-translate data-en="We'll Be Back Soon!" data-rs="Vraćamo se uskoro!">Vraćamo se uskoro!</h1>
+                <p data-translate data-en="The Golden Boys are currently working on the page. 
+                    They apologize and thank you for your patience." 
+                    data-rs="Golden Boys trenutno rade na stranici. Izvinjavamo se i zahvaljujemo na vašem strpljenju.">
+                    Golden Boys trenutno rade na stranici. Izvinjavamo se i zahvaljujemo na vašem strpljenju.
+                </p>
+                <p data-translate data-en="Estimated time of completion:" data-rs="Procenjeno vreme završetka:">
+                    Procenjeno vreme završetka: <div data-translate data-en="24 hours" data-rs="24 sata">24 hours</div>
+                </p>
+                <p data-translate data-en="If you need immediate assistance, please contact us at:" 
+                    data-rs="Ako vam je potrebna hitna pomoć, kontaktirajte nas na:">
+                    Ako vam je potrebna hitna pomoć, kontaktirajte nas na: 
+                    <div href="mailto: megagymNS@gmail.com" data-translate data-en="megagymNS@gmail.com" 
+                        data-rs="megagymNS@gmail.com">megagymNS@gmail.com
+                    </div>
+                </p>
+                <div class="footer" data-translate data-en="Copyright © 2024 Golden boys. All rights reserved." 
+                    data-rs="Autorska prava © 2024 Golden Boys. Sva prava zadržana.">
+                    Autorska prava © 2024 Golden Boys. Sva prava zadržana.
+                </div>
+            </div>    
+        <!--========================================== MAIN CONTENT =================================================-->
+
+        <!--======================================== LANGAGE SWITCHER ===============================================-->
+            <div class="language-switcher">
+                <button class="flag-button" data-language="rs" onclick="LANGUAGE.changeLanguage('rs')">
+                    <img src="https://flagcdn.com/rs.svg" alt="Serbia" class="flag-icon">
+                </button>
+                <button class="flag-button" data-language="en" onclick="LANGUAGE.changeLanguage('en')">
+                    <img src="https://flagcdn.com/us.svg" alt="English" class="flag-icon">
+                </button>
             </div>
-        </div>
+        <!--======================================= /LANGAGE SWITCHER ===============================================-->
     </body>
 </html>

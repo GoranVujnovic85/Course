@@ -8,7 +8,7 @@ class AutoRefresh {
     this.timerId = null;
   }
   // Static variable for global interval
-  static globalInterval = 10000; 
+  static globalInterval = 20000; 
 
   start() {
     if (!this.timerId) {
@@ -43,5 +43,5 @@ class AutoRefresh {
 }
 
 // Kreirajte instancu AutoRefresh i pokrenite osvežavanje
-const autoRefresh = new AutoRefresh();
-autoRefresh.start();
+//const autoRefresh = new AutoRefresh();
+//autoRefresh.start();

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign up</title>
+        <!--=============================================== CSS FILE =====================================================-->
+            <link rel="stylesheet" href="../Assets/css/singup.css">
+        <!--=============================================== CSS FILE =====================================================-->
+
+        <!--=============================================== JS FILE ======================================================-->
+        <script src="../assets/js/loginscriptForSingUp.js"></script>
+        <script src="../assets/js/ChangeLanguage.js"></script>
+        <script src="../assets/js/templateHangler.js"></script>
+        <!--=============================================== JS FILE ======================================================-->
+    </head>
+    <body>
+        <!--============================================= MAIN CONTENT ===================================================-->
+            <main class="card-container slideUp-animation">
+                <div class="image-container">
+                    <img src="../Assets/img/loginlogo.jpg" alt="Logo" class="logo">  
+                    <img src="../Assets/img/loginUntitled.jpg" class="illustration" alt="">
+                    <p class="quote" data-translate data-en="Sign up today to get exciting offers..!"
+                    data-rs="Prijavite se danas i dobijte uzbudljive ponude..!">
+                    Prijavite se danas i dobijte uzbudljive ponude..!</p>
+                </div>   
+                <form action="" method="">
+                    <div class="form-container slideRight-animation">
+                        <h1 class="form-header" data-translate data-en="Get started" data-rs="Počnite">Počnite</h1>
+
+                        <div class="input-container">
+                            <label for="f-name"></label>
+                            <input type="text" name="f-name" id="f-name" required>
+                            <span data-translate data-en="First name" data-rs="Ime">Ime</span>
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-container">
+                            <label for="l-name"></label>
+                            <input type="text" name="l-name" id="l-name" required>
+                            <span data-translate data-en="Last name" data-rs="Prezime">Prezime</span>
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-container">
+                            <label for="mail"></label>
+                            <input type="email" name="mail" id="mail" required>
+                            <span data-translate data-en="E-mail" data-rs="E-mail">E-mail</span>
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-container">
+                            <label for="phone"></label>
+                            <input type="tel" name="phone" id="phone" required>
+                            <span data-translate data-en="Phone" data-rs="Telefon">Telefon</span>
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-container">
+                            <label for="user-password"></label>
+                            <input type="password" name="user-password" id="user-password" class="user-password" required>
+                            <span data-translate data-en="Password" data-rs="Lozinka">Lozinka</span>
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-container">
+                            <label for="user-password-confirm"></label>
+                            <input type="password" name="user-password-confirm" id="user-password-confirm" 
+                            class="password-confirmation" required>
+                            <span data-translate data-en="Confirm Password" data-rs="Potvrdite lozinku">Potvrdite lozinku</span>
+                            <div class="error"></div>
+                        </div>
+                        <div id="btm">
+                            <button type="button" class="submit-btn" id="createAccountBtn" data-translate data-en="Create Account" 
+                                data-rs="Kreirajte nalog">Kreirajte nalog
+                            </button>  
+                        </div>
+                    </div>
+                </form>
+            </main>
+        <!--============================================= /MAIN CONTENT ==================================================--> 
+
+            <section class="outro-overlay disabled slideUp-animation">
+                <h1 class="outro-greeting" data-translate data-en="Thanks for signing up..!" 
+                    data-rs="Hvala što ste se prijavili..!">Hvala što ste se prijavili..!
+                </h1> 
+            </section>
+        <!--======================================== LANGAGE SWITCHER ===============================================-->
+        <div class="language-switcher">
+            <button class="flag-button" data-language="rs" onclick="LANGUAGE.changeLanguage('rs')">
+                <img src="https://flagcdn.com/rs.svg" alt="Serbia" class="flag-icon">
+            </button>
+            <button class="flag-button" data-language="en" onclick="LANGUAGE.changeLanguage('en')">
+                <img src="https://flagcdn.com/us.svg" alt="English" class="flag-icon">
+            </button>
+        </div>
+    <!--======================================= /LANGAGE SWITCHER ===============================================-->     
+       
+    </body>
+</html>

@@ -37,6 +37,10 @@ class UserManager {
     findForgotPasswordPage() {
         return this.users.find(user => user.purpose === 'forgotPassword');
     }
+    // Method to find Log In page.
+    findLogInPage() {
+        return this.users.find(user => user.purpose === 'login');
+    }
 }
   
 // JSON data
@@ -45,17 +49,17 @@ const data = {
         {
             email: 'darkoivandencic@gmail.com',
             password: 'test123',
-            redirectTo: 'index.html', // --> Local Server open '/index.html'
+            redirectTo: './index.html', // --> Local Server open '/index.html'
         },
         {
             email: 'darkoivandencic1@gmail.com',
             password: 'test1231',
-            redirectTo: 'space.html',
+            redirectTo: './space.html',
         },
         {
             email: 'darkoivandencic2@gmail.com',
             password: 'test1232',
-            redirectTo: 'contactUs.html',
+            redirectTo: './contactUs.html',
         },
         {
             email: 'darkoivandencic3@gmail.com',
@@ -64,14 +68,20 @@ const data = {
         {
             email: null,
             password: null,
-            redirectTo: './sing_up.html',
+            redirectTo: './singup.html',
             purpose: 'signUp'
         },
         {
             email: null,
             password: null,
-            redirectTo: './reset_password.html',
+            redirectTo: './resetpassword.html',
             purpose: 'forgotPassword'
+        },
+        {
+            email: null,
+            password: null,
+            redirectTo: './login.html',
+            purpose: 'login'
         },
     ],
 };
@@ -117,5 +127,6 @@ window.addEventListener('load', () => {
     setForgotPasswordLink(); 
     document.getElementById('login__button_ID').onclick = loginUser;
     document.getElementById('signup__button_ID').onclick = redirectToSignUp;
+    //document.getElementById('signup__button_ID').onclick = redirectToSignUp;
 });
   

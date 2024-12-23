@@ -1,3 +1,5 @@
+
+
 const submitBtn = document.querySelector('.submit-btn'),
       phone = document.querySelector('#phone'),
       password = document.querySelector('#user-password'),
@@ -11,9 +13,9 @@ const submitBtn = document.querySelector('.submit-btn'),
 let count = 2
 
 function onValidation(current ,messageString, booleanTest){
-    let message = current
-    message.textContent = messageString
-    booleanTest != 0 ? ++count : count
+    let message = current;
+    message.textContent = messageString;
+    booleanTest != 0 ? ++count : count;
 }
 
 for(let i=0; i<inputFields.length; i++){
@@ -58,3 +60,6 @@ submitBtn.addEventListener('click', (e)=>{
         }
     }
 })
+
+
+

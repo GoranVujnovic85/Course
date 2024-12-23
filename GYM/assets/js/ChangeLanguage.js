@@ -1,3 +1,5 @@
+
+
 // Define the object as a function (factory) that returns an object with methods
 var LANGUAGE = new languageClass();
 
@@ -69,3 +71,4 @@ this.updateContent = function(language) {
 document.addEventListener('DOMContentLoaded', () => {
   LANGUAGE.init(); // Initialize the language when the page is loaded
 });
+
