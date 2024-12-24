@@ -113,8 +113,8 @@ class MaintenanceChecker {
 }
 
 // URL to your JSON file
-const jsonUrl = `http://localhost/Course/GYM/assets/json/contactusconfig.json?timestamp=${Date.now()}`;
-
+// const jsonUrl = `http://localhost/Course/GYM/assets/json/contactusconfig.json?timestamp=${Date.now()}`;
+const jsonUrl = `http://localhost:5050/contactusconfig?timestamp=${Date.now()}`;
 //Creating instances of the class and calling the method to load the configuration.
 const maintenanceChecker = new MaintenanceChecker(jsonUrl);
 maintenanceChecker.fetchConfig();

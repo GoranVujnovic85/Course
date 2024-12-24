@@ -48,7 +48,8 @@ class LocationLoader {
 document.addEventListener('DOMContentLoaded', async function () {
   try {
     // URL to your JSON file
-    const jsonUrl = `http://localhost/Course/GYM/assets/json/contactusconfig.json?timestamp=${Date.now()}`;
+    // const jsonUrl = `http://localhost/Course/GYM/assets/json/contactusconfig.json?timestamp=${Date.now()}`;
+    const jsonUrl = `http://localhost:5050/contactusconfig?timestamp=${Date.now()}`;
 
     // Loading the JSON file
     const response = await fetch(jsonUrl);
