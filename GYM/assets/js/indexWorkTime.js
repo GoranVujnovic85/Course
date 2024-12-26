@@ -1,27 +1,17 @@
-const WORKTIME = new WorkTimeClass();
+let workTimeData = null; // This will hold the data after fetching it
 
 function WorkTimeClass() {
-  // Work time data
-  this.workTimeData = {
-    "workTime": {
-      "mondayFriday": {
-        "en": "Monday - Friday: 08:00 - 22:00",
-        "rs": "Ponedeljak - Petak: 08:00 - 22:00"
-      },
-      "saturday": {
-        "en": "Saturday: 09:00 - 18:00",
-        "rs": "Subota: 09:00 - 18:00"
-      },
-      "sunday": {
-        "en": "Sunday: Closed",
-        "rs": "Nedelja: Zatvoreno"
-      }
-    },
-    "notice": {
-      "en": "New Year Holidays from 01.01. to 09.01.",
-      "rs": "Nova godina neradni dani od 01.01. do 09.01.",
-      "active": false // Notification active status
-    }
+  // Fetch the work time data from the server when the page loads
+  this.fetchWorkTimeData = () => {
+    fetch('http://localhost:8080/worktimedata?timestamp=${Date.now()}')
+      .then(response => response.json())
+      .then(data => {
+        workTimeData = data; // Store the data in the workTimeData variable
+        // After fetching, update the content based on the language
+        const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        this.updateWorkTimeContent(selectedLanguage);
+      })
+      .catch(error => console.error('Error fetching work time data:', error));
   };
 
   // Function to update work hours and notifications based on the selected language
@@ -40,28 +30,27 @@ function WorkTimeClass() {
     noticeInfo.textContent = '';
 
     // Update work time information based on selected language
-    workTimeInfo.innerHTML = `${this.workTimeData.workTime.mondayFriday[language]} <br>${this.workTimeData.workTime.saturday[language]} <br>${this.workTimeData.workTime.sunday[language]}`;
+    if (workTimeData) {
+      workTimeInfo.innerHTML = `${workTimeData.workTime.mondayFriday[language]} <br>${workTimeData.workTime.saturday[language]} <br>${workTimeData.workTime.sunday[language]}`;
     
-    // Display notification if active
-    if (this.workTimeData.notice && this.workTimeData.notice.active) {
-      noticeInfo.textContent = this.workTimeData.notice[language];
-      noticeInfo.classList.add('active'); // Add 'active' class to display notification
-    } else {
-      noticeInfo.classList.remove('active'); // Remove 'active' class if no notification
+      // Display notification if active
+      if (workTimeData.notice && workTimeData.notice.active) {
+        noticeInfo.textContent = workTimeData.notice[language];
+        noticeInfo.classList.add('active'); // Add 'active' class to display notification
+      } else {
+        noticeInfo.classList.remove('active'); // Remove 'active' class if no notification
+      }
     }
   };
 
-  // Function to change language
-  // Instead of implementing language change logic here, we call the LANGUAGE object method
   this.changeLanguage = (language) => {
-    LANGUAGE.changeLanguage(language); // Call the language change method from ChangeLanguage.js
+    LANGUAGE.changeLanguage(language); // Change the language for the rest of the content
     this.updateWorkTimeContent(language); // Update work time content based on new language
   };
 }
 
 // Immediately update content when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-  // Get selected language from localStorage (default to 'en' if none exists)
-  const selectedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-  WORKTIME.updateWorkTimeContent(selectedLanguage); // Update work time information on page load
+  const WORKTIME = new WorkTimeClass();
+  WORKTIME.fetchWorkTimeData(); // Fetch work time data and update content on page load
 });
