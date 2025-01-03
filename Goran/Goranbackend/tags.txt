@@ -1,0 +1,57 @@
+/*======================= TEMPLATE ===========================================*/
+
+
+/*||||||||||||||||||||||||||| Tags ||||||||||||||||||||||||||||||||||||||||||*/
+{
+
+    "tags": [
+        {
+            "id": 65,
+            "is_active": true,
+            "is_linked": true,
+            "name": "Daily Snack",
+            "type": "packages",
+            "createdAt": "2024-11-07T18:27:37.000Z",
+            "updatedAt": "2024-11-09T00:15:02.000Z"
+        },
+        {
+            "id": 64,
+            "is_active": true,
+            "is_linked": true,
+            "name": "Daily Base",
+            "type": "packages",
+            "createdAt": "2024-11-07T18:27:37.000Z",
+            "updatedAt": "2024-11-07T18:27:37.000Z"
+        },
+        {
+            "id": 63,
+            "is_active": true,
+            "is_linked": true,
+            "name": "Daily Dessert",
+            "type": "packages",
+            "createdAt": "2024-11-07T18:27:37.000Z",
+            "updatedAt": "2024-11-09T00:15:02.000Z"
+        },
+        {
+            "id": 62,
+            "is_active": true,
+            "is_linked": true,
+            "name": "Daily Side",
+            "type": "packages",
+            "createdAt": "2024-11-07T18:27:37.000Z",
+            "updatedAt": "2024-11-07T18:27:37.000Z"
+        }
+
+    ]
+}
+
+/*|||||||||||||||||||||||||||||| Data ||||||||||||||||||||||||||||||||||||||||||||||||*/
+
+{                          
+      "address": "ThinkPad", 
+      "mapLink": "something", 
+      "visible": true         
+      
+}      
+
+/*|||||||||||||||||||||||||||| Location |||||||||||||||||||||||||||||||||||||||||||||||*/
